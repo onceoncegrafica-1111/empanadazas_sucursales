@@ -63,7 +63,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 22px 14px 44px;
+            padding: 18px 14px 40px;
             overflow-x: hidden;
             position: relative;
             letter-spacing: -0.015em;
@@ -95,24 +95,24 @@
             max-width: 490px;
             display: flex;
             flex-direction: column;
-            gap: 13px;
+            gap: 11px;
             z-index: 1;
         }
 
-        /* HEADER BRAND */
+        /* HEADER BRAND ULTRA OPTIMIZADO */
         .brand-header {
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 2px;
+            gap: 6px;
+            margin-bottom: 0px;
         }
         .logo-wrapper {
-            width: 104px; height: 104px; border-radius: 50%;
+            width: 90px; height: 90px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             animation: coinFlipSway 5.5s infinite ease-in-out;
-            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.7));
+            filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.7));
         }
         @keyframes coinFlipSway {
             0%, 100% { transform: rotateY(0deg); }
@@ -120,59 +120,61 @@
             75% { transform: rotateY(-24deg); }
         }
         .logo-svg-main { width: 100%; height: 100%; display: block; }
-        .brand-title-svg { width: 100%; max-width: 245px; height: auto; display: block; margin: 4px 0 2px; }
+        .brand-title-svg { width: 100%; max-width: 220px; height: auto; display: block; margin: 2px 0 0px; }
 
-        /* TEASER SUPERIOR CON SALTO SUAVE AL BANNER */
+        /* TEASER SUPERIOR ULTRA-PROLIJO (1 LÍNEA, SIN SALTOS DE RENGLÓN FEOS) */
         .promo-top-teaser {
-            background: rgba(28, 30, 24, 0.85);
+            background: rgba(28, 30, 24, 0.90);
             border: 1px dashed rgba(247, 194, 104, 0.45);
             border-radius: 12px;
-            padding: 8px 14px;
+            padding: 7px 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none;
             color: var(--brand-cream);
             cursor: pointer;
             transition: all 0.25s var(--spring);
+            white-space: nowrap;
+            overflow: hidden;
         }
         .promo-top-teaser:hover {
             border-color: var(--bronze-bright);
-            background: rgba(36, 38, 30, 0.95);
+            background: rgba(36, 38, 30, 0.98);
             transform: translateY(-1px);
         }
         .promo-teaser-text {
-            font-size: 0.75rem;
+            font-size: clamp(0.68rem, 2.8vw, 0.75rem);
             font-weight: 700;
             color: var(--brand-cream-muted);
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .promo-teaser-text strong {
             color: #4ADE80;
             font-weight: 900;
         }
         .promo-teaser-action {
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-weight: 800;
             color: var(--bronze-bright);
             text-transform: uppercase;
             letter-spacing: 0.03em;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
-        /* BARRA CHIQUITITA DE RECOMENDACIÓN POR IP */
+        /* BARRA RECOMENDACIÓN POR IP DESPLEGABLE (SLIM & FÁCIL) */
         .ip-recommendation-bar {
-            background: rgba(26, 28, 22, 0.95);
+            background: rgba(26, 28, 22, 0.96);
             border: 1px solid var(--border-card);
             border-radius: 12px;
-            padding: 8px 12px;
+            padding: 6px 10px 6px 12px;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
+            flex-direction: column;
+            gap: 6px;
             text-decoration: none;
             cursor: pointer;
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
@@ -180,41 +182,77 @@
         }
         .ip-recommendation-bar:hover {
             border-color: var(--bronze-bright);
-            background: rgba(34, 36, 29, 0.98);
-            transform: translateY(-1px);
+        }
+        .ip-rec-main-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            white-space: nowrap;
         }
         .ip-rec-left {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             text-align: left;
+            overflow: hidden;
             flex: 1;
         }
         .ip-rec-icon {
-            font-size: 0.90rem;
+            font-size: 0.85rem;
             flex-shrink: 0;
         }
-        .ip-rec-text {
-            font-size: 0.72rem;
+        .ip-rec-text-single {
+            font-size: clamp(0.68rem, 2.7vw, 0.74rem);
             color: var(--brand-cream-muted);
             font-weight: 600;
-            line-height: 1.35;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .ip-rec-text strong {
+        .ip-rec-text-single strong {
             color: var(--bronze-bright);
             font-weight: 800;
         }
-        .ip-rec-badge {
+        .ip-rec-toggle-badge {
             font-size: 0.60rem;
             font-weight: 800;
             background: rgba(34, 197, 94, 0.16);
             color: #4ADE80;
             border: 1px solid rgba(34, 197, 94, 0.35);
-            padding: 3px 7px;
+            padding: 2px 6px;
             border-radius: 6px;
             text-transform: uppercase;
             white-space: nowrap;
             flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .ip-rec-toggle-badge .arrow-toggle {
+            font-size: 0.65rem;
+            transition: transform 0.25s ease;
+        }
+        .ip-recommendation-bar.expanded .arrow-toggle {
+            transform: rotate(180deg);
+        }
+        
+        /* BANDEJA DESPLEGABLE CON DETALLES DE VIAJE */
+        .ip-rec-expand-tray {
+            display: none;
+            padding-top: 5px;
+            border-top: 1px dashed rgba(229, 169, 82, 0.25);
+            font-size: 0.72rem;
+            color: var(--brand-cream-muted);
+            line-height: 1.35;
+            animation: slideDownTray 0.2s ease-out;
+        }
+        .ip-recommendation-bar.expanded .ip-rec-expand-tray {
+            display: block;
+        }
+        @keyframes slideDownTray {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* BUSCADOR Y BOTÓN GPS */
@@ -234,16 +272,16 @@
             background: rgba(22, 23, 19, 0.94);
             border: 1.5px solid var(--border-card);
             border-radius: 14px;
-            padding: 12px 38px 12px 42px;
+            padding: 11px 36px 11px 38px;
             color: var(--brand-cream);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             outline: none;
             transition: all 0.2s ease;
             background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23F7C268" viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 5.293 14.707l4.387 4.386a1 1 0 0 0 1.414-1.414l-4.386-4.387A8 8 0 0 0 10 2zm-6 8a6 6 0 1 1 12 0 6 6 0 0 1-12 0z"/></svg>');
             background-repeat: no-repeat;
-            background-position: 14px center;
-            background-size: 18px;
+            background-position: 12px center;
+            background-size: 17px;
         }
         .search-input-box:focus {
             border-color: var(--bronze-bright);
@@ -269,14 +307,14 @@
             background: rgba(26, 28, 23, 0.94);
             border: 1.5px solid var(--border-card);
             border-radius: 14px;
-            padding: 0 14px;
+            padding: 0 13px;
             color: var(--bronze-bright);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 5px;
             font-family: 'Outfit', sans-serif;
-            font-size: 0.76rem;
+            font-size: 0.74rem;
             font-weight: 800;
             cursor: pointer;
             white-space: nowrap;
@@ -289,22 +327,22 @@
             border-color: var(--bronze-bright);
             box-shadow: 0 0 12px var(--neon-glow);
         }
-        .btn-gps-nearest svg { width: 16px; height: 16px; }
+        .btn-gps-nearest svg { width: 15px; height: 15px; }
 
         /* CHIPS DE FILTRO RESPONSIVE SIN CORTES CON SCROLL CÓMODO */
         .filter-chips-row {
             display: flex;
-            gap: 7px;
+            gap: 6px;
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            padding: 2px 4px 7px 2px;
+            padding: 2px 2px 6px 2px;
             scroll-behavior: smooth;
             scrollbar-width: thin;
             scrollbar-color: rgba(247, 194, 104, 0.35) transparent;
         }
         .filter-chips-row::-webkit-scrollbar {
-            height: 4px;
+            height: 3px;
         }
         .filter-chips-row::-webkit-scrollbar-thumb {
             background: rgba(247, 194, 104, 0.35);
@@ -318,9 +356,9 @@
             border: 1px solid var(--border-card);
             color: var(--text-muted);
             font-family: 'Outfit', sans-serif;
-            font-size: 0.72rem;
+            font-size: 0.70rem;
             font-weight: 800;
-            padding: 7px 13px;
+            padding: 6px 12px;
             border-radius: 999px;
             cursor: pointer;
             white-space: nowrap;
@@ -329,12 +367,12 @@
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             flex-shrink: 0;
         }
         .chip-btn .chip-count {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.64rem;
+            font-size: 0.62rem;
             font-weight: 800;
             opacity: 0.75;
         }
@@ -346,11 +384,11 @@
         }
         .chip-btn.active .chip-count { opacity: 1; }
 
-        /* LISTA DE SUCURSALES */
+        /* LISTA DE SUCURSALES (LLEGA RÁPIDAMENTE ARRIBA) */
         .branches-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 11px;
             width: 100%;
         }
 
@@ -358,10 +396,10 @@
             background: var(--bg-card);
             border: 1.5px solid var(--border-card);
             border-radius: 18px;
-            padding: 16px;
+            padding: 15px 16px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 11px;
             box-shadow: var(--shadow-card);
             transition: all 0.25s var(--spring);
             position: relative;
@@ -385,29 +423,29 @@
         .branch-name-col {
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: 2px;
         }
         .branch-zone-sub {
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-weight: 800;
             color: var(--bronze-bright);
             text-transform: uppercase;
             letter-spacing: 0.04em;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
         .branch-distance-badge {
             background: rgba(247, 194, 104, 0.15);
             color: var(--bronze-light);
             padding: 2px 6px;
             border-radius: 4px;
-            font-size: 0.62rem;
+            font-size: 0.60rem;
             font-weight: 800;
         }
         .branch-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.12rem;
             font-weight: 900;
             color: var(--brand-cream);
             line-height: 1.2;
@@ -418,12 +456,12 @@
             padding: 0;
             text-align: left;
             cursor: pointer;
-            font-size: 0.80rem;
+            font-size: 0.78rem;
             color: var(--brand-cream-muted);
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             transition: color 0.2s ease;
         }
         .branch-address-btn:hover {
@@ -433,16 +471,16 @@
         /* BADGES DE ESTADO EN TIEMPO REAL */
         .status-badge {
             font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            font-size: 0.68rem;
+            font-size: 0.66rem;
             font-weight: 800;
-            padding: 4px 9px;
+            padding: 4px 8px;
             border-radius: 7px;
             text-transform: uppercase;
             letter-spacing: 0.01em;
             white-space: nowrap;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
         .status-dot {
             width: 6px;
@@ -504,10 +542,10 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            padding: 11px 12px;
+            padding: 10px 12px;
             border-radius: 12px;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             font-weight: 800;
             text-decoration: none;
             text-transform: uppercase;
@@ -515,8 +553,8 @@
             user-select: none;
         }
         .btn-action-touch svg {
-            width: 16px;
-            height: 16px;
+            width: 15px;
+            height: 15px;
             flex-shrink: 0;
         }
         .btn-maps {
@@ -545,25 +583,25 @@
             background: rgba(18, 19, 15, 0.85);
             border: 1px dashed var(--border-card);
             border-radius: 16px;
-            padding: 14px;
+            padding: 13px;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 4px;
             text-align: center;
         }
         .future-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.90rem;
+            font-size: 0.88rem;
             font-weight: 900;
             color: var(--bronze-bright);
             text-transform: uppercase;
             letter-spacing: 0.03em;
         }
         .future-list {
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             color: var(--text-muted);
             font-weight: 600;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         /* BANNER COMPLETO 10% OFF INSTAGRAM */
@@ -571,7 +609,7 @@
             background: linear-gradient(135deg, rgba(38, 40, 32, 0.95) 0%, rgba(20, 22, 17, 0.95) 100%);
             border: 1.5px solid var(--border-card);
             border-radius: 16px;
-            padding: 14px 16px;
+            padding: 13px 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -605,7 +643,7 @@
             text-align: left;
         }
         .promo-banner-badge {
-            font-size: 0.66rem;
+            font-size: 0.65rem;
             font-weight: 900;
             color: #4ADE80;
             text-transform: uppercase;
@@ -613,14 +651,14 @@
         }
         .promo-banner-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.96rem;
+            font-size: 0.95rem;
             font-weight: 800;
             color: var(--brand-cream);
             line-height: 1.25;
         }
         .promo-banner-title span { color: var(--bronze-bright); }
         .promo-banner-sub {
-            font-size: 0.73rem;
+            font-size: 0.72rem;
             color: var(--brand-cream-muted);
             font-weight: 600;
             line-height: 1.3;
@@ -629,9 +667,9 @@
         .promo-banner-btn {
             background: var(--bronze-bright);
             color: #12130F;
-            font-size: 0.72rem;
+            font-size: 0.70rem;
             font-weight: 900;
-            padding: 9px 13px;
+            padding: 8px 12px;
             border-radius: 10px;
             text-transform: uppercase;
             white-space: nowrap;
@@ -646,7 +684,7 @@
             background: linear-gradient(135deg, rgba(35, 37, 30, 0.98) 0%, rgba(19, 21, 16, 0.98) 100%);
             border: 1.5px solid var(--border-card);
             border-radius: 16px;
-            padding: 15px 16px;
+            padding: 14px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -667,7 +705,7 @@
             text-align: left;
         }
         .delivery-cta-badge {
-            font-size: 0.68rem;
+            font-size: 0.66rem;
             font-weight: 900;
             color: var(--bronze-bright);
             text-transform: uppercase;
@@ -675,21 +713,21 @@
         }
         .delivery-cta-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             font-weight: 800;
             color: var(--brand-cream);
         }
         .delivery-cta-sub {
-            font-size: 0.73rem;
+            font-size: 0.72rem;
             color: var(--brand-cream-muted);
             font-weight: 600;
         }
         .delivery-cta-btn {
             background: var(--bronze-bright);
             color: #12130F;
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             font-weight: 900;
-            padding: 9px 14px;
+            padding: 8px 13px;
             border-radius: 10px;
             text-transform: uppercase;
             white-space: nowrap;
@@ -725,15 +763,15 @@
 
         /* FOOTER */
         .hub-footer {
-            margin-top: 14px;
+            margin-top: 12px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
         .footer-badge {
-            font-size: 0.72rem;
+            font-size: 0.70rem;
             font-weight: 800;
             color: var(--brand-cream);
             background: rgba(24, 25, 21, 0.9);
@@ -742,9 +780,24 @@
             border: 1px solid var(--border-card);
         }
         .footer-legal {
-            font-size: 0.68rem;
+            font-size: 0.66rem;
             color: var(--text-subtle);
             font-weight: 600;
+        }
+
+        /* OPTIMIZACIÓN RESPONSIVE MOBILE EXTREMA */
+        @media (max-width: 480px) {
+            body { padding: 12px 10px 32px; }
+            .hub-container { gap: 8px; }
+            .logo-wrapper { width: 72px; height: 72px; }
+            .brand-title-svg { max-width: 175px; }
+            .promo-top-teaser { padding: 6px 10px; }
+            .ip-recommendation-bar { padding: 6px 10px; }
+            .search-input-box { padding: 10px 34px 10px 36px; font-size: 0.82rem; }
+            .btn-gps-nearest { padding: 0 10px; font-size: 0.70rem; }
+            .chip-btn { padding: 5px 10px; font-size: 0.67rem; }
+            .branch-card { padding: 13px 14px; gap: 9px; }
+            .branch-title { font-size: 1.05rem; }
         }
     </style>
 </head>
@@ -806,7 +859,7 @@
                         <path fill="#FEF7D5" d="M368.87,69.11l-3.25,19.17-4.42-3.15.64-3.48-8.33-5.93-3.1,1.72-4.42-3.15,17.05-9.33,5.82,4.15ZM356.55,73.9l5.98,4.27,1.43-8.22-.12-.09-7.3,4.04Z"/>
                         <polygon fill="#FEF7D5" points="392.28 89.1 395.81 92.42 383.83 105.18 380.1 101.67 379.55 86.11 379.46 86.02 371.95 94.02 368.39 90.68 380.38 77.93 384.06 81.38 384.65 97.04 384.75 97.12 392.28 89.1"/>
                         <path fill="#FEF7D5" d="M409.85,108.89l-8.22,17.61-3.42-4.21,1.53-3.18-6.45-7.93-3.44.84-3.42-4.21,18.92-4.47,4.51,5.54ZM396.71,110.24l4.64,5.7,3.56-7.54-.09-.12-8.11,1.95Z"/>
-                        <path fill="#FEF7D5" d="M418.56,120.4l5.7,9.29c1.87,3.05,2.63,5.77,2.31,8.2-.33,2.43-1.66,4.36-3.98,5.79-2.32,1.42-4.65,1.74-6.97.93-2.32-.81-4.4-2.72-6.27-5.77l-5.7-9.29,14.91-9.15ZM418.26,126.5l-9.03,5.54,2.93,4.77c2.03,3.3,4.8,4.33,7.76,2.51,2.96-1.82,3.31-4.73,1.27-8.05l-2.93-4.77Z"/>
+                        <path fill="#FEFAE4" d="M418.56,120.4l5.7,9.29c1.87,3.05,2.63,5.77,2.31,8.2-.33,2.43-1.66,4.36-3.98,5.79-2.32,1.42-4.65,1.74-6.97.93-2.32-.81-4.4-2.72-6.27-5.77l-5.7-9.29,14.91-9.15ZM418.26,126.5l-9.03,5.54,2.93,4.77c2.03,3.3,4.8,4.33,7.76,2.51,2.96-1.82,3.31-4.73,1.27-8.05l-2.93-4.77Z"/>
                         <path fill="#FEF7D5" d="M438.16,156.41l-12.45,14.94-2.24-4.94,2.3-2.69-4.22-9.32-3.54-.07-2.24-4.94,19.44.51,2.95,6.52ZM425.1,154.36l3.03,6.7,5.37-6.38-.06-.14-8.34-.18Z"/>
                         <path fill="#FEFAE4" d="M440.21,181.06c.32,1.37.54,2.53.69,3.45.16.95.26,1.88.3,2.84.09,2.75-.82,4.23-3.17,5.08-3.56,1.1-6.56-1.7-8.59-8.27-.51-1.67-.91-3.57-1.18-5.71-.26-2.12-.35-3.95-.32-5.47l3.68-1.13c-.13,1.19-.14,2.87.03,5.04.17,2.17.48,4.04.97,5.64,1.15,3.75,2.31,5.46,3.46,5.11.6-.18.9-.75.85-1.65-.02-.91-.28-2.45-.78-4.68-.25-1.07-.43-1.99-.58-2.73-.14-.71-.26-1.52-.37-2.4-.09-.89-.11-1.62-.03-2.22.22-1.82.99-3.5,3.06-4,3.47-1.07,6.24,1.82,8.34,8.66.4,1.32.73,2.73.95,4.21.49,2.96.5,4.35.46,4.99l-3.54,1.09c.09-.73.04-2-.11-3.76-.15-1.76-.51-3.61-1.1-5.52-1.07-3.47-2.13-5.05-3.16-4.73-.55.17-.78.68-.74,1.59.07.9.33,2.36.81,4.43l.04.14Z"/>
                     </g>
@@ -827,7 +880,7 @@
             </svg>
         </header>
 
-        <!-- TEASER SUTIL SUPERIOR CON SALTO SUAVE AL BANNER -->
+        <!-- TEASER SUTIL SUPERIOR CON SALTO SUAVE AL BANNER (PROLIJO EN 1 LÍNEA) -->
         <a href="javascript:void(0)" onclick="scrollToInstagramPromo()" class="promo-top-teaser">
             <span class="promo-teaser-text">
                 📸 ¿Comés en el local? <strong>10% OFF con tu Historia</strong>
@@ -835,13 +888,20 @@
             <span class="promo-teaser-action">Ver promo ↓</span>
         </a>
 
-        <!-- RECOMENDACIÓN AUTOMÁTICA DISCRETA POR IP -->
-        <div class="ip-recommendation-bar" id="ipRecBar" style="display:none;" onclick="focusNearestBranch()">
-            <div class="ip-rec-left">
-                <span class="ip-rec-icon" id="ipRecIcon">📍</span>
-                <span class="ip-rec-text" id="ipRecText">Calculando sucursal más cercana...</span>
+        <!-- RECOMENDACIÓN AUTOMÁTICA DISCRETA POR IP (DESPLEGABLE / ULTRA SLIM) -->
+        <div class="ip-recommendation-bar" id="ipRecBar" style="display:none;" onclick="toggleIpDetails(event)">
+            <div class="ip-rec-main-row">
+                <div class="ip-rec-left">
+                    <span class="ip-rec-icon" id="ipRecIcon">📍</span>
+                    <span class="ip-rec-text-single" id="ipRecText">Calculando sucursal más cercana...</span>
+                </div>
+                <span class="ip-rec-toggle-badge" id="ipRecBadge">
+                    <span id="ipRecBadgeLabel">Tu zona</span>
+                    <span class="arrow-toggle">▾</span>
+                </span>
             </div>
-            <span class="ip-rec-badge" id="ipRecBadge">Tu zona</span>
+            <!-- BANDEJA DESPLEGABLE CON DETALLES (TIEMPOS / BROMAS) -->
+            <div class="ip-rec-expand-tray" id="ipRecExpandTray"></div>
         </div>
 
         <!-- BUSCADOR INTERACTIVO Y BOTÓN GPS -->
@@ -872,7 +932,7 @@
             <button class="chip-btn" onclick="filterZone('proximas', this)">PRÓXIMAS <span class="chip-count" id="count-proximas"></span></button>
         </div>
 
-        <!-- LISTA DINÁMICA DE SUCURSALES -->
+        <!-- LISTA DINÁMICA DE SUCURSALES (ACCESO INMEDIATO SIN ESTORBOS) -->
         <div class="branches-list" id="branchesListContainer"></div>
 
         <!-- CAJA PRÓXIMAMENTE -->
@@ -1043,10 +1103,9 @@
         ];
 
         // LÍMITES MATEMÁTICOS DE RANGO EXACTOS
-        const RADIO_LOCAL_KM = 60;      // 50 km + 10 km de demasía (Rango de compra real)
-        const RADIO_AVISO_KM = 150;     // 60 km a 150 km (Rango de cercanía / advertencia seria)
+        const RADIO_LOCAL_KM = 60;      // 0 a 60 km (50 km + 10 km demasía)
+        const RADIO_AVISO_KM = 150;     // 60 km a 150 km (Aviso serio)
         const RADIO_BROMA1_KM = 500;    // 150 km a 500 km (Broma nivel 1)
-                                        // Más de 500 km (Broma nivel 2 Delivery Aéreo)
 
         let activeZoneFilter = 'todas';
         let searchQuery = '';
@@ -1058,7 +1117,7 @@
             return (str || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
         }
 
-        // CÁLCULO REALISTA DE TIEMPOS ESTIMADOS SEGÚN DISTANCIA URBANA / RUTA
+        // ESTIMACIONES DE TIEMPO DE VIAJE
         function calculateTravelEstimates(distKm) {
             if (distKm <= 1.5) {
                 const walkMin = Math.round((distKm / 4.5) * 60);
@@ -1079,7 +1138,6 @@
                 const timeStr = h > 0 ? `${h}h ${m}m` : `${m} min`;
                 return `🚗 ~${timeStr} en auto/moto`;
             } else {
-                // Mayor a 60 km (ruta/autopista a 75 km/h)
                 const carMin = Math.round((distKm / 75) * 60);
                 const h = Math.floor(carMin / 60);
                 const m = carMin % 60;
@@ -1087,7 +1145,7 @@
             }
         }
 
-        // CALCULA LA HORA ACTUAL EN ARGENTINA (AMERICA/ARGENTINA/BUENOS_AIRES)
+        // HORA ACTUAL OFICIAL EN BUENOS AIRES (AMERICA/ARGENTINA/BUENOS_AIRES)
         function getArgentinaTimeDecimal() {
             try {
                 const parts = new Intl.DateTimeFormat('en-US', {
@@ -1105,7 +1163,7 @@
             }
         }
 
-        // EVALÚA EN TIEMPO REAL SI LA SUCURSAL ESTÁ ABIERTA O CERRADA
+        // EVALUACIÓN DE ESTADO EN TIEMPO REAL
         function getBranchLiveStatus(branch) {
             if (branch.status === 'soon') {
                 return {
@@ -1145,9 +1203,9 @@
             }
         }
 
-        // FÓRMULA HAVERSINE: CÁLCULO DE DISTANCIA GEOGRÁFICA EN KM
+        // FÓRMULA HAVERSINE: KM REALES
         function calculateDistance(lat1, lon1, lat2, lon2) {
-            const R = 6371; // Radio de la Tierra en km
+            const R = 6371;
             const dLat = (lat2 - lat1) * Math.PI / 180;
             const dLon = (lon2 - lon1) * Math.PI / 180;
             const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
@@ -1182,7 +1240,7 @@
             }
         }
 
-        // SALTO SUAVE, SEMI-RÁPIDO Y CONTROLADO HACIA EL BANNER DE INSTAGRAM
+        // SALTO SUAVE Y AMORTIGUADO AL BANNER DE INSTAGRAM
         function scrollToInstagramPromo() {
             triggerVibe(12);
             const banner = document.getElementById('promoInstagramBanner');
@@ -1193,7 +1251,7 @@
             }
         }
 
-        // DISPARADOR INTELIGENTE A LA CÁMARA DE HISTORIAS DE INSTAGRAM
+        // DISPARADOR INTELIGENTE HISTORIAS INSTAGRAM
         function openInstagramStory() {
             triggerVibe(15);
 
@@ -1218,7 +1276,14 @@
             }
         }
 
-        // CALCULA Y GESTIONA LOS 4 RANGOS MATEMÁTICOS DE DISTANCIA
+        // TOGGLE PARA DESPLEGAR / COLAPSAR DETALLES DE LA BARRA IP
+        function toggleIpDetails(e) {
+            triggerVibe(10);
+            const bar = document.getElementById('ipRecBar');
+            bar.classList.toggle('expanded');
+        }
+
+        // GESTIÓN DE RANGOS Y ARMADO DE LA BARRA IP DESPLEGABLE
         function updateNearestRecommendation(coords, sourceName = "IP") {
             detectedCoords = coords;
             let minDistance = Infinity;
@@ -1241,58 +1306,63 @@
             const recText = document.getElementById('ipRecText');
             const recIcon = document.getElementById('ipRecIcon');
             const recBadge = document.getElementById('ipRecBadge');
+            const recBadgeLabel = document.getElementById('ipRecBadgeLabel');
+            const recTray = document.getElementById('ipRecExpandTray');
 
             const estimates = calculateTravelEstimates(minDistance);
 
-            // RANGO 1: DE 0 A 60 KM (LOCAL - 50 km + 10 km de demasía)
+            // RANGO 1: DE 0 A 60 KM (LOCAL)
             if (minDistance <= RADIO_LOCAL_KM) {
                 recIcon.innerText = "📍";
-                recText.innerHTML = `Más cercana: <strong>${closest.name}</strong> (${minDistance.toFixed(1)} km) <span style="display:block; opacity:0.85; font-size:0.68rem; margin-top:2px;">${estimates}</span>`;
-                recBadge.innerText = "Tu zona";
+                recText.innerHTML = `Más cercana: <strong>${closest.name}</strong> (${minDistance.toFixed(1)} km)`;
+                recBadgeLabel.innerText = "Tu zona";
                 recBadge.style.color = "#4ADE80";
                 recBadge.style.borderColor = "rgba(34, 197, 94, 0.35)";
                 recBadge.style.background = "rgba(34, 197, 94, 0.16)";
+                recTray.innerHTML = `⏱️ <strong>Tiempos estimados:</strong> ${estimates} · Tocá la sucursal abajo para pedir o ver cómo llegar.`;
                 recBar.style.display = 'flex';
             }
-            // RANGO 2: DE 60 KM A 150 KM (SERIO / ADVERTENCIA DE LLEGADA A TIEMPO)
+            // RANGO 2: DE 60 A 150 KM (AVISO SERIO)
             else if (minDistance <= RADIO_AVISO_KM) {
                 recIcon.innerText = "🚗";
-                recText.innerHTML = `Estás a <strong>${Math.round(minDistance)} km</strong> de ${closest.name} (${estimates}) <span style="display:block; opacity:0.85; font-size:0.68rem; margin-top:2px;">Te recomendamos acercarte a la zona para llegar antes del cierre.</span>`;
-                recBadge.innerText = "Aviso";
+                recText.innerHTML = `Estás a <strong>${Math.round(minDistance)} km</strong> de ${closest.name}`;
+                recBadgeLabel.innerText = "Aviso";
                 recBadge.style.color = "var(--bronze-bright)";
                 recBadge.style.borderColor = "rgba(247, 194, 104, 0.35)";
                 recBadge.style.background = "rgba(247, 194, 104, 0.16)";
+                recTray.innerHTML = `⏱️ ${estimates} · Te recomendamos acercarte a la zona con tiempo para retirar tu pedido antes del cierre.`;
                 recBar.style.display = 'flex';
             }
-            // RANGO 3: DE 150 KM A 500 KM (BROMA NIVEL 1)
+            // RANGO 3: DE 150 A 500 KM (BROMA 1)
             else if (minDistance <= RADIO_BROMA1_KM) {
                 recIcon.innerText = "🥟";
-                recText.innerHTML = `¿A dónde te fuiste? Estás a <strong>${Math.round(minDistance)} km</strong> de nuestra sucursal más cercana. ¡Te esperamos en tu próxima visita!`;
-                recBadge.innerText = "De viaje";
+                recText.innerHTML = `¿A dónde te fuiste? Estás a <strong>${Math.round(minDistance)} km</strong>`;
+                recBadgeLabel.innerText = "De viaje";
                 recBadge.style.color = "#60A5FA";
                 recBadge.style.borderColor = "rgba(96, 165, 250, 0.35)";
                 recBadge.style.background = "rgba(96, 165, 250, 0.16)";
+                recTray.innerHTML = `¡Estás a ${Math.round(minDistance)} km de nuestra sucursal más cercana! Te esperamos con las Miti-Miti listas en tu próxima visita a Buenos Aires.`;
                 recBar.style.display = 'flex';
             }
-            // RANGO 4: MÁS DE 500 KM (BROMA NIVEL 2 - DELIVERY AÉREO)
+            // RANGO 4: +500 KM (BROMA 2 DELIVERY AÉREO)
             else {
                 recIcon.innerText = "✈️";
                 const distFormatted = Math.round(minDistance).toLocaleString('es-AR');
-                recText.innerHTML = `¿A dónde te fuiste? ¡Estás a <strong>${distFormatted} km</strong>! ¡Pero tranquilo! Pronto vamos a llegar con Delivery Aéreo 🚀`;
-                recBadge.innerText = "Por el mundo";
+                recText.innerHTML = `¿A dónde te fuiste? ¡Estás a <strong>${distFormatted} km</strong>!`;
+                recBadgeLabel.innerText = "Mundo";
                 recBadge.style.color = "#F472B6";
                 recBadge.style.borderColor = "rgba(244, 114, 182, 0.35)";
                 recBadge.style.background = "rgba(244, 114, 182, 0.16)";
+                recTray.innerHTML = `¡Tranquilo! Aunque estés a ${distFormatted} km, pronto vamos a llegar a donde estés con Delivery Aéreo 🚀`;
                 recBar.style.display = 'flex';
             }
 
             renderBranches();
         }
 
-        // LOCALIZACIÓN INTELIGENTE POR IP CON DOBLE PROVEEDOR EN CASCADA
+        // DOBLE PROVEEDOR IP
         async function detectLocationByIP() {
             try {
-                // Proveedor 1: ipwho.is
                 const res = await fetch('https://ipwho.is/');
                 if (res.ok) {
                     const data = await res.json();
@@ -1304,7 +1374,6 @@
             } catch (e) {}
 
             try {
-                // Proveedor 2 de respaldo: freeipapi.com
                 const fallbackRes = await fetch('https://freeipapi.com/api/json');
                 if (fallbackRes.ok) {
                     const fbData = await fallbackRes.json();
@@ -1315,7 +1384,7 @@
             } catch (err) {}
         }
 
-        // GEOLOCALIZACIÓN NATIVA (BOTÓN 'CERCA')
+        // GPS EXACTO
         function findNearestBranch(userTriggered = true) {
             triggerVibe(15);
             const gpsBtn = document.getElementById('btnGpsNearest');
@@ -1359,17 +1428,6 @@
             );
         }
 
-        function focusNearestBranch() {
-            triggerVibe(15);
-            if (nearestBranchObj && nearestBranchObj.distanceKm <= RADIO_LOCAL_KM) {
-                const targetCard = document.getElementById(`card-${nearestBranchObj.id}`);
-                if (targetCard) {
-                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    targetCard.classList.add('is-nearest');
-                }
-            }
-        }
-
         function updateFilterCounters() {
             const counts = {
                 todas: BRANCHES.length,
@@ -1397,7 +1455,7 @@
                 return { ...b, distanceKm: dist };
             });
 
-            // SOLO ordenar la lista si el usuario está DENTRO de los 60 km o si forzó la búsqueda con GPS
+            // SOLO ordenar si el usuario está DENTRO de los 60 km o si usó GPS
             const usuarioEstaCerca = list.some(b => b.distanceKm !== null && b.distanceKm <= RADIO_LOCAL_KM);
             if (detectedCoords && (usuarioEstaCerca || isGpsAccurate)) {
                 list.sort((a, b) => (a.distanceKm || 9999) - (b.distanceKm || 9999));
@@ -1416,10 +1474,10 @@
 
             if (filtered.length === 0) {
                 container.innerHTML = `
-                    <div style="text-align:center; padding:32px 18px; background:rgba(22,23,19,0.85); border-radius:18px; border:1px dashed var(--border-card);">
-                        <p style="color:var(--brand-cream); font-weight:800; font-size:1.05rem;">¿No encontrás tu zona?</p>
-                        <p style="color:var(--text-muted); font-size:0.82rem; margin-top:4px;">Muy pronto abriremos nuevas sucursales en todo el país.</p>
-                        <a href="https://empanadazas.com/link" style="display:inline-block; margin-top:14px; background:var(--bronze-bright); color:#12130F; font-size:0.75rem; font-weight:900; padding:9px 18px; border-radius:10px; text-decoration:none; text-transform:uppercase; box-shadow:0 2px 8px rgba(247,194,104,0.35);">Pedir Menú Online</a>
+                    <div style="text-align:center; padding:30px 16px; background:rgba(22,23,19,0.85); border-radius:18px; border:1px dashed var(--border-card);">
+                        <p style="color:var(--brand-cream); font-weight:800; font-size:1.02rem;">¿No encontrás tu zona?</p>
+                        <p style="color:var(--text-muted); font-size:0.80rem; margin-top:4px;">Muy pronto abriremos nuevas sucursales en todo el país.</p>
+                        <a href="https://empanadazas.com/link" style="display:inline-block; margin-top:12px; background:var(--bronze-bright); color:#12130F; font-size:0.75rem; font-weight:900; padding:8px 16px; border-radius:10px; text-decoration:none; text-transform:uppercase; box-shadow:0 2px 8px rgba(247,194,104,0.35);">Pedir Menú Online</a>
                     </div>
                 `;
                 return;
@@ -1427,7 +1485,6 @@
 
             filtered.forEach((branch, idx) => {
                 const card = document.createElement('div');
-                // Solo resaltar como "más cercana" si está dentro del radio local de 60 km
                 const isTopNearest = detectedCoords && idx === 0 && branch.distanceKm !== null && branch.distanceKm <= RADIO_LOCAL_KM;
                 card.className = `branch-card ${isTopNearest ? 'is-nearest' : ''}`;
                 card.id = `card-${branch.id}`;
@@ -1438,12 +1495,10 @@
 
                 const mapsUrl = `https://maps.google.com/?q=${branch.mapsQuery}`;
 
-                // Solo mostrar el badge de km en las tarjetas si está dentro de los 60 km
                 const distanceBadge = (branch.distanceKm !== null && branch.distanceKm <= RADIO_LOCAL_KM)
                     ? `<span class="branch-distance-badge">📍 a ${(branch.distanceKm).toFixed(1)} km</span>`
                     : '';
 
-                // ESTADO EN TIEMPO REAL DINÁMICO
                 const live = getBranchLiveStatus(branch);
 
                 card.innerHTML = `
@@ -1455,7 +1510,7 @@
                             </span>
                             <h3 class="branch-title">${branch.name}</h3>
                             <button type="button" class="branch-address-btn" onclick="copyAddress('${branch.address}')" title="Toca para copiar dirección">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F7C268" stroke-width="2.2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F7C268" stroke-width="2.2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
                                 <span>${branch.address}</span>
                             </button>
                         </div>
@@ -1473,7 +1528,6 @@
 
                         ${wspUrl ? `
                             <a href="${wspUrl}" target="_blank" rel="noopener noreferrer" class="btn-action-touch btn-wsp" onclick="triggerVibe(10)">
-                                <!-- ÍCONO OFICIAL AUTÉNTICO DE WHATSAPP -->
                                 <svg viewBox="0 0 16 16" fill="currentColor">
                                     <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
                                 </svg>
@@ -1517,7 +1571,6 @@
         window.addEventListener('DOMContentLoaded', () => {
             updateFilterCounters();
             renderBranches();
-            // Detecta la ubicación por IP en milisegundos con doble proveedor y 4 rangos matemáticos
             detectLocationByIP();
         });
     </script>
