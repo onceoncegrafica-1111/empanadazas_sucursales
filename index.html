@@ -122,77 +122,53 @@
         .logo-svg-main { width: 100%; height: 100%; display: block; }
         .brand-title-svg { width: 100%; max-width: 245px; height: auto; display: block; margin: 4px 0 2px; }
 
-        /* BANNER PROMO HISTORIAS INSTAGRAM */
-        .promo-pill-banner {
-            background: linear-gradient(135deg, rgba(38, 40, 32, 0.95) 0%, rgba(20, 22, 17, 0.95) 100%);
-            border: 1.5px solid var(--border-card);
-            border-radius: 16px;
-            padding: 13px 15px;
+        /* TEASER SUPERIOR CON SALTO SUAVE AL BANNER */
+        .promo-top-teaser {
+            background: rgba(28, 30, 24, 0.85);
+            border: 1px dashed rgba(247, 194, 104, 0.45);
+            border-radius: 12px;
+            padding: 8px 14px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
-            box-shadow: var(--shadow-card);
+            gap: 10px;
             text-decoration: none;
-            color: var(--text-light);
-            transition: all 0.25s var(--spring);
-            cursor: pointer;
-        }
-        .promo-pill-banner:hover {
-            border-color: var(--border-hover);
-            background: rgba(36, 38, 30, 0.98);
-            transform: translateY(-2px);
-        }
-        .promo-banner-text {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            text-align: left;
-        }
-        .promo-banner-badge {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            font-weight: 900;
-            color: #4ADE80;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        .promo-banner-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 800;
             color: var(--brand-cream);
-            line-height: 1.25;
+            cursor: pointer;
+            transition: all 0.25s var(--spring);
         }
-        .promo-banner-title span { color: var(--bronze-bright); }
-        .promo-banner-sub {
-            font-size: 0.72rem;
+        .promo-top-teaser:hover {
+            border-color: var(--bronze-bright);
+            background: rgba(36, 38, 30, 0.95);
+            transform: translateY(-1px);
+        }
+        .promo-teaser-text {
+            font-size: 0.75rem;
+            font-weight: 700;
             color: var(--brand-cream-muted);
-            font-weight: 600;
-            line-height: 1.3;
-            margin-top: 2px;
-        }
-        .promo-banner-btn {
-            background: var(--bronze-bright);
-            color: #12130F;
-            font-size: 0.72rem;
-            font-weight: 900;
-            padding: 8px 12px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            white-space: nowrap;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 4px;
-            box-shadow: 0 2px 8px rgba(247, 194, 104, 0.35);
+            gap: 6px;
+        }
+        .promo-teaser-text strong {
+            color: #4ADE80;
+            font-weight: 900;
+        }
+        .promo-teaser-action {
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: var(--bronze-bright);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
         }
 
         /* BARRA CHIQUITITA DE RECOMENDACIÓN POR IP */
         .ip-recommendation-bar {
             background: rgba(26, 28, 22, 0.95);
             border: 1px solid var(--border-card);
-            border-radius: 13px;
-            padding: 8px 13px;
+            border-radius: 12px;
+            padding: 8px 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -210,30 +186,27 @@
         .ip-rec-left {
             display: flex;
             align-items: center;
-            gap: 7px;
+            gap: 8px;
             text-align: left;
-            overflow: hidden;
+            flex: 1;
         }
         .ip-rec-icon {
             font-size: 0.90rem;
             flex-shrink: 0;
         }
         .ip-rec-text {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--brand-cream-muted);
             font-weight: 600;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            line-height: 1.35;
         }
         .ip-rec-text strong {
             color: var(--bronze-bright);
             font-weight: 800;
         }
         .ip-rec-badge {
-            font-family: 'JetBrains Mono', monospace;
             font-size: 0.60rem;
-            font-weight: 900;
+            font-weight: 800;
             background: rgba(34, 197, 94, 0.16);
             color: #4ADE80;
             border: 1px solid rgba(34, 197, 94, 0.35);
@@ -360,8 +333,9 @@
             flex-shrink: 0;
         }
         .chip-btn .chip-count {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.62rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.64rem;
+            font-weight: 800;
             opacity: 0.75;
         }
         .chip-btn.active, .chip-btn:hover {
@@ -414,12 +388,11 @@
             gap: 3px;
         }
         .branch-zone-sub {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            font-weight: 900;
+            font-size: 0.68rem;
+            font-weight: 800;
             color: var(--bronze-bright);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -429,7 +402,7 @@
             color: var(--bronze-light);
             padding: 2px 6px;
             border-radius: 4px;
-            font-size: 0.60rem;
+            font-size: 0.62rem;
             font-weight: 800;
         }
         .branch-title {
@@ -459,16 +432,17 @@
 
         /* BADGES DE ESTADO EN TIEMPO REAL */
         .status-badge {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.64rem;
-            font-weight: 900;
-            padding: 4px 8px;
-            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            font-size: 0.68rem;
+            font-weight: 800;
+            padding: 4px 9px;
+            border-radius: 7px;
             text-transform: uppercase;
+            letter-spacing: 0.01em;
             white-space: nowrap;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
         .status-dot {
             width: 6px;
@@ -592,12 +566,87 @@
             line-height: 1.5;
         }
 
-        /* BOTÓN CTA HUBOFICIAL DELIVERY */
-        .delivery-cta-card {
-            background: linear-gradient(135deg, rgba(34, 36, 29, 0.96) 0%, rgba(19, 21, 16, 0.96) 100%);
+        /* BANNER COMPLETO 10% OFF INSTAGRAM */
+        .promo-pill-banner {
+            background: linear-gradient(135deg, rgba(38, 40, 32, 0.95) 0%, rgba(20, 22, 17, 0.95) 100%);
             border: 1.5px solid var(--border-card);
             border-radius: 16px;
             padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            box-shadow: var(--shadow-card);
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s var(--spring);
+            cursor: pointer;
+            scroll-margin-top: 24px;
+        }
+        .promo-pill-banner:hover {
+            border-color: var(--border-hover);
+            background: rgba(36, 38, 30, 0.98);
+            transform: translateY(-2px);
+        }
+        .promo-pill-banner.banner-highlight {
+            border-color: #4ADE80;
+            box-shadow: 0 0 24px rgba(74, 222, 128, 0.35);
+            animation: bannerPulse 1.4s ease-out;
+        }
+        @keyframes bannerPulse {
+            0% { transform: scale(0.98); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .promo-banner-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            text-align: left;
+        }
+        .promo-banner-badge {
+            font-size: 0.66rem;
+            font-weight: 900;
+            color: #4ADE80;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .promo-banner-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.96rem;
+            font-weight: 800;
+            color: var(--brand-cream);
+            line-height: 1.25;
+        }
+        .promo-banner-title span { color: var(--bronze-bright); }
+        .promo-banner-sub {
+            font-size: 0.73rem;
+            color: var(--brand-cream-muted);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 2px;
+        }
+        .promo-banner-btn {
+            background: var(--bronze-bright);
+            color: #12130F;
+            font-size: 0.72rem;
+            font-weight: 900;
+            padding: 9px 13px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 2px 8px rgba(247, 194, 104, 0.35);
+        }
+
+        /* BOTÓN CTA HUBOFICIAL DELIVERY / PRINCIPAL (EMPANADAZAS.COM/LINK) */
+        .delivery-cta-card {
+            background: linear-gradient(135deg, rgba(35, 37, 30, 0.98) 0%, rgba(19, 21, 16, 0.98) 100%);
+            border: 1.5px solid var(--border-card);
+            border-radius: 16px;
+            padding: 15px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -618,29 +667,29 @@
             text-align: left;
         }
         .delivery-cta-badge {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
+            font-size: 0.68rem;
             font-weight: 900;
             color: var(--bronze-bright);
             text-transform: uppercase;
+            letter-spacing: 0.04em;
         }
         .delivery-cta-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.96rem;
+            font-size: 0.98rem;
             font-weight: 800;
             color: var(--brand-cream);
         }
         .delivery-cta-sub {
-            font-size: 0.72rem;
+            font-size: 0.73rem;
             color: var(--brand-cream-muted);
             font-weight: 600;
         }
         .delivery-cta-btn {
             background: var(--bronze-bright);
             color: #12130F;
-            font-size: 0.72rem;
+            font-size: 0.74rem;
             font-weight: 900;
-            padding: 8px 13px;
+            padding: 9px 14px;
             border-radius: 10px;
             text-transform: uppercase;
             white-space: nowrap;
@@ -684,8 +733,7 @@
             gap: 6px;
         }
         .footer-badge {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.70rem;
+            font-size: 0.72rem;
             font-weight: 800;
             color: var(--brand-cream);
             background: rgba(24, 25, 21, 0.9);
@@ -779,23 +827,21 @@
             </svg>
         </header>
 
-        <!-- BANNER PROMO HISTORIAS INSTAGRAM -->
-        <a href="javascript:void(0)" onclick="openInstagramStory()" class="promo-pill-banner" id="promoInstagramBanner">
-            <div class="promo-banner-text">
-                <span class="promo-banner-badge">📸 10% OFF EN EL ACTO</span>
-                <span class="promo-banner-title">Subí tu foto comiendo en el local y etiquetá a <span>@empanadazas</span></span>
-                <span class="promo-banner-sub">Si tenés cuenta privada, ¡envianos tu historia por MD!</span>
-            </div>
-            <span class="promo-banner-btn" id="btnStoryAction">Subir Historia ➔</span>
+        <!-- TEASER SUTIL SUPERIOR CON SALTO SUAVE AL BANNER -->
+        <a href="javascript:void(0)" onclick="scrollToInstagramPromo()" class="promo-top-teaser">
+            <span class="promo-teaser-text">
+                📸 ¿Comés en el local? <strong>10% OFF con tu Historia</strong>
+            </span>
+            <span class="promo-teaser-action">Ver promo ↓</span>
         </a>
 
         <!-- RECOMENDACIÓN AUTOMÁTICA DISCRETA POR IP -->
         <div class="ip-recommendation-bar" id="ipRecBar" style="display:none;" onclick="focusNearestBranch()">
             <div class="ip-rec-left">
-                <span class="ip-rec-icon">📍</span>
+                <span class="ip-rec-icon" id="ipRecIcon">📍</span>
                 <span class="ip-rec-text" id="ipRecText">Calculando sucursal más cercana...</span>
             </div>
-            <span class="ip-rec-badge">Tu zona</span>
+            <span class="ip-rec-badge" id="ipRecBadge">Tu zona</span>
         </div>
 
         <!-- BUSCADOR INTERACTIVO Y BOTÓN GPS -->
@@ -836,14 +882,24 @@
             <span style="font-size:0.70rem; color:var(--bronze-bright); font-weight:700; margin-top:2px;">¡En busca de los 100 Gustos / 100 Locales!</span>
         </div>
 
-        <!-- TARJETA CTA ELEGANTE AL HUB OFICIAL & MENÚ -->
+        <!-- BANNER PROMO HISTORIAS INSTAGRAM -->
+        <a href="javascript:void(0)" onclick="openInstagramStory()" class="promo-pill-banner" id="promoInstagramBanner">
+            <div class="promo-banner-text">
+                <span class="promo-banner-badge">📸 10% OFF EN EL ACTO</span>
+                <span class="promo-banner-title">Subí tu foto comiendo en el local y etiquetá a <span>@empanadazas</span></span>
+                <span class="promo-banner-sub">Si tenés cuenta privada, ¡envianos tu historia por MD!</span>
+            </div>
+            <span class="promo-banner-btn" id="btnStoryAction">Subir Historia ➔</span>
+        </a>
+
+        <!-- TARJETA CTA ELEGANTE AL HUB OFICIAL & MENÚ (EMPANADAZAS.COM/LINK) -->
         <a href="https://empanadazas.com/link" target="_blank" rel="noopener noreferrer" class="delivery-cta-card">
             <div class="delivery-cta-text">
-                <span class="delivery-cta-badge">🛵 Delivery Oficial & Menú</span>
-                <span class="delivery-cta-title">¿Querés pedir directo a tu casa?</span>
-                <span class="delivery-cta-sub">Mirá nuestra carta completa, EmpaCombos y promos web</span>
+                <span class="delivery-cta-badge">⭐ HUB OFICIAL & DELIVERY</span>
+                <span class="delivery-cta-title">¿Querés ver el Menú Digital o pedir a casa?</span>
+                <span class="delivery-cta-sub">Entrá a Empanadazas.com/link y descubrí todas las opciones</span>
             </div>
-            <span class="delivery-cta-btn">Ver Menú ➔</span>
+            <span class="delivery-cta-btn">Ir al Hub ➔</span>
         </a>
 
         <!-- FOOTER CORPORATIVO -->
@@ -986,8 +1042,11 @@
             }
         ];
 
-        // LÍMITE DE COBERTURA: Si el usuario está a más de 50 km, no se recomienda ninguna sucursal
-        const RADIO_COBERTURA_KM = 50;
+        // LÍMITES MATEMÁTICOS DE RANGO EXACTOS
+        const RADIO_LOCAL_KM = 60;      // 50 km + 10 km de demasía (Rango de compra real)
+        const RADIO_AVISO_KM = 150;     // 60 km a 150 km (Rango de cercanía / advertencia seria)
+        const RADIO_BROMA1_KM = 500;    // 150 km a 500 km (Broma nivel 1)
+                                        // Más de 500 km (Broma nivel 2 Delivery Aéreo)
 
         let activeZoneFilter = 'todas';
         let searchQuery = '';
@@ -997,6 +1056,35 @@
 
         function cleanString(str) {
             return (str || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+        }
+
+        // CÁLCULO REALISTA DE TIEMPOS ESTIMADOS SEGÚN DISTANCIA URBANA / RUTA
+        function calculateTravelEstimates(distKm) {
+            if (distKm <= 1.5) {
+                const walkMin = Math.round((distKm / 4.5) * 60);
+                const carMin = Math.max(3, Math.round((distKm / 24) * 60));
+                return `🚶 ~${walkMin} min a pie · 🚗 ~${carMin} min en auto`;
+            } else if (distKm <= 5) {
+                const bikeMin = Math.round((distKm / 15) * 60);
+                const carMin = Math.max(5, Math.round((distKm / 28) * 60));
+                return `🚗 ~${carMin} min en auto/moto · 🚲 ~${bikeMin} min en bici`;
+            } else if (distKm <= 25) {
+                const carMin = Math.round((distKm / 32) * 60);
+                const busMin = Math.round((distKm / 18) * 60);
+                return `🚗 ~${carMin} min en auto/moto · 🚌 ~${busMin} min en bus`;
+            } else if (distKm <= 60) {
+                const carMin = Math.round((distKm / 48) * 60);
+                const h = Math.floor(carMin / 60);
+                const m = carMin % 60;
+                const timeStr = h > 0 ? `${h}h ${m}m` : `${m} min`;
+                return `🚗 ~${timeStr} en auto/moto`;
+            } else {
+                // Mayor a 60 km (ruta/autopista a 75 km/h)
+                const carMin = Math.round((distKm / 75) * 60);
+                const h = Math.floor(carMin / 60);
+                const m = carMin % 60;
+                return `🚗 ~${h}h ${m > 0 ? m + 'm' : ''} en auto`;
+            }
         }
 
         // CALCULA LA HORA ACTUAL EN ARGENTINA (AMERICA/ARGENTINA/BUENOS_AIRES)
@@ -1094,6 +1182,17 @@
             }
         }
 
+        // SALTO SUAVE, SEMI-RÁPIDO Y CONTROLADO HACIA EL BANNER DE INSTAGRAM
+        function scrollToInstagramPromo() {
+            triggerVibe(12);
+            const banner = document.getElementById('promoInstagramBanner');
+            if (banner) {
+                banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                banner.classList.add('banner-highlight');
+                setTimeout(() => banner.classList.remove('banner-highlight'), 1800);
+            }
+        }
+
         // DISPARADOR INTELIGENTE A LA CÁMARA DE HISTORIAS DE INSTAGRAM
         function openInstagramStory() {
             triggerVibe(15);
@@ -1119,7 +1218,7 @@
             }
         }
 
-        // CALCULA Y RECOMIENDA LA SUCURSAL MÁS CERCANA (CON RESTRICCIÓN DE 50 KM)
+        // CALCULA Y GESTIONA LOS 4 RANGOS MATEMÁTICOS DE DISTANCIA
         function updateNearestRecommendation(coords, sourceName = "IP") {
             detectedCoords = coords;
             let minDistance = Infinity;
@@ -1135,37 +1234,85 @@
                 }
             });
 
+            if (!closest) return;
+            nearestBranchObj = closest;
+
             const recBar = document.getElementById('ipRecBar');
+            const recText = document.getElementById('ipRecText');
+            const recIcon = document.getElementById('ipRecIcon');
+            const recBadge = document.getElementById('ipRecBadge');
 
-            // SI ESTÁ A MÁS DE 50 KM (EJ. CIUDAD DEL ESTE, BRASIL, OTRA PROVINCIA), NO MOSTRAR RECOMENDACIÓN
-            if (minDistance > RADIO_COBERTURA_KM) {
-                recBar.style.display = 'none';
-                nearestBranchObj = null;
-                renderBranches();
-                return;
-            }
+            const estimates = calculateTravelEstimates(minDistance);
 
-            if (closest) {
-                nearestBranchObj = closest;
-                const recText = document.getElementById('ipRecText');
-                recText.innerHTML = `Más cercana: <strong>${closest.name}</strong> (a ${minDistance.toFixed(1)} km)`;
+            // RANGO 1: DE 0 A 60 KM (LOCAL - 50 km + 10 km de demasía)
+            if (minDistance <= RADIO_LOCAL_KM) {
+                recIcon.innerText = "📍";
+                recText.innerHTML = `Más cercana: <strong>${closest.name}</strong> (${minDistance.toFixed(1)} km) <span style="display:block; opacity:0.85; font-size:0.68rem; margin-top:2px;">${estimates}</span>`;
+                recBadge.innerText = "Tu zona";
+                recBadge.style.color = "#4ADE80";
+                recBadge.style.borderColor = "rgba(34, 197, 94, 0.35)";
+                recBadge.style.background = "rgba(34, 197, 94, 0.16)";
                 recBar.style.display = 'flex';
-                renderBranches();
             }
+            // RANGO 2: DE 60 KM A 150 KM (SERIO / ADVERTENCIA DE LLEGADA A TIEMPO)
+            else if (minDistance <= RADIO_AVISO_KM) {
+                recIcon.innerText = "🚗";
+                recText.innerHTML = `Estás a <strong>${Math.round(minDistance)} km</strong> de ${closest.name} (${estimates}) <span style="display:block; opacity:0.85; font-size:0.68rem; margin-top:2px;">Te recomendamos acercarte a la zona para llegar antes del cierre.</span>`;
+                recBadge.innerText = "Aviso";
+                recBadge.style.color = "var(--bronze-bright)";
+                recBadge.style.borderColor = "rgba(247, 194, 104, 0.35)";
+                recBadge.style.background = "rgba(247, 194, 104, 0.16)";
+                recBar.style.display = 'flex';
+            }
+            // RANGO 3: DE 150 KM A 500 KM (BROMA NIVEL 1)
+            else if (minDistance <= RADIO_BROMA1_KM) {
+                recIcon.innerText = "🥟";
+                recText.innerHTML = `¿A dónde te fuiste? Estás a <strong>${Math.round(minDistance)} km</strong> de nuestra sucursal más cercana. ¡Te esperamos en tu próxima visita!`;
+                recBadge.innerText = "De viaje";
+                recBadge.style.color = "#60A5FA";
+                recBadge.style.borderColor = "rgba(96, 165, 250, 0.35)";
+                recBadge.style.background = "rgba(96, 165, 250, 0.16)";
+                recBar.style.display = 'flex';
+            }
+            // RANGO 4: MÁS DE 500 KM (BROMA NIVEL 2 - DELIVERY AÉREO)
+            else {
+                recIcon.innerText = "✈️";
+                const distFormatted = Math.round(minDistance).toLocaleString('es-AR');
+                recText.innerHTML = `¿A dónde te fuiste? ¡Estás a <strong>${distFormatted} km</strong>! ¡Pero tranquilo! Pronto vamos a llegar con Delivery Aéreo 🚀`;
+                recBadge.innerText = "Por el mundo";
+                recBadge.style.color = "#F472B6";
+                recBadge.style.borderColor = "rgba(244, 114, 182, 0.35)";
+                recBadge.style.background = "rgba(244, 114, 182, 0.16)";
+                recBar.style.display = 'flex';
+            }
+
+            renderBranches();
         }
 
-        // LOCALIZACIÓN INTELIGENTE POR IP AL ENTRAR A LA WEB
+        // LOCALIZACIÓN INTELIGENTE POR IP CON DOBLE PROVEEDOR EN CASCADA
         async function detectLocationByIP() {
             try {
+                // Proveedor 1: ipwho.is
                 const res = await fetch('https://ipwho.is/');
-                if (!res.ok) return;
-                const data = await res.json();
-                if (data && data.success && data.latitude && data.longitude) {
-                    updateNearestRecommendation({ lat: data.latitude, lng: data.longitude }, "IP");
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && data.success && data.latitude && data.longitude) {
+                        updateNearestRecommendation({ lat: data.latitude, lng: data.longitude }, "IP");
+                        return;
+                    }
                 }
-            } catch (e) {
-                // Silencioso: Si hay bloqueo de red o adblocker, continúa la app con normalidad
-            }
+            } catch (e) {}
+
+            try {
+                // Proveedor 2 de respaldo: freeipapi.com
+                const fallbackRes = await fetch('https://freeipapi.com/api/json');
+                if (fallbackRes.ok) {
+                    const fbData = await fallbackRes.json();
+                    if (fbData && fbData.latitude && fbData.longitude) {
+                        updateNearestRecommendation({ lat: fbData.latitude, lng: fbData.longitude }, "IP");
+                    }
+                }
+            } catch (err) {}
         }
 
         // GEOLOCALIZACIÓN NATIVA (BOTÓN 'CERCA')
@@ -1214,7 +1361,7 @@
 
         function focusNearestBranch() {
             triggerVibe(15);
-            if (nearestBranchObj) {
+            if (nearestBranchObj && nearestBranchObj.distanceKm <= RADIO_LOCAL_KM) {
                 const targetCard = document.getElementById(`card-${nearestBranchObj.id}`);
                 if (targetCard) {
                     targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1250,8 +1397,8 @@
                 return { ...b, distanceKm: dist };
             });
 
-            // SOLO ordenar si el usuario está DENTRO de los 50 km o si forzó la búsqueda con GPS
-            const usuarioEstaCerca = list.some(b => b.distanceKm !== null && b.distanceKm <= RADIO_COBERTURA_KM);
+            // SOLO ordenar la lista si el usuario está DENTRO de los 60 km o si forzó la búsqueda con GPS
+            const usuarioEstaCerca = list.some(b => b.distanceKm !== null && b.distanceKm <= RADIO_LOCAL_KM);
             if (detectedCoords && (usuarioEstaCerca || isGpsAccurate)) {
                 list.sort((a, b) => (a.distanceKm || 9999) - (b.distanceKm || 9999));
             }
@@ -1280,8 +1427,8 @@
 
             filtered.forEach((branch, idx) => {
                 const card = document.createElement('div');
-                // Solo resaltar como "más cercana" si está dentro del radio de 50 km
-                const isTopNearest = detectedCoords && idx === 0 && branch.distanceKm !== null && branch.distanceKm <= RADIO_COBERTURA_KM;
+                // Solo resaltar como "más cercana" si está dentro del radio local de 60 km
+                const isTopNearest = detectedCoords && idx === 0 && branch.distanceKm !== null && branch.distanceKm <= RADIO_LOCAL_KM;
                 card.className = `branch-card ${isTopNearest ? 'is-nearest' : ''}`;
                 card.id = `card-${branch.id}`;
 
@@ -1291,8 +1438,8 @@
 
                 const mapsUrl = `https://maps.google.com/?q=${branch.mapsQuery}`;
 
-                // Solo mostrar el badge de km si está dentro del radio local de 50 km
-                const distanceBadge = (branch.distanceKm !== null && branch.distanceKm <= RADIO_COBERTURA_KM)
+                // Solo mostrar el badge de km en las tarjetas si está dentro de los 60 km
+                const distanceBadge = (branch.distanceKm !== null && branch.distanceKm <= RADIO_LOCAL_KM)
                     ? `<span class="branch-distance-badge">📍 a ${(branch.distanceKm).toFixed(1)} km</span>`
                     : '';
 
@@ -1370,7 +1517,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             updateFilterCounters();
             renderBranches();
-            // Detecta la ubicación por IP en milisegundos y respeta el radio de 50 km
+            // Detecta la ubicación por IP en milisegundos con doble proveedor y 4 rangos matemáticos
             detectLocationByIP();
         });
     </script>
