@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Empanadazas® | Portal Mayorista B2B Oficial</title>
-    <meta name="description" content="Venta mayorista de empanadas crudas congeladas en cajas cerradas de 30 y 40 unidades sin toppings. Distribución oficial a comercios y franquicias.">
-
+    <title>Empanadazas® | Sucursales Oficiales & Pedidos</title>
+    <meta name="description" content="Encontrá tu sucursal Empanadazas más cercana con GPS, mapas, horarios y WhatsApp directo para pedir.">
     <meta name="theme-color" content="#131412">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" href="./empanadazas-icon.png" type="image/png">
 
-    <!-- ACELERADORES DE CARGA INMEDIATA DE IMÁGENES -->
-    <link rel="preconnect" href="https://images.loveat.la" crossorigin>
-    <link rel="dns-prefetch" href="https://images.loveat.la">
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Empanadazas® | Sucursales y WhatsApp Directo">
+    <meta property="og:description" content="Encontrá tu sucursal más cercana con GPS, mapas y contacto directo.">
+    <meta property="og:image" content="./empanadazas-icon.png">
 
-    <!-- TIPOGRAFÍAS CORPORATIVAS OFICIALES -->
+    <!-- FUENTES CORPORATIVAS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=block" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800;900&family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=block" rel="stylesheet">
 
     <style>
         :root {
             --bg-base: #131412;
-            --bg-surface: rgba(22, 23, 20, 0.94);
-            --bg-card: rgba(26, 28, 23, 0.88);
-            --bg-card-hover: rgba(36, 38, 30, 0.98);
+            --bg-card: rgba(24, 25, 21, 0.92);
+            --bg-card-hover: rgba(32, 34, 28, 0.98);
             
             --bronze-light: #FBE2B5;
             --bronze-bright: #F7C268;
@@ -37,2190 +34,1544 @@
             --brand-cream-muted: #D3CEB8;
             
             --neon-glow: rgba(229, 169, 82, 0.45);
+            --neon-subtle: rgba(247, 194, 104, 0.12);
             --border-card: rgba(229, 169, 82, 0.28);
             --border-hover: rgba(247, 194, 104, 0.90);
             
             --accent-green: #22C55E;
+            --accent-green-dark: #16A34A;
             --accent-green-glow: rgba(34, 197, 94, 0.35);
-
+            --accent-maps: #4285F4;
+            --accent-maps-glow: rgba(66, 133, 244, 0.30);
+            
             --text-light: #FEFAE4;
             --text-muted: #9E9F97;
+            --text-subtle: #6E7068;
             
-            --shadow-card: 0 10px 28px -4px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.4);
+            --shadow-card: 0 10px 28px -4px rgba(0, 0, 0, 0.70), 0 2px 8px rgba(0, 0, 0, 0.4);
             --spring: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            background-color: var(--bg-base);
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { background-color: var(--bg-base); scroll-behavior: smooth; }
         body {
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: transparent;
             color: var(--text-light);
             min-height: 100vh;
-            padding-bottom: 140px;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 18px 14px 40px;
             overflow-x: hidden;
             position: relative;
             letter-spacing: -0.015em;
         }
 
-        /* FONDO PAPEL DE REGALO OFICIAL STENCIL */
+        /* FONDO PAPEL DE REGALO CONTINUO ANIMADO */
         .b2b-bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
             background: radial-gradient(circle at 50% 20%, #20221E 0%, #151614 60%, #0E0F0D 100%);
-            overflow: hidden;
-            pointer-events: none;
+            overflow: hidden; pointer-events: none;
         }
-
         .ambient-fire-spotlight {
-            position: absolute;
-            top: -120px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 850px;
-            height: 700px;
+            position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+            width: 850px; height: 700px;
             background: radial-gradient(ellipse at 50% 30%, rgba(247, 194, 104, 0.20) 0%, rgba(215, 139, 40, 0.08) 45%, transparent 75%);
-            filter: blur(75px);
+            filter: blur(75px); z-index: 1;
+        }
+        .stencil-gift-wrap {
+            position: absolute; top: -20%; left: -20%; width: 140%; height: 140%; opacity: 0.09;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='450' height='180' viewBox='-40 -40 440 160'%3E%3Cpath fill='%23EAE6D2' d='M41.38,54.78c-.74,8.44-1.47,16.68-2.22,25.24-1.05-.36-1.87-.38-2.11-.76-4.92-7.76-6.48-16.24-4.64-25.19,1.31-6.37,3.05-12.66,4.8-18.94.32-1.15,1.59-2.85,2.41-2.85,1.22,0,3.01,1.02,3.54,2.11,2.08,4.26,3.77,8.72,5.57,13.11.64,1.57,1.2,3.18,2.51,4.72,1.01-4.22,1.87-8.48,3.08-12.63.73-2.49,1.73-5,3.1-7.19,1.51-2.42,3.84-2.3,5.46.09.9,1.33,1.56,2.88,2.04,4.41,2.48,8.01,4.89,16.05,7.29,24.08.39,1.32.71,2.67.97,4.02.49,2.5-.1,4.58-2.75,5.42-2.71.85-3.95-1.01-4.76-3.1-1.73-4.42-3.33-8.89-5.75-13.42-.41,2.07-.82,4.14-1.22,6.21-.33,1.72-.35,3.58-1.06,5.13-.71,1.57-1.99,3.85-3.22,3.98-1.76.19-4.4-.76-5.44-2.15-2.83-3.76-5.02-8-7.61-12.3Z'/%3E%3Cpath fill='%23EAE6D2' d='M149.66,61.16c-.66,1.75-1.19,3.15-1.72,4.55-.66-1.43-1.36-2.84-1.96-4.29-1.3-3.13-2.55-6.27-3.82-9.41-.55.14-1.1.28-1.64.42.36,3.22.89,6.43,1.02,9.66.15,3.81,0,7.64-.16,11.46-.02.55-.69,1.25-1.24,1.53-.28.14-1.27-.42-1.41-.83-2.1-6.41-5-12.72-5.94-19.31-1.34-9.4-1.33-19-1.6-28.53-.04-1.33,1.38-3.47,2.56-3.84,1.1-.34,3.39.82,4.08,1.97,1.52,2.54,2.28,5.53,3.5,8.27,1.91,4.3,3.95,8.54,5.94,12.8.37-.1.73-.2,1.1-.3.11-.75.34-1.51.31-2.26-.21-6.65-.63-13.3-.59-19.94,0-1.45,1.27-3.58,2.54-4.18,2.28-1.09,3.5,1.02,3.82,2.92,1.07,6.41,1.89,12.86,2.83,19.29.91,6.19,1.95,12.37,2.73,18.57.18,1.43,0,3.76-.86,4.27-1.23.73-3.35.55-4.85.04-1.71-.57-3.16-1.92-4.63-2.87Z'/%3E%3Cpath fill='%23EAE6D2' d='M228.22,29.83c.07,12.02-9.64,23.38-20.92,27.85-1.32.52-2.99.44-4.45.27-2.88-.33-3.58-2.17-2.62-4.83.67-1.83,1.09-4.02.76-5.89-1.01-5.67-2.35-11.28-3.77-16.86-.32-1.24-1.29-2.59-2.35-3.31-2.56-1.74-2.86-3.64-1.08-5.99,3.69-4.89,17.89-9.71,23.76-8.1,6.34,1.74,10.67,8.57,10.68,16.87ZM208.98,48.12c6.31-4.28,9.73-9.07,10.21-15.41.23-2.98-.2-6.29-1.33-9.03-1.41-3.41-4.92-3.8-8.05-2.62-1.84.69-4.74,2.67-4.62,3.79.83,7.51,2.35,14.95,3.79,23.28Z'/%3E%3Cpath fill='%23EAE6D2' d='M280.5,15.47c-4.39,1.71-8.03,3.25-11.76,4.49-1.41.47-3.06.22-4.59.3-.11-1.77-.13-3.67.43-5.28.39-1.12,1.73-2.3,2.91-2.71,6.37-2.21,12.78-4.35,19.28-6.13,1.49-.41,4.45.23,4.85,1.18.69,1.63.52,4.25-.38,5.82-4.48,7.8-9.33,15.39-14.04,23.05.21.27.41.54.62.81,2.74-.92,5.43-2.06,8.23-2.69,2.63-.59,5.48-1.15,8.05-.7,1.52.27,3.31,2.32,3.83,3.94.4,1.23-.57,3.83-1.69,4.47-3.89,2.21-4.32,5.42-3.95,9.29.09.9-.66,1.88-1.03,2.82-.56-.94-1.61-1.86-1.62-2.81-.17-10.13-2.45-9.51-10.43-6.56-3.41,1.26-6.75,2.77-10.25,3.67-1.55.4-3.42-.45-5.14-.73.35-1.59.34-3.4,1.12-4.75,4.78-8.37,9.73-16.63,14.61-24.95.29-.5.42-1.09.96-2.54Z'/%3E%3Cpath fill='%23EAE6D2' d='M11.77,72.92c4.01-2.67,7.13-4.85,10.36-6.84,1.46-.9,3.15-1.41,4.73-2.1.52,1.69,1.57,3.42,1.46,5.07-.25,3.51-1.07,6.98-1.73,10.46-.07.39-.54.91-.91.99-.39.08-1.11-.16-1.28-.48-.52-.97-.85-2.05-1.41-3.5-3.06,1.24-5.97,2.55-8.97,3.62-6.75,2.4-9.51.91-10.42-6.07-1.01-7.82-1.58-15.71-2.35-23.56-.13-1.37-.09-2.8-.5-4.09-1.53-4.78-.92-6.48,3.86-7.7,4.84-1.23,9.79-2.1,14.74-2.8,2.44-.34,5.14.23,5.23,3.42.09,2.98-2.3,3.85-4.86,4.18-1.74.22-3.48.42-5.21.73q-6.44,1.19-5.04,8.29c2.11-.7,4.14-1.64,6.26-1.97,1.38-.22,2.9.44,4.35.71-.41,1.63-.31,3.79-1.34,4.76-1.67,1.57-3.98,2.62-6.19,3.39-2.14.75-2.65,1.89-2.26,3.93.5,2.68.84,5.39,1.48,9.55Z'/%3E%3Cpath fill='%23EAE6D2' d='M115.95,60.71c-.5-1.38-1.01-2.76-1.62-4.44-2.61.7-5.31,1.23-7.83,2.21-.93.36-1.5,1.78-2.1,2.79-.83,1.38-1.23,3.19-2.38,4.16-.95.8-2.87,1.13-4.05.74-.78-.25-1.17-2.12-1.45-3.34-.37-1.59-.67-3.25-.62-4.86.04-1.28.5-2.62,1.05-3.8,1.02-2.19,2.56-4.19,3.33-6.45,2.35-6.87,4.36-13.87,6.71-20.74.47-1.37,1.79-3.3,2.84-3.38,1.17-.09,3.01,1.35,3.66,2.6,5.35,10.21,10.54,20.5,15.65,30.83.69,1.4,1.1,3.2.9,4.72-.16,1.25-1.23,3.04-2.24,3.32-.98.27-2.92-.76-3.56-1.77-1.83-2.92-3.22-6.11-4.78-9.2-.45.02-.9.04-1.35.06-.36,2.09-.71,4.18-1.07,6.28-.37.09-.74.18-1.11.27ZM111.07,39.24l-.97.18c-.8,3.45-1.61,6.89-2.56,10.98,2.91-.98,5.18-1.75,7.86-2.66-1.56-3.06-2.94-5.78-4.33-8.5Z'/%3E%3Cpath fill='%23EAE6D2' d='M180.92,52.93c-.32-1.18-.64-2.36-1.06-3.93-2.72.76-5.41,1.32-7.91,2.32-.92.37-1.44,1.79-2.11,2.75-1.05,1.51-1.85,3.28-3.18,4.46-.71.62-2.59.66-3.44.14-.78-.47-1.01-2.03-1.23-3.16-.3-1.5-.5-3.05-.46-4.57.04-1.43.21-2.95.74-4.26.81-1.98,2.27-3.72,2.96-5.73,2.46-7.24,4.61-14.58,7.07-21.81,1.21-3.57,3.23-3.92,5.68-1.13,1.14,1.31,2.13,2.81,2.93,4.35,3.97,7.69,7.89,15.4,11.74,23.14,1.06,2.12,2.34,4.35,2.54,6.62.15,1.74-.72,4.4-2.04,5.26-2.22,1.45-3.46-.87-4.4-2.71-1.35-2.61-2.68-5.24-4.01-7.86-.38.04-.76.08-1.14.13-.5,2.15-1.01,4.29-1.51,6.44-.38-.15-.77-.3-1.15-.46ZM180.83,40.83c-1.77-3.41-3.28-6.3-4.78-9.18-.27.05-.54.09-.81.14-.73,3.59-1.47,7.17-2.33,11.38,2.86-.84,5.06-1.49,7.92-2.34Z'/%3E%3Cpath fill='%23EAE6D2' d='M248.48,40.04c-.28,2.14-.56,4.28-.83,6.41-.32.08-.64.16-.96.24-.58-1.46-1.16-2.92-1.84-4.64-2.49.57-5.11.92-7.5,1.85-1.01.4-1.62,1.99-2.28,3.12-.74,1.28-1.01,3.12-2.08,3.85-1.13.77-3.02.83-4.45.55-.52-.1-.78-2.04-.99-3.17-.25-1.38-.46-2.8-.44-4.2.02-1.4.08-2.91.6-4.18.87-2.11,2.43-3.95,3.14-6.09,2.34-7,4.33-14.12,6.66-21.12,1.31-3.92,3.47-4.17,6.04-.88,1,1.28,1.87,2.68,2.6,4.13,4.33,8.62,8.62,17.25,12.87,25.92.65,1.33,1.53,2.9,1.33,4.22-.24,1.62-1.49,3.09-2.3,4.63-1.38-.95-3.18-1.61-4.05-2.9-1.65-2.44-2.77-5.24-4.11-7.89-.47.05-.94.1-1.41.14ZM245.65,33.6c-1.58-3.15-2.96-5.9-4.34-8.65-.26.07-.53.14-.79.21-.78,3.41-1.56,6.81-2.49,10.88,2.9-.93,5.08-1.63,7.62-2.44Z'/%3E%3Cpath fill='%23EAE6D2' d='M319.98,32.19c-.32,2.02-.63,4.03-.95,6.05-.3.08-.59.15-.89.23-.56-1.41-1.12-2.83-1.76-4.43-1.89.48-3.8,1.02-5.73,1.42-2.19.45-3.54,1.54-3.86,3.9-.15,1.08-.48,2.55-1.24,3.05-1.29.84-3,1.35-4.52,1.32-.45,0-.95-2.26-1.26-3.53-.25-1.01.04-2.22-.38-3.12-1.13-2.35-.64-4.1.93-6.16,1.28-1.69,1.8-4,2.48-6.1,2.17-6.66,4.08-13.4,6.45-19.99,1.43-3.96,3.56-4.07,6.14-.65.9,1.19,1.68,2.51,2.35,3.85,3.86,7.73,7.72,15.47,11.48,23.25,1.03,2.13,2.19,4.38,2.39,6.66.13,1.4-1.18,3.27-2.38,4.28-.43.36-2.95-.84-3.65-1.9-1.68-2.56-2.85-5.46-4.22-8.22-.46.03-.91.06-1.37.09ZM309.65,28.5c3.12-1.13,5.28-1.92,7.81-2.84-1.58-3.19-2.96-5.98-4.34-8.76-.31.05-.62.1-.93.15-.76,3.45-1.53,6.91-2.54,11.45Z'/%3E%3Cpath fill='%23EAE6D2' d='M92.45,26.31c7.81,0,11.12,4.35,8.21,10.14-2.09,4.15-5.57,7.59-8.49,11.31-.61.78-1.4,1.48-2.24,2-5.92,3.71-7.39,8.39-4.72,15.14,1.22,3.09.21,7.09.09,10.67-.01.39-.86,1.12-1.21,1.06-.63-.1-1.44-.55-1.73-1.09-6.26-11.72-8.26-24.65-10.51-37.5-.14-.81.24-2.13.85-2.6,6.27-4.74,12.97-8.57,19.76-9.13ZM81.84,46.91c4.24-3.52,8.82-6.05,10.03-11.82-8.41-.18-12.14,4.15-10.03,11.82Z'/%3E%3Cpath fill='%23EAE6D2' d='M340.93,47.54c-.76-2.38-1.17-4.98-2.4-7.09-1.21-2.08-3.84-3.43-4.75-5.56-.62-1.47.03-4.35,1.19-5.49,1.72-1.69,4.08-.88,5.31,1.38,1.48,2.73,3.75,1.93,5.51.98,1.93-1.04,3.58-2.74,4.98-4.46.2-.25-1.5-2.79-2.72-3.29-3.23-1.32-6.69-2.08-10.04-3.12-4.11-1.27-7.85-2.99-8.41-7.98-.48-4.24,2.11-8.27,7-10.61,4.28-2.05,8.79-3.03,13.51-1.67,3.41.98,5.01,3.44,3.82,6.13-1.35,3.06-3.79,2.29-6.41,1.78-2.31-.45-4.84-.26-7.19.14-.9.15-2.16,1.65-2.18,2.56-.02.85,1.24,2.14,2.21,2.5,2.45.91,5.08,1.32,7.6,2.09,2.03.62,4.12,1.22,5.94,2.26,5.97,3.41,7.25,10.79,2.35,15.63-2.68,2.65-6.16,4.74-9.64,6.25-2.85,1.24-4.93,2.19-4.16,5.74.11.5-.29,1.11-.46,1.68-.36.05-.72.1-1.08.16Z'/%3E%3C/svg%3E");
+            background-repeat: round; background-size: 280px auto; transform: rotate(-12deg);
+            animation: giftWrapDrift 65s infinite linear;
+        }
+        @keyframes giftWrapDrift { 0% { background-position: 0 0; } 100% { background-position: 1000px 1000px; } }
+
+        /* CONTENEDOR PRINCIPAL */
+        .hub-container {
+            width: 100%;
+            max-width: 490px;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
             z-index: 1;
         }
 
-        .stencil-gift-wrap {
-            position: absolute;
-            top: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
-            opacity: 0.10;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='450' height='180' viewBox='-40 -40 440 160'%3E%3Cpath fill='%23EAE6D2' d='M41.38,54.78c-.74,8.44-1.47,16.68-2.22,25.24-1.05-.36-1.87-.38-2.11-.76-4.92-7.76-6.48-16.24-4.64-25.19,1.31-6.37,3.05-12.66,4.8-18.94.32-1.15,1.59-2.85,2.41-2.85,1.22,0,3.01,1.02,3.54,2.11,2.08,4.26,3.77,8.72,5.57,13.11.64,1.57,1.2,3.18,2.51,4.72,1.01-4.22,1.87-8.48,3.08-12.63.73-2.49,1.73-5,3.1-7.19,1.51-2.42,3.84-2.3,5.46.09.9,1.33,1.56,2.88,2.04,4.41,2.48,8.01,4.89,16.05,7.29,24.08.39,1.32.71,2.67.97,4.02.49,2.5-.1,4.58-2.75,5.42-2.71.85-3.95-1.01-4.76-3.1-1.73-4.42-3.33-8.89-5.75-13.42-.41,2.07-.82,4.14-1.22,6.21-.33,1.72-.35,3.58-1.06,5.13-.71,1.57-1.99,3.85-3.22,3.98-1.76.19-4.4-.76-5.44-2.15-2.83-3.76-5.02-8-7.61-12.3Z'/%3E%3Cpath fill='%23EAE6D2' d='M149.66,61.16c-.66,1.75-1.19,3.15-1.72,4.55-.66-1.43-1.36-2.84-1.96-4.29-1.3-3.13-2.55-6.27-3.82-9.41-.55.14-1.1.28-1.64.42.36,3.22.89,6.43,1.02,9.66.15,3.81,0,7.64-.16,11.46-.02.55-.69,1.25-1.24,1.53-.28.14-1.27-.42-1.41-.83-2.1-6.41-5-12.72-5.94-19.31-1.34-9.4-1.33-19-1.6-28.53-.04-1.33,1.38-3.47,2.56-3.84,1.1-.34,3.39.82,4.08,1.97,1.52,2.54,2.28,5.53,3.5,8.27,1.91,4.3,3.95,8.54,5.94,12.8.37-.1.73-.2,1.1-.3.11-.75.34-1.51.31-2.26-.21-6.65-.63-13.3-.59-19.94,0-1.45,1.27-3.58,2.54-4.18,2.28-1.09,3.5,1.02,3.82,2.92,1.07,6.41,1.89,12.86,2.83,19.29.91,6.19,1.95,12.37,2.73,18.57.18,1.43,0,3.76-.86,4.27-1.23.73-3.35.55-4.85.04-1.71-.57-3.16-1.92-4.63-2.87Z'/%3E%3Cpath fill='%23EAE6D2' d='M228.22,29.83c.07,12.02-9.64,23.38-20.92,27.85-1.32.52-2.99.44-4.45.27-2.88-.33-3.58-2.17-2.62-4.83.67-1.83,1.09-4.02.76-5.89-1.01-5.67-2.35-11.28-3.77-16.86-.32-1.24-1.29-2.59-2.35-3.31-2.56-1.74-2.86-3.64-1.08-5.99,3.69-4.89,17.89-9.71,23.76-8.1,6.34,1.74,10.67,8.57,10.68,16.87ZM208.98,48.12c6.31-4.28,9.73-9.07,10.21-15.41.23-2.98-.2-6.29-1.33-9.03-1.41-3.41-4.92-3.8-8.05-2.62-1.84.69-4.74,2.67-4.62,3.79.83,7.51,2.35,14.95,3.79,23.28Z'/%3E%3Cpath fill='%23EAE6D2' d='M280.5,15.47c-4.39,1.71-8.03,3.25-11.76,4.49-1.41.47-3.06.22-4.59.3-.11-1.77-.13-3.67.43-5.28.39-1.12,1.73-2.3,2.91-2.71,6.37-2.21,12.78-4.35,19.28-6.13,1.49-.41,4.45.23,4.85,1.18.69,1.63.52,4.25-.38,5.82-4.48,7.8-9.33,15.39-14.04,23.05.21.27.41.54.62.81,2.74-.92,5.43-2.06,8.23-2.69,2.63-.59,5.48-1.15,8.05-.7,1.52.27,3.31,2.32,3.83,3.94.4,1.23-.57,3.83-1.69,4.47-3.89,2.21-4.32,5.42-3.95,9.29.09.9-.66,1.88-1.03,2.82-.56-.94-1.61-1.86-1.62-2.81-.17-10.13-2.45-9.51-10.43-6.56-3.41,1.26-6.75,2.77-10.25,3.67-1.55.4-3.42-.45-5.14-.73.35-1.59.34-3.4,1.12-4.75,4.78-8.37,9.73-16.63,14.61-24.95.29-.5.42-1.09.96-2.54Z'/%3E%3Cpath fill='%23EAE6D2' d='M11.77,72.92c4.01-2.67,7.13-4.85,10.36-6.84,1.46-.9,3.15-1.41,4.73-2.1.52,1.69,1.57,3.42,1.46,5.07-.25,3.51-1.07,6.98-1.73,10.46-.07.39-.54.91-.91.99-.39.08-1.11-.16-1.28-.48-.52-.97-.85-2.05-1.41-3.5-3.06,1.24-5.97,2.55-8.97,3.62-6.75,2.4-9.51.91-10.42-6.07-1.01-7.82-1.58-15.71-2.35-23.56-.13-1.37-.09-2.8-.5-4.09-1.53-4.78-.92-6.48,3.86-7.7,4.84-1.23,9.79-2.1,14.74-2.8,2.44-.34,5.14.23,5.23,3.42.09,2.98-2.3,3.85-4.86,4.18-1.74.22-3.48.42-5.21.73q-6.44,1.19-5.04,8.29c2.11-.7,4.14-1.64,6.26-1.97,1.38-.22,2.9.44,4.35.71-.41,1.63-.31,3.79-1.34,4.76-1.67,1.57-3.98,2.62-6.19,3.39-2.14.75-2.65,1.89-2.26,3.93.5,2.68.84,5.39,1.48,9.55Z'/%3E%3Cpath fill='%23EAE6D2' d='M115.95,60.71c-.5-1.38-1.01-2.76-1.62-4.44-2.61.7-5.31,1.23-7.83,2.21-.93.36-1.5,1.78-2.1,2.79-.83,1.38-1.23,3.19-2.38,4.16-.95.8-2.87,1.13-4.05.74-.78-.25-1.17-2.12-1.45-3.34-.37-1.59-.67-3.25-.62-4.86.04-1.28.5-2.62,1.05-3.8,1.02-2.19,2.56-4.19,3.33-6.45,2.35-6.87,4.36-13.87,6.71-20.74.47-1.37,1.79-3.3,2.84-3.38,1.17-.09,3.01,1.35,3.66,2.6,5.35,10.21,10.54,20.5,15.65,30.83.69,1.4,1.1,3.2.9,4.72-.16,1.25-1.23,3.04-2.24,3.32-.98.27-2.92-.76-3.56-1.77-1.83-2.92-3.22-6.11-4.78-9.2-.45.02-.9.04-1.35.06-.36,2.09-.71,4.18-1.07,6.28-.37.09-.74.18-1.11.27ZM111.07,39.24l-.97.18c-.8,3.45-1.61,6.89-2.56,10.98,2.91-.98,5.18-1.75,7.86-2.66-1.56-3.06-2.94-5.78-4.33-8.5Z'/%3E%3Cpath fill='%23EAE6D2' d='M180.92,52.93c-.32-1.18-.64-2.36-1.06-3.93-2.72.76-5.41,1.32-7.91,2.32-.92.37-1.44,1.79-2.11,2.75-1.05,1.51-1.85,3.28-3.18,4.46-.71.62-2.59.66-3.44.14-.78-.47-1.01-2.03-1.23-3.16-.3-1.5-.5-3.05-.46-4.57.04-1.43.21-2.95.74-4.26.81-1.98,2.27-3.72,2.96-5.73,2.46-7.24,4.61-14.58,7.07-21.81,1.21-3.57,3.23-3.92,5.68-1.13,1.14,1.31,2.13,2.81,2.93,4.35,3.97,7.69,7.89,15.4,11.74,23.14,1.06,2.12,2.34,4.35,2.54,6.62.15,1.74-.72,4.4-2.04,5.26-2.22,1.45-3.46-.87-4.4-2.71-1.35-2.61-2.68-5.24-4.01-7.86-.38.04-.76.08-1.14.13-.5,2.15-1.01,4.29-1.51,6.44-.38-.15-.77-.3-1.15-.46ZM180.83,40.83c-1.77-3.41-3.28-6.3-4.78-9.18-.27.05-.54.09-.81.14-.73,3.59-1.47,7.17-2.33,11.38,2.86-.84,5.06-1.49,7.92-2.34Z'/%3E%3Cpath fill='%23EAE6D2' d='M248.48,40.04c-.28,2.14-.56,4.28-.83,6.41-.32.08-.64.16-.96.24-.58-1.46-1.16-2.92-1.84-4.64-2.49.57-5.11.92-7.5,1.85-1.01.4-1.62,1.99-2.28,3.12-.74,1.28-1.01,3.12-2.08,3.85-1.13.77-3.02.83-4.45.55-.52-.1-.78-2.04-.99-3.17-.25-1.38-.46-2.8-.44-4.2.02-1.4.08-2.91.6-4.18.87-2.11,2.43-3.95,3.14-6.09,2.34-7,4.33-14.12,6.66-21.12,1.31-3.92,3.47-4.17,6.04-.88,1,1.28,1.87,2.68,2.6,4.13,4.33,8.62,8.62,17.25,12.87,25.92.65,1.33,1.53,2.9,1.33,4.22-.24,1.62-1.49,3.09-2.3,4.63-1.38-.95-3.18-1.61-4.05-2.9-1.65-2.44-2.77-5.24-4.11-7.89-.47.05-.94.1-1.41.14ZM245.65,33.6c-1.58-3.15-2.96-5.9-4.34-8.65-.26.07-.53.14-.79.21-.78,3.41-1.56,6.81-2.49,10.88,2.9-.93,5.08-1.63,7.62-2.44Z'/%3E%3Cpath fill='%23EAE6D2' d='M319.98,32.19c-.32,2.02-.63,4.03-.95,6.05-.3.08-.59.15-.89.23-.56-1.41-1.12-2.83-1.76-4.43-1.89.48-3.8,1.02-5.73,1.42-2.19.45-3.54,1.54-3.86,3.9-.15,1.08-.48,2.55-1.24,3.05-1.29.84-3,1.35-4.52,1.32-.45,0-.95-2.26-1.26-3.53-.25-1.01.04-2.22-.38-3.12-1.13-2.35-.64-4.1.93-6.16,1.28-1.69,1.8-4,2.48-6.1,2.17-6.66,4.08-13.4,6.45-19.99,1.43-3.96,3.56-4.07,6.14-.65.9,1.19,1.68,2.51,2.35,3.85,3.86,7.73,7.72,15.47,11.48,23.25,1.03,2.13,2.19,4.38,2.39,6.66.13,1.4-1.18,3.27-2.38,4.28-.43.36-2.95-.84-3.65-1.9-1.68-2.56-2.85-5.46-4.22-8.22-.46.03-.91.06-1.37.09ZM309.65,28.5c3.12-1.13,5.28-1.92,7.81-2.84-1.58-3.19-2.96-5.98-4.34-8.76-.31.05-.62.1-.93.15-.76,3.45-1.53,6.91-2.54,11.45Z'/%3E%3Cpath fill='%23EAE6D2' d='M92.45,26.31c7.81,0,11.12,4.35,8.21,10.14-2.09,4.15-5.57,7.59-8.49,11.31-.61.78-1.4,1.48-2.24,2-5.92,3.71-7.39,8.39-4.72,15.14,1.22,3.09.21,7.09.09,10.67-.01.39-.86,1.12-1.21,1.06-.63-.1-1.44-.55-1.73-1.09-6.26-11.72-8.26-24.65-10.51-37.5-.14-.81.24-2.13.85-2.6,6.27-4.74,12.97-8.57,19.76-9.13ZM81.84,46.91c4.24-3.52,8.82-6.05,10.03-11.82-8.41-.18-12.14,4.15-10.03,11.82Z'/%3E%3Cpath fill='%23EAE6D2' d='M340.93,47.54c-.76-2.38-1.17-4.98-2.4-7.09-1.21-2.08-3.84-3.43-4.75-5.56-.62-1.47.03-4.35,1.19-5.49,1.72-1.69,4.08-.88,5.31,1.38,1.48,2.73,3.75,1.93,5.51.98,1.93-1.04,3.58-2.74,4.98-4.46.2-.25-1.5-2.79-2.72-3.29-3.23-1.32-6.69-2.08-10.04-3.12-4.11-1.27-7.85-2.99-8.41-7.98-.48-4.24,2.11-8.27,7-10.61,4.28-2.05,8.79-3.03,13.51-1.67,3.41.98,5.01,3.44,3.82,6.13-1.35,3.06-3.79,2.29-6.41,1.78-2.31-.45-4.84-.26-7.19.14-.9.15-2.16,1.65-2.18,2.56-.02.85,1.24,2.14,2.21,2.5,2.45.91,5.08,1.32,7.6,2.09,2.03.62,4.12,1.22,5.94,2.26,5.97,3.41,7.25,10.79,2.35,15.63-2.68,2.65-6.16,4.74-9.64,6.25-2.85,1.24-4.93,2.19-4.16,5.74.11.5-.29,1.11-.46,1.68-.36.05-.72.1-1.08.16Z'/%3E%3C/svg%3E");
-            background-repeat: round;
-            background-size: 280px auto;
-            transform: rotate(-12deg);
-            mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 10%, rgba(0,0,0,0.4) 60%, transparent 95%);
-            -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 10%, rgba(0,0,0,0.4) 60%, transparent 95%);
-            animation: giftWrapDrift 65s infinite linear;
-        }
-
-        @keyframes giftWrapDrift {
-            0% { background-position: 0 0; }
-            100% { background-position: 1000px 1000px; }
-        }
-
-        /* MASTER HEADER RESPONSIVE */
-        .master-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(18, 19, 16, 0.96);
-            backdrop-filter: blur(14px);
-            border-bottom: 1.5px solid var(--border-card);
-            padding: 10px 18px;
+        /* HEADER BRAND ULTRA OPTIMIZADO */
+        .brand-header {
+            text-align: center;
             display: flex;
-            justify-content: center;
-            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 0px;
         }
+        .logo-wrapper {
+            width: 90px; height: 90px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            animation: coinFlipSway 5.5s infinite ease-in-out;
+            filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.7));
+        }
+        @keyframes coinFlipSway {
+            0%, 100% { transform: rotateY(0deg); }
+            25% { transform: rotateY(24deg); }
+            75% { transform: rotateY(-24deg); }
+        }
+        .logo-svg-main { width: 100%; height: 100%; display: block; }
+        .brand-title-svg { width: 100%; max-width: 220px; height: auto; display: block; margin: 2px 0 0px; }
 
-        .header-inner-container {
-            width: 100%;
-            max-width: 1120px;
+        /* TEASER SUPERIOR ULTRA-PROLIJO (1 LÍNEA, SIN SALTOS DE RENGLÓN FEOS) */
+        .promo-top-teaser {
+            background: rgba(28, 30, 24, 0.90);
+            border: 1px dashed rgba(247, 194, 104, 0.45);
+            border-radius: 12px;
+            padding: 7px 12px;
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            row-gap: 8px;
-        }
-
-        .brand-logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none;
+            color: var(--brand-cream);
             cursor: pointer;
-            order: 1;
+            transition: all 0.25s var(--spring);
+            white-space: nowrap;
+            overflow: hidden;
         }
-
-        .logo-circle-svg {
-            width: 40px;
-            height: 40px;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.8));
+        .promo-top-teaser:hover {
+            border-color: var(--bronze-bright);
+            background: rgba(36, 38, 30, 0.98);
+            transform: translateY(-1px);
+        }
+        .promo-teaser-text {
+            font-size: clamp(0.68rem, 2.8vw, 0.75rem);
+            font-weight: 700;
+            color: var(--brand-cream-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .promo-teaser-text strong {
+            color: #4ADE80;
+            font-weight: 900;
+        }
+        .promo-teaser-action {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--bronze-bright);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
             flex-shrink: 0;
         }
 
-        .brand-title-vector {
-            height: 22px;
-            width: auto;
-            max-width: 180px;
-            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+        /* BARRA RECOMENDACIÓN POR IP DESPLEGABLE (SLIM & FÁCIL) */
+        .ip-recommendation-bar {
+            background: rgba(26, 28, 22, 0.96);
+            border: 1px solid var(--border-card);
+            border-radius: 12px;
+            padding: 6px 10px 6px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            transition: all 0.25s var(--spring);
         }
-
-        .header-tag-wrap {
-            order: 2;
+        .ip-recommendation-bar:hover {
+            border-color: var(--bronze-bright);
         }
-
-        .b2b-pill-tag {
-            font-size: 0.66rem;
-            font-weight: 900;
-            padding: 4px 12px;
-            border-radius: 999px;
-            background: rgba(247, 194, 104, 0.16);
-            color: var(--bronze-bright);
-            border: 1px solid var(--border-hover);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+        .ip-rec-main-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
             white-space: nowrap;
-            box-shadow: 0 0 10px rgba(247, 194, 104, 0.2);
+        }
+        .ip-rec-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-align: left;
+            overflow: hidden;
+            flex: 1;
+        }
+        .ip-rec-icon {
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .ip-rec-text-single {
+            font-size: clamp(0.68rem, 2.7vw, 0.74rem);
+            color: var(--brand-cream-muted);
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .ip-rec-text-single strong {
+            color: var(--bronze-bright);
+            font-weight: 800;
+        }
+        .ip-rec-toggle-badge {
+            font-size: 0.60rem;
+            font-weight: 800;
+            background: rgba(34, 197, 94, 0.16);
+            color: #4ADE80;
+            border: 1px solid rgba(34, 197, 94, 0.35);
+            padding: 2px 6px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .ip-rec-toggle-badge .arrow-toggle {
+            font-size: 0.65rem;
+            transition: transform 0.25s ease;
+        }
+        .ip-recommendation-bar.expanded .arrow-toggle {
+            transform: rotate(180deg);
+        }
+        
+        /* BANDEJA DESPLEGABLE CON DETALLES DE VIAJE */
+        .ip-rec-expand-tray {
+            display: none;
+            padding-top: 5px;
+            border-top: 1px dashed rgba(229, 169, 82, 0.25);
+            font-size: 0.72rem;
+            color: var(--brand-cream-muted);
+            line-height: 1.35;
+            animation: slideDownTray 0.2s ease-out;
+        }
+        .ip-recommendation-bar.expanded .ip-rec-expand-tray {
+            display: block;
+        }
+        @keyframes slideDownTray {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* NAVEGACIÓN CORPORATIVA SUIZA (SIN SOLAPAS INNECESARIAS) */
-        .nav-tabs-bar {
-            order: 3;
+        /* BUSCADOR Y BOTÓN GPS */
+        .search-row {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+        }
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+        .search-input-box {
+            width: 100%;
+            background: rgba(22, 23, 19, 0.94);
+            border: 1.5px solid var(--border-card);
+            border-radius: 14px;
+            padding: 11px 36px 11px 38px;
+            color: var(--brand-cream);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.86rem;
+            outline: none;
+            transition: all 0.2s ease;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23F7C268" viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 5.293 14.707l4.387 4.386a1 1 0 0 0 1.414-1.414l-4.386-4.387A8 8 0 0 0 10 2zm-6 8a6 6 0 1 1 12 0 6 6 0 0 1-12 0z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 12px center;
+            background-size: 17px;
+        }
+        .search-input-box:focus {
+            border-color: var(--bronze-bright);
+            box-shadow: 0 0 12px var(--neon-glow);
+        }
+        .btn-clear-search {
+            position: absolute;
+            right: 12px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(247, 194, 104, 0.20);
+            border: none;
+            color: var(--bronze-bright);
+            font-size: 12px;
+            font-weight: 800;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .btn-gps-nearest {
+            background: rgba(26, 28, 23, 0.94);
+            border: 1.5px solid var(--border-card);
+            border-radius: 14px;
+            padding: 0 13px;
+            color: var(--bronze-bright);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 5px;
-            width: 100%;
-            max-width: 580px;
-            background: rgba(26, 28, 23, 0.95);
-            border: 1px solid var(--border-card);
-            border-radius: 999px;
-            padding: 3px;
-            margin: 0 auto;
-        }
-
-        .nav-tab-btn {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(0.70rem, 2.3vw, 0.78rem);
+            font-size: 0.74rem;
             font-weight: 800;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            padding: 7px 10px;
-            border-radius: 999px;
             cursor: pointer;
-            transition: all 0.2s var(--spring);
-            text-align: center;
-            user-select: none;
             white-space: nowrap;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
         }
-
-        .nav-tab-btn.active {
+        .btn-gps-nearest:hover, .btn-gps-nearest.active {
             background: var(--bronze-bright);
             color: #12130F;
-            box-shadow: 0 2px 8px rgba(247, 194, 104, 0.35);
-        }
-
-        /* DESKTOP HEADER SLIM */
-        @media (min-width: 900px) {
-            .master-header {
-                padding: 7px 24px;
-            }
-            .header-inner-container {
-                flex-wrap: nowrap;
-                justify-content: space-between;
-                gap: 16px;
-            }
-            .brand-logo-wrap {
-                order: 1;
-                flex: 0 0 auto;
-            }
-            .nav-tabs-bar {
-                order: 2;
-                flex: 0 1 540px;
-                width: auto;
-                margin: 0;
-            }
-            .header-tag-wrap {
-                order: 3;
-                flex: 0 0 auto;
-            }
-        }
-
-        /* CONTENEDOR DE VISTAS */
-        .view-section {
-            display: none;
-            width: 100%;
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 20px 16px;
-            animation: fadeInView 0.28s var(--spring) forwards;
-        }
-
-        .view-section.active { display: block; }
-
-        @keyframes fadeInView {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* BANNERS INFORMATIVOS CON REGLA CLARA "SIN TOPPING" */
-        .b2b-hero-banner {
-            background: linear-gradient(135deg, rgba(35, 37, 30, 0.95) 0%, rgba(22, 23, 19, 0.95) 100%);
-            border: 1.5px solid var(--border-card);
-            border-radius: 20px;
-            padding: 16px 20px;
-            margin-bottom: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            box-shadow: var(--shadow-card);
-            text-align: center;
-        }
-
-        .b2b-hero-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(1.2rem, 4vw, 1.55rem);
-            font-weight: 900;
-            color: var(--brand-cream);
-            text-transform: uppercase;
-        }
-        .b2b-hero-title span { color: var(--bronze-bright); }
-
-        .b2b-hero-bullets {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            font-size: 0.82rem;
-            color: var(--brand-cream-muted);
-            font-weight: 600;
-        }
-
-        .highlight-notice-pill {
-            background: rgba(239, 68, 68, 0.16);
-            color: #F87171;
-            border: 1px solid rgba(239, 68, 68, 0.4);
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.72rem;
-            letter-spacing: 0.04em;
-        }
-
-        .bullet-dot { color: var(--bronze-bright); font-weight: 900; }
-
-        /* CONTROLES DEL CATÁLOGO */
-        .catalog-controls {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .search-bar-wrap {
-            width: 100%;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-input {
-            width: 100%;
-            background: rgba(22, 23, 19, 0.92);
-            border: 1.5px solid var(--border-card);
-            border-radius: 14px;
-            padding: 12px 42px 12px 44px;
-            color: var(--brand-cream);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.92rem;
-            outline: none;
-            transition: border-color 0.2s ease;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23F7C268" viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 5.293 14.707l4.387 4.386a1 1 0 0 0 1.414-1.414l-4.386-4.387A8 8 0 0 0 10 2zm-6 8a6 6 0 1 1 12 0 6 6 0 0 1-12 0z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: 14px center;
-            background-size: 18px;
-        }
-
-        .search-input:focus {
             border-color: var(--bronze-bright);
             box-shadow: 0 0 12px var(--neon-glow);
         }
+        .btn-gps-nearest svg { width: 15px; height: 15px; }
 
-        .btn-clear-search {
-            position: absolute;
-            right: 12px;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: rgba(247, 194, 104, 0.18);
-            border: 1px solid var(--border-card);
-            color: var(--bronze-bright);
-            font-size: 13px;
-            font-weight: 800;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .filter-header-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        /* CHIPS RESPONSIVE SIN CORTE DE RENGLONES */
-        .category-chips-scroll {
+        /* CHIPS DE FILTRO RESPONSIVE SIN CORTES CON SCROLL CÓMODO */
+        .filter-chips-row {
             display: flex;
             gap: 6px;
+            width: 100%;
             overflow-x: auto;
-            scrollbar-width: none;
-            padding-bottom: 2px;
-            flex: 1;
+            -webkit-overflow-scrolling: touch;
+            padding: 2px 2px 6px 2px;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(247, 194, 104, 0.35) transparent;
         }
-        .category-chips-scroll::-webkit-scrollbar { display: none; }
-
-        .cat-chip {
-            background: rgba(28, 30, 24, 0.85);
+        .filter-chips-row::-webkit-scrollbar {
+            height: 3px;
+        }
+        .filter-chips-row::-webkit-scrollbar-thumb {
+            background: rgba(247, 194, 104, 0.35);
+            border-radius: 999px;
+        }
+        .filter-chips-row::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chip-btn {
+            background: rgba(26, 28, 23, 0.88);
             border: 1px solid var(--border-card);
             color: var(--text-muted);
-            font-size: 0.72rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.70rem;
             font-weight: 800;
-            padding: 7px 14px;
+            padding: 6px 12px;
             border-radius: 999px;
             cursor: pointer;
             white-space: nowrap;
             text-transform: uppercase;
             letter-spacing: 0.04em;
             transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             flex-shrink: 0;
         }
-
-        .cat-chip.active, .cat-chip:hover {
+        .chip-btn .chip-count {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 800;
+            opacity: 0.75;
+        }
+        .chip-btn.active, .chip-btn:hover {
             background: var(--bronze-bright);
             color: #12130F;
             border-color: var(--bronze-bright);
+            box-shadow: 0 2px 8px rgba(247, 194, 104, 0.3);
         }
+        .chip-btn.active .chip-count { opacity: 1; }
 
-        .view-mode-toggle {
+        /* LISTA DE SUCURSALES (LLEGA RÁPIDAMENTE ARRIBA) */
+        .branches-list {
             display: flex;
-            background: rgba(20, 22, 18, 0.95);
-            border: 1px solid var(--border-card);
-            border-radius: 10px;
-            padding: 2px;
-            gap: 2px;
+            flex-direction: column;
+            gap: 11px;
+            width: 100%;
         }
 
-        .btn-view-mode {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-size: 0.72rem;
-            font-weight: 800;
-            padding: 5px 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        .btn-view-mode.active {
-            background: rgba(247, 194, 104, 0.2);
-            color: var(--bronze-bright);
-        }
-
-        /* GRILLA DE PRODUCTOS */
-        .products-b2b-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 16px;
-        }
-
-        .product-b2b-card {
+        .branch-card {
             background: var(--bg-card);
             border: 1.5px solid var(--border-card);
             border-radius: 18px;
-            overflow: hidden;
+            padding: 15px 16px;
             display: flex;
             flex-direction: column;
+            gap: 11px;
             box-shadow: var(--shadow-card);
             transition: all 0.25s var(--spring);
             position: relative;
         }
-
-        .product-b2b-card:hover {
+        .branch-card:hover {
             border-color: var(--border-hover);
             background: var(--bg-card-hover);
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.8), 0 0 16px rgba(247, 194, 104, 0.2);
         }
-
-        .product-b2b-card.has-selection {
+        .branch-card.is-nearest {
             border-color: var(--bronze-bright);
-            background: rgba(35, 38, 29, 0.98);
+            box-shadow: 0 0 16px rgba(247, 194, 104, 0.28);
         }
 
-        .card-img-wrap {
-            width: 100%;
-            height: 165px;
-            position: relative;
-            background: #181916;
-            overflow: hidden;
-            cursor: zoom-in;
-        }
-
-        .card-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            background-color: #1b1d19;
-        }
-
-        .product-b2b-card:hover .card-img {
-            transform: scale(1.04);
-        }
-
-        .box-badge-floating {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(18, 19, 15, 0.92);
-            backdrop-filter: blur(6px);
-            border: 1px solid var(--bronze-bright);
-            color: var(--bronze-bright);
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 3px 8px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .card-body {
-            padding: 14px 16px;
+        .branch-top-info {
             display: flex;
-            flex-direction: column;
+            align-items: flex-start;
             justify-content: space-between;
-            flex: 1;
             gap: 10px;
         }
-
-        .product-name-b2b {
+        .branch-name-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .branch-zone-sub {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--bronze-bright);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .branch-distance-badge {
+            background: rgba(247, 194, 104, 0.15);
+            color: var(--bronze-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.60rem;
+            font-weight: 800;
+        }
+        .branch-title {
             font-family: 'Outfit', sans-serif;
             font-size: 1.12rem;
-            font-weight: 800;
+            font-weight: 900;
             color: var(--brand-cream);
             line-height: 1.2;
         }
-
-        .product-desc-b2b {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-            font-weight: 500;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            min-height: 34px;
-        }
-
-        .card-footer-b2b {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 10px;
-            border-top: 1px solid rgba(229, 169, 82, 0.16);
-        }
-
-        .pricing-wrap {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-box-val {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 900;
-            color: var(--bronze-bright);
-            line-height: 1;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .price-unit-sub {
-            font-size: 0.68rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-top: 2px;
-        }
-
-        /* STEPPER B2B */
-        .b2b-stepper {
-            display: flex;
-            align-items: center;
-            background: rgba(14, 15, 13, 0.95);
-            border: 1.5px solid var(--border-card);
-            border-radius: 10px;
-            overflow: hidden;
-            height: 36px;
-        }
-
-        .step-btn-b2b {
-            background: transparent;
+        .branch-address-btn {
+            background: none;
             border: none;
-            color: var(--brand-cream);
-            width: 34px;
-            height: 100%;
-            font-size: 18px;
-            font-weight: 900;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.15s ease, color 0.15s ease;
-        }
-
-        .step-btn-b2b:hover {
-            background: rgba(247, 194, 104, 0.2);
-            color: var(--bronze-bright);
-        }
-
-        .step-btn-b2b:active { filter: brightness(0.85); }
-
-        .step-input-b2b {
-            width: 44px;
-            text-align: center;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 900;
-            color: var(--brand-cream);
-            border: none;
-            background: transparent;
-            outline: none;
-            font-variant-numeric: tabular-nums;
-            cursor: text;
-            -moz-appearance: textfield;
-        }
-        .step-input-b2b::-webkit-outer-spin-button,
-        .step-input-b2b::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        .step-input-b2b:focus {
-            background: rgba(247, 194, 104, 0.16);
-        }
-
-        /* MODO LISTA RÁPIDA */
-        .products-b2b-grid.mode-list {
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
-
-        .products-b2b-grid.mode-list .product-b2b-card {
-            flex-direction: row;
-            align-items: center;
-            padding: 10px 14px;
-            gap: 12px;
-        }
-
-        .products-b2b-grid.mode-list .card-img-wrap {
-            width: 70px;
-            height: 70px;
-            min-width: 70px;
-            border-radius: 12px;
-        }
-
-        .products-b2b-grid.mode-list .box-badge-floating { display: none; }
-
-        .products-b2b-grid.mode-list .card-body {
             padding: 0;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .products-b2b-grid.mode-list .product-desc-b2b { display: none; }
-
-        .products-b2b-grid.mode-list .card-footer-b2b {
-            border-top: none;
-            padding-top: 0;
-            gap: 16px;
-        }
-
-        /* ADAPTACIÓN MÓVIL SIN DESBORDES */
-        @media (max-width: 680px) {
-            .products-b2b-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-            .card-img-wrap { height: 115px; }
-            .card-body { padding: 10px; gap: 8px; }
-            .product-name-b2b { font-size: 0.92rem; }
-            .product-desc-b2b { font-size: 0.70rem; min-height: 28px; -webkit-line-clamp: 2; }
-            .price-box-val { font-size: 1.05rem; }
-            .price-unit-sub { font-size: 0.60rem; }
-            .b2b-stepper { height: 32px; }
-            .step-btn-b2b { width: 28px; }
-            .step-input-b2b { width: 36px; font-size: 0.86rem; }
-            .box-badge-floating { font-size: 0.58rem; padding: 2px 6px; }
-        }
-
-        /* HUD INFERIOR FLOTANTE */
-        .b2b-bottom-hud {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100vw;
-            background: rgba(16, 17, 14, 0.98);
-            backdrop-filter: blur(18px);
-            border-top: 1.5px solid var(--border-card);
-            padding: 12px 18px;
-            z-index: 2000;
-            box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.85);
-            display: flex;
-            justify-content: center;
-        }
-
-        .hud-content-wrap {
-            width: 100%;
-            max-width: 960px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.78rem;
+            color: var(--brand-cream-muted);
+            font-weight: 600;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 16px;
+            gap: 4px;
+            transition: color 0.2s ease;
+        }
+        .branch-address-btn:hover {
+            color: var(--bronze-bright);
         }
 
-        .hud-progress-col {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
+        /* BADGES DE ESTADO EN TIEMPO REAL */
+        .status-badge {
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            font-size: 0.66rem;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 7px;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
             gap: 5px;
         }
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .status-badge.open24 {
+            background: rgba(34, 197, 94, 0.16);
+            color: #4ADE80;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+        }
+        .status-badge.open24 .status-dot {
+            background: #4ADE80;
+            box-shadow: 0 0 8px #4ADE80;
+            animation: radarPulse 1.8s infinite;
+        }
+        .status-badge.open {
+            background: rgba(34, 197, 94, 0.16);
+            color: #4ADE80;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+        }
+        .status-badge.open .status-dot {
+            background: #4ADE80;
+            box-shadow: 0 0 6px #4ADE80;
+            animation: radarPulse 2s infinite;
+        }
+        .status-badge.closed {
+            background: rgba(239, 68, 68, 0.14);
+            color: #F87171;
+            border: 1px solid rgba(239, 68, 68, 0.35);
+        }
+        .status-badge.closed .status-dot {
+            background: #EF4444;
+        }
+        .status-badge.soon {
+            background: rgba(148, 163, 184, 0.14);
+            color: #CBD5E1;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+        }
+        .status-badge.soon .status-dot { background: #94A3B8; }
 
-        .hud-text-row {
+        @keyframes radarPulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
+
+        /* BOTONERA TÁCTIL DUAL */
+        .branch-actions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .btn-action-touch {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            font-size: 0.80rem;
-            font-weight: 800;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .track-bar {
-            width: 100%;
-            height: 7px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 999px;
-            overflow: hidden;
-            border: 1px solid rgba(229, 169, 82, 0.25);
-        }
-
-        .track-fill {
-            height: 100%;
-            width: 0%;
-            border-radius: 999px;
-            transition: width 0.3s var(--spring), background 0.3s ease;
-        }
-
-        .track-fill.tier-bronze {
-            background: linear-gradient(90deg, #F7C268, #E5A952);
-        }
-
-        .track-fill.tier-green {
-            background: linear-gradient(90deg, #10B981, #22C55E);
-            box-shadow: 0 0 12px rgba(34, 197, 94, 0.45);
-        }
-
-        .track-fill.tier-gold {
-            background: linear-gradient(90deg, #F59E0B, #FDE047);
-            box-shadow: 0 0 18px rgba(245, 158, 11, 0.65);
-            animation: goldTierPulse 2s infinite ease-in-out;
-        }
-
-        @keyframes goldTierPulse {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.25); }
-        }
-
-        .hud-total-info {
-            display: flex;
-            flex-direction: column;
-            text-align: right;
-            min-width: 130px;
-        }
-
-        .total-amount-b2b {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.45rem;
-            font-weight: 900;
-            color: var(--bronze-bright);
-            line-height: 1;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .total-sub-b2b {
-            font-size: 0.68rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        .btn-order-trigger {
-            background: var(--border-card);
-            color: var(--text-muted);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 14px 22px;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 12px;
             border-radius: 12px;
-            border: none;
-            cursor: not-allowed;
-            white-space: nowrap;
-            transition: all 0.25s var(--spring);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            user-select: none;
         }
-
-        .btn-order-trigger.unlocked {
+        .btn-action-touch svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+        .btn-maps {
+            background: rgba(66, 133, 244, 0.12);
+            color: #93C5FD;
+            border: 1px solid rgba(66, 133, 244, 0.35);
+        }
+        .btn-maps:hover {
+            background: rgba(66, 133, 244, 0.22);
+            border-color: #60A5FA;
+            box-shadow: 0 0 12px var(--accent-maps-glow);
+        }
+        .btn-wsp {
             background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
-            color: #032311;
-            box-shadow: 0 4px 16px var(--accent-green-glow);
-            cursor: pointer;
+            color: #02200D;
+            border: none;
+            box-shadow: 0 4px 14px var(--accent-green-glow);
         }
-
-        .btn-order-trigger.unlocked:hover {
-            filter: brightness(1.08);
+        .btn-wsp:hover {
+            filter: brightness(1.1);
             transform: translateY(-1px);
         }
 
-        @media (max-width: 600px) {
-            .b2b-bottom-hud { padding: 10px 14px; }
-            .hud-content-wrap { gap: 10px; }
-            .hud-total-info { min-width: 100px; }
-            .total-amount-b2b { font-size: 1.25rem; }
-            .btn-order-trigger { padding: 12px 14px; font-size: 0.78rem; }
-        }
-
-        /* AVISOS VISUALES HTML */
-        .b2b-alert-banner {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-70px);
-            background: rgba(26, 22, 17, 0.98);
-            backdrop-filter: blur(14px);
-            border-radius: 999px;
-            padding: 10px 18px 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 14px 35px rgba(0,0,0,0.85), 0 0 18px rgba(245, 158, 11, 0.25);
-            z-index: 99999;
-            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            pointer-events: none;
-            max-width: 90vw;
-            cursor: pointer;
-        }
-
-        .b2b-alert-banner.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .b2b-alert-banner.warning {
-            border: 1.5px solid #F59E0B;
-            color: #FDE68A;
-        }
-
-        .b2b-alert-banner.success {
-            border: 1.5px solid #22C55E;
-            color: #86EFAC;
-            box-shadow: 0 14px 35px rgba(0,0,0,0.85), 0 0 18px rgba(34, 197, 94, 0.25);
-        }
-
-        .b2b-alert-banner.info {
-            border: 1.5px solid var(--bronze-bright);
-            color: var(--brand-cream);
-        }
-
-        .alert-icon-wrap {
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .alert-text {
-            font-size: 0.82rem;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .alert-close-btn {
-            background: none;
-            border: none;
-            color: currentColor;
-            font-size: 14px;
-            font-weight: 800;
-            cursor: pointer;
-            opacity: 0.7;
-            margin-left: 6px;
-            padding: 2px 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .alert-close-btn:hover { opacity: 1; }
-
-        .f-input.input-error {
-            border-color: #F59E0B !important;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.35) !important;
-            animation: shakeInput 0.3s ease-in-out;
-        }
-
-        @keyframes shakeInput {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-4px); }
-            40%, 80% { transform: translateX(4px); }
-        }
-
-        /* SECCIONES GALERÍA Y CONTACTO */
-        .info-card-luxury {
-            background: var(--bg-card);
-            border: 1.5px solid var(--border-card);
-            border-radius: 20px;
-            padding: 24px;
-            box-shadow: var(--shadow-card);
+        /* SECCIÓN PRÓXIMAS APERTURAS */
+        .future-cities-box {
+            background: rgba(18, 19, 15, 0.85);
+            border: 1px dashed var(--border-card);
+            border-radius: 16px;
+            padding: 13px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            margin-bottom: 18px;
+            gap: 4px;
+            text-align: center;
         }
-
-        .info-card-title {
+        .future-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.35rem;
-            font-weight: 900;
-            color: var(--brand-cream);
-            text-transform: uppercase;
-        }
-        .info-card-title span { color: var(--bronze-bright); }
-
-        .info-card-text {
             font-size: 0.88rem;
-            line-height: 1.6;
-            color: var(--brand-cream-muted);
-            font-weight: 500;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 12px;
-        }
-
-        .gallery-item {
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1.5px solid var(--border-card);
-            height: 180px;
-            background: #181916;
-            box-shadow: var(--shadow-card);
-            cursor: zoom-in;
-            position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item:hover img { transform: scale(1.06); }
-
-        .contact-grid-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 14px;
-            align-items: stretch;
-        }
-
-        .contact-card-agent {
-            background: rgba(22, 24, 19, 0.94);
-            border: 1.5px solid var(--border-card);
-            border-radius: 18px;
-            padding: 22px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            height: 100%;
-        }
-
-        .agent-role {
-            font-size: 0.70rem;
             font-weight: 900;
             color: var(--bronze-bright);
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.03em;
         }
-
-        .agent-name {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.35rem;
-            font-weight: 900;
-            color: var(--brand-cream);
-        }
-
-        .btn-wsp-direct {
-            background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
-            color: #032311;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.86rem;
-            font-weight: 900;
-            text-decoration: none;
-            padding: 13px 18px;
-            border-radius: 12px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 14px var(--accent-green-glow);
-            margin-top: auto;
-        }
-
-        /* MODAL DE CHECKOUT */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 3000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-        }
-        .modal-overlay.active { display: flex; }
-
-        .modal-sheet {
-            background: rgba(22, 23, 19, 0.98);
-            border: 1.5px solid var(--bronze-bright);
-            border-radius: 22px;
-            padding: 22px;
-            width: 100%;
-            max-width: 560px;
-            max-height: 92vh;
-            overflow-y: auto;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 30px var(--neon-glow);
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .modal-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-card);
-            padding-bottom: 10px;
-        }
-
-        .modal-top-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.30rem;
-            font-weight: 900;
-            color: var(--brand-cream);
-        }
-
-        .btn-close-x {
-            background: none;
-            border: none;
+        .future-list {
+            font-size: 0.76rem;
             color: var(--text-muted);
-            font-size: 20px;
-            font-weight: 900;
-            cursor: pointer;
-        }
-
-        .summary-recap-box {
-            background: rgba(14, 15, 13, 0.9);
-            border: 1px solid var(--border-card);
-            border-radius: 12px;
-            padding: 12px 14px;
-            max-height: 180px;
-            overflow-y: auto;
-            font-size: 0.80rem;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .form-grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .f-group {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .f-label {
-            font-size: 0.68rem;
-            font-weight: 800;
-            color: var(--bronze-bright);
-            text-transform: uppercase;
-        }
-
-        .f-input {
-            background: rgba(14, 15, 13, 0.9);
-            border: 1.5px solid var(--border-card);
-            border-radius: 10px;
-            padding: 10px 12px;
-            color: var(--brand-cream);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.85rem;
-            outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-        .f-input:focus { border-color: var(--bronze-bright); }
-
-        .coordination-notice-box {
-            background: rgba(18, 20, 15, 0.95);
-            border: 1px dashed var(--bronze-bright);
-            border-radius: 12px;
-            padding: 12px 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            font-size: 0.78rem;
-            color: var(--brand-cream-muted);
+            font-weight: 600;
             line-height: 1.4;
         }
-        .coordination-notice-box strong {
-            color: var(--bronze-bright);
-        }
 
-        .btn-dispatch-order {
-            background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
-            color: #02200D;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.92rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            padding: 15px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 18px var(--accent-green-glow);
-            width: 100%;
-        }
-
-        .voucher-success-box {
-            display: none;
-            background: rgba(20, 22, 17, 0.98);
-            border: 1.5px solid var(--accent-green);
-            border-radius: 18px;
-            padding: 20px;
-            text-align: center;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        /* LIGHTBOX */
-        .lightbox-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.92);
-            backdrop-filter: blur(14px);
-            z-index: 5000;
-            display: none;
+        /* BANNER COMPLETO 10% OFF INSTAGRAM */
+        .promo-pill-banner {
+            background: linear-gradient(135deg, rgba(38, 40, 32, 0.95) 0%, rgba(20, 22, 17, 0.95) 100%);
+            border: 1.5px solid var(--border-card);
+            border-radius: 16px;
+            padding: 13px 15px;
+            display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 16px;
-            cursor: zoom-out;
-            user-select: none;
+            justify-content: space-between;
+            gap: 12px;
+            box-shadow: var(--shadow-card);
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s var(--spring);
+            cursor: pointer;
+            scroll-margin-top: 24px;
         }
-        .lightbox-overlay.active { display: flex; }
-
-        .lightbox-content-box {
-            position: relative;
-            max-width: 90vw;
-            max-height: 85vh;
+        .promo-pill-banner:hover {
+            border-color: var(--border-hover);
+            background: rgba(36, 38, 30, 0.98);
+            transform: translateY(-2px);
+        }
+        .promo-pill-banner.banner-highlight {
+            border-color: #4ADE80;
+            box-shadow: 0 0 24px rgba(74, 222, 128, 0.35);
+            animation: bannerPulse 1.4s ease-out;
+        }
+        @keyframes bannerPulse {
+            0% { transform: scale(0.98); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .promo-banner-text {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            cursor: default;
+            gap: 2px;
+            text-align: left;
         }
-
-        .lightbox-img {
-            max-width: 100%;
-            max-height: 75vh;
-            border-radius: 16px;
-            border: 2px solid var(--border-hover);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 25px var(--neon-glow);
-            object-fit: contain;
-            transition: transform 0.25s var(--spring);
-            cursor: zoom-in;
+        .promo-banner-badge {
+            font-size: 0.65rem;
+            font-weight: 900;
+            color: #4ADE80;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
-
-        .lightbox-caption {
-            margin-top: 12px;
+        .promo-banner-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 800;
             color: var(--brand-cream);
-            text-align: center;
+            line-height: 1.25;
+        }
+        .promo-banner-title span { color: var(--bronze-bright); }
+        .promo-banner-sub {
+            font-size: 0.72rem;
+            color: var(--brand-cream-muted);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 2px;
+        }
+        .promo-banner-btn {
+            background: var(--bronze-bright);
+            color: #12130F;
+            font-size: 0.70rem;
+            font-weight: 900;
+            padding: 8px 12px;
+            border-radius: 10px;
             text-transform: uppercase;
-        }
-
-        .lightbox-close-btn {
-            position: absolute;
-            top: -42px;
-            right: 0;
-            background: rgba(30, 32, 26, 0.85);
-            border: 1px solid var(--border-card);
-            color: var(--brand-cream);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 18px;
-            font-weight: 900;
-            cursor: pointer;
-            display: flex;
+            white-space: nowrap;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 4px;
+            box-shadow: 0 2px 8px rgba(247, 194, 104, 0.35);
         }
 
-        .lightbox-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(22, 24, 19, 0.88);
+        /* BOTÓN CTA HUBOFICIAL DELIVERY / PRINCIPAL (EMPANADAZAS.COM/LINK) */
+        .delivery-cta-card {
+            background: linear-gradient(135deg, rgba(35, 37, 30, 0.98) 0%, rgba(19, 21, 16, 0.98) 100%);
             border: 1.5px solid var(--border-card);
-            color: var(--bronze-bright);
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            font-size: 20px;
-            font-weight: 900;
-            cursor: pointer;
+            border-radius: 16px;
+            padding: 14px 16px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-light);
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s var(--spring);
         }
-        .lightbox-nav-prev { left: -55px; }
-        .lightbox-nav-next { right: -55px; }
+        .delivery-cta-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+        .delivery-cta-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            text-align: left;
+        }
+        .delivery-cta-badge {
+            font-size: 0.66rem;
+            font-weight: 900;
+            color: var(--bronze-bright);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .delivery-cta-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--brand-cream);
+        }
+        .delivery-cta-sub {
+            font-size: 0.72rem;
+            color: var(--brand-cream-muted);
+            font-weight: 600;
+        }
+        .delivery-cta-btn {
+            background: var(--bronze-bright);
+            color: #12130F;
+            font-size: 0.72rem;
+            font-weight: 900;
+            padding: 8px 13px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(247, 194, 104, 0.35);
+        }
 
-        @media (max-width: 680px) {
-            .lightbox-nav-prev { left: 8px; top: auto; bottom: -50px; transform: none; }
-            .lightbox-nav-next { right: 8px; top: auto; bottom: -50px; transform: none; }
-            .lightbox-close-btn { top: -38px; right: 4px; }
-            .form-grid-2 { grid-template-columns: 1fr; }
+        /* TOAST FLOTANTE */
+        .hub-toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1C1D18;
+            border: 1px solid var(--bronze-bright);
+            color: var(--brand-cream);
+            font-size: 0.80rem;
+            font-weight: 800;
+            padding: 10px 18px;
+            border-radius: 999px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+            opacity: 0;
+            transition: all 0.3s var(--spring);
+            pointer-events: none;
+        }
+        .hub-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* FOOTER */
+        .hub-footer {
+            margin-top: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        .footer-badge {
+            font-size: 0.70rem;
+            font-weight: 800;
+            color: var(--brand-cream);
+            background: rgba(24, 25, 21, 0.9);
+            padding: 5px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border-card);
+        }
+        .footer-legal {
+            font-size: 0.66rem;
+            color: var(--text-subtle);
+            font-weight: 600;
+        }
+
+        /* OPTIMIZACIÓN RESPONSIVE MOBILE EXTREMA */
+        @media (max-width: 480px) {
+            body { padding: 12px 10px 32px; }
+            .hub-container { gap: 8px; }
+            .logo-wrapper { width: 72px; height: 72px; }
+            .brand-title-svg { max-width: 175px; }
+            .promo-top-teaser { padding: 6px 10px; }
+            .ip-recommendation-bar { padding: 6px 10px; }
+            .search-input-box { padding: 10px 34px 10px 36px; font-size: 0.82rem; }
+            .btn-gps-nearest { padding: 0 10px; font-size: 0.70rem; }
+            .chip-btn { padding: 5px 10px; font-size: 0.67rem; }
+            .branch-card { padding: 13px 14px; gap: 9px; }
+            .branch-title { font-size: 1.05rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- FONDO PAPEL DE REGALO -->
+    <!-- FONDO REPARADO CONTINUO -->
     <div class="b2b-bg-canvas">
         <div class="ambient-fire-spotlight"></div>
         <div class="stencil-gift-wrap"></div>
     </div>
 
-    <!-- BANNER DE ALERTA HTML INTEGRADO -->
-    <div class="b2b-alert-banner" id="b2bAlertBanner" onclick="dismissAlert()">
-        <span class="alert-icon-wrap" id="alertIcon">⚠️</span>
-        <span class="alert-text" id="alertMsg">Notificación</span>
-        <button type="button" class="alert-close-btn" onclick="dismissAlert(event)">✕</button>
-    </div>
+    <!-- CONTENEDOR CENTRAL -->
+    <main class="hub-container">
 
-    <!-- MASTER HEADER SLIM -->
-    <header class="master-header">
-        <div class="header-inner-container">
-            <a class="brand-logo-wrap" onclick="switchView('linea140')">
-                <svg class="logo-circle-svg" viewBox="0 0 482.94 482.94" xmlns="http://www.w3.org/2000/svg">
+        <!-- HEADER OFICIAL CON MONEDA 3D Y TIPOGRAFÍA SVG -->
+        <header class="brand-header">
+            <div class="logo-wrapper">
+                <svg class="logo-svg-main" viewBox="0 0 482.94 482.94" xmlns="http://www.w3.org/2000/svg">
                     <circle fill="#231F20" cx="241.47" cy="241.47" r="241.47"/>
                     <g>
                         <path fill="#ECA244" d="M241.47,351.07c45.02,0,85.42-27.64,101.89-69.24.71-1.78-.62-3.72-2.54-3.72h-29.69c-.98,0-1.88.54-2.37,1.4-13.73,24.27-39.35,39.28-67.29,39.28s-53.56-15-67.29-39.28c-.49-.86-1.38-1.4-2.37-1.4h-29.69c-1.92,0-3.24,1.94-2.54,3.72,16.46,41.59,56.86,69.24,101.89,69.24"/>
                         <path fill="#FEFAE4" d="M350.36,240.01s0-.02-.01-.04l-.05-.15c-.06-.18-.1-.32-.15-.45-.58-1.6-1.42-3.06-2.49-4.34-1.34-1.6-2.47-3.38-3.36-5.28-.09-.19-.17-.38-.25-.58l-.14-.32c-.07-.16-.15-.35-.23-.53-.05-.13-.11-.28-.16-.44l-.12-.32c-.08-.21-.16-.44-.24-.67-1.63-5.01-1.66-10.31-.08-15.32,0,0,0-.02,0-.03h0s0-.04.01-.06c.03-.13.07-.27.11-.4l.06-.21c.07-.23.13-.43.17-.63.04-.16.06-.33.09-.5l.14-.82c.04-.3.06-.65.08-1l.02-.29c.02-.32.02-.7,0-1.13,0-.05,0-.16,0-.25-.07-1.56-.42-3.18-1.03-4.74-.01-.04-.03-.08-.04-.11l-.04-.09c-.32-.77-.7-1.51-1.12-2.2-.24-.38-.47-.72-.72-1.05-.28-.37-.52-.66-.75-.92-.07-.06-.14-.14-.21-.21-.23-.25-.46-.5-.71-.73l-.56-.48c-.18-.15-.28-.25-.39-.33-.23-.18-.47-.34-.71-.5-.18-.12-.29-.2-.4-.28l-.07-.05c-.22-.13-.6-.35-.98-.55-5.04-2.63-9.02-7.02-11.22-12.35-1-2.42-1.6-4.98-1.81-7.6-.03-.42-.08-.83-.15-1.25l-.08-.39c-.06-.29-.11-.56-.17-.83-.02-.09-.05-.18-.07-.26l-.06-.21c-.06-.23-.13-.46-.21-.7-.05-.16-.11-.32-.18-.49-.08-.2-.17-.42-.26-.64-.07-.17-.14-.32-.21-.46-.1-.21-.21-.43-.33-.64l-.07-.13c-.07-.12-.11-.21-.16-.29-.13-.22-.27-.44-.41-.65l-.25-.38c-.22-.31-.45-.62-.68-.9-.53-.64-1.12-1.25-1.75-1.8-.26-.22-.55-.45-.86-.68-.05-.03-.11-.07-.18-.12l-.15-.1c-.25-.17-.47-.32-.7-.46l-.37-.21c-.22-.12-.43-.24-.66-.35-.13-.06-.26-.12-.39-.18l-1.14-.46c-.22-.08-.46-.15-.71-.23l-.45-.13c-.24-.06-.52-.12-.81-.18l-.43-.09c-.32-.05-.72-.1-1.11-.14-7.29-.59-13.84-4.47-17.96-10.64l-.14-.22c-.16-.24-.43-.67-.69-1.11-.16-.28-.31-.58-.47-.87-.05-.07-.1-.15-.14-.25-.32-.65-.66-1.23-.99-1.75l-.29-.42c-.11-.16-.23-.32-.34-.47-.08-.1-.16-.2-.25-.3l-.39-.47h0s-.04-.04-.06-.07c-.23-.26-.47-.5-.71-.73-.06-.06-.16-.16-.26-.26-.18-.16-.46-.4-.74-.63l-.19-.16c-.2-.15-.5-.37-.84-.6,0,0,0,0,0,0,0,0-.17-.11-.22-.15-.15-.1-.47-.29-.83-.48l-.19-.11c-.22-.12-.55-.27-.87-.41l-.45-.19c-.14-.06-.28-.11-.43-.17-3.79-1.35-7.31-.65-8.89-.19-.17.06-.34.11-.51.16-.24.08-.38.14-.38.14v-.02c-2.16.64-4.38.98-6.65.98-5.78,0-11.35-2.1-15.7-5.9-2.53-2.22-5.74-3.46-9.03-3.49-3.24.03-6.43,1.27-8.97,3.48-4.35,3.8-9.92,5.9-15.7,5.9-2.72,0-5.39-.46-7.93-1.38-.54-.19-1.16-.32-1.85-.38-.15-.01-.28-.02-.4-.04-.36-.04-.64-.07-.92-.09h-.16s-.5,0-.5,0h-.54c-.28,0-.56.04-.84.07l-.51.05c-.2.03-.54.1-.87.17l-.3.06c-.24.05-.58.15-.92.26l-.23.07c-.24.08-.58.2-.91.34l-.46.19c-.27.12-.59.27-.88.43-.04.03-.09.05-.14.08-.34.19-.66.38-.93.55-.05.04-.1.07-.15.1-.3.2-.6.42-.87.63l-.03.03c-.35.29-.63.52-.93.8-.05.05-.1.11-.15.16-.23.23-.47.47-.7.72h0c-.04.05-.07.1-.08.1l-.25.31s-.06.07-.07.08c-.16.19-.29.34-.4.49-.05.07-.09.13-.13.19l-.42.63c-.11.16-.14.21-.18.26-.18.3-.37.63-.57,1.04l-.15.27c-.15.31-.4.78-.67,1.24-.26.44-.52.87-.77,1.23l-.03.05c-4.16,6.23-10.71,10.11-18.01,10.7-.38.03-.78.08-1.21.16l-.29.06c-.31.06-.6.12-.87.19l-.4.12c-.26.08-.5.15-.73.24-.12.05-.27.1-.41.16l-.78.33c-.05.03-.18.09-.31.15-.22.11-.44.23-.65.35l-.43.24c-.19.11-.41.26-.63.42l-.22.15h0s-.05.04-.08.06c-.34.25-.64.48-.92.73-.63.54-1.22,1.15-1.75,1.79-.24.29-.46.59-.7.94l-.2.31c-.16.24-.3.46-.43.69l-.22.41c-.12.22-.23.44-.34.66-.06.14-.13.29-.2.44-.1.23-.19.45-.27.67-.05.15-.11.31-.17.47-.08.23-.15.47-.21.71l-.14.51c-.06.23-.11.5-.16.77l-.09.47c-.06.36-.11.77-.14,1.2-.2,2.62-.81,5.18-1.81,7.6-2.2,5.33-6.18,9.72-11.22,12.35-.36.19-.72.4-1.06.61,0,0,0,0,0,0-.09.07-.2.15-.32.23-.31.21-.55.37-.78.55-.11.09-.21.18-.31.27l-.7.6c-.19.18-.42.42-.64.67-.07.07-.14.15-.26.27-.18.21-.41.49-.66.82-.02.03-.08.1-.12.15-.19.26-.41.59-.64.94-.44.7-.81,1.44-1.13,2.2l-.07.18c-.62,1.58-.97,3.22-1.04,4.88v.03c-.01.53-.01.91,0,1.33v.11c.04.43.06.78.11,1.13l.12.67s.02.1.02.11c.03.19.05.34.09.5.04.17.09.34.14.51l.1.34c.03.11.07.25.1.38l.03.13c1.57,4.95,1.55,10.26-.09,15.27-.08.24-.17.48-.25.71l-.1.29c-.05.15-.11.31-.18.47-.07.18-.15.36-.23.54l-.14.33c-.06.15-.14.34-.23.52-.9,1.91-2.03,3.69-3.36,5.29-1.07,1.28-1.91,2.75-2.5,4.35-.04.11-.07.21-.11.32l-.09.27c-.48,1.51-.72,3.04-.72,4.55,0,2.45.62,4.89,1.79,7.06.39.71.87,1.41,1.4,2.06l.17.2c1.68,1.91,4.92,4.51,10.61,5.83l.11.03c2.51.57,5.29.86,8.27.86h174.48c2.98,0,5.75-.28,8.23-.85l.16-.04c5.68-1.32,8.9-3.9,10.6-5.83,0,0,0,0,0-.01l.19-.22c.51-.63.98-1.32,1.39-2.06,1.16-2.15,1.78-4.59,1.78-7.03,0-1.5-.24-3.02-.71-4.52M316.54,226.89c-.72.93-1.8,1.47-2.98,1.47h-144.18c-1.17,0-2.26-.53-2.97-1.46-.72-.93-.96-2.11-.66-3.24,9.16-35.02,40.3-59.52,75.72-59.59,35.43.07,66.58,24.58,75.73,59.59.3,1.13.06,2.31-.66,3.24"/>
+                        <polygon fill="#FEFAE4" points="63.16 316.8 66.71 326.23 45.76 334.13 43.08 327.04 55.33 322.42 55.26 322.24 40.63 320.54 38.39 314.59 48.24 303.62 48.17 303.44 35.92 308.06 33.25 300.96 54.2 293.06 57.76 302.49 46.67 314.78 46.72 314.93 63.16 316.8"/>
+                        <rect fill="#FEFAE4" x="51.26" y="336.71" width="22.4" height="7.71" transform="translate(-157.32 73.02) rotate(-29.01)"/>
+                        <polygon fill="#FEFAE4" points="71.7 345.26 75.91 342.29 91.01 363.63 86.8 366.61 81.48 359.08 67.4 369.04 62.95 362.75 77.03 352.79 71.7 345.26"/>
+                        <rect fill="#FEFAE4" x="76.95" y="373.05" width="22.4" height="7.71" transform="translate(-227.54 152.92) rotate(-41.48)"/>
+                        <rect fill="#FEFAE4" x="98.65" y="381.56" width="5.15" height="17.73" transform="translate(-252.41 196.47) rotate(-46.72)"/>
+                        <polygon fill="#FEFAE4" points="139.47 405.96 147.81 411.61 135.25 430.16 128.98 425.9 136.31 415.07 136.16 414.96 123.23 422.01 117.96 418.44 119.68 403.8 119.52 403.69 112.18 414.53 105.9 410.27 118.46 391.73 126.81 397.38 124.83 413.82 124.96 413.91 139.47 405.96"/>
+                        <rect fill="#FEFAE4" x="141.41" y="421.94" width="22.4" height="7.71" transform="translate(-297.17 378.01) rotate(-64.22)"/>
+                        <polygon fill="#FEFAE4" points="162.87 424.3 164.59 419.44 189.24 428.17 187.52 433.03 178.83 429.95 173.07 446.21 165.8 443.64 171.56 427.38 162.87 424.3"/>
+                        <rect fill="#FEFAE4" x="183.35" y="436.78" width="22.4" height="7.71" transform="translate(-278.87 529.42) rotate(-76.8)"/>
+                        <path fill="#FEFAE4" d="M219.66,434.12l14.71.6c4.6.19,8.11,1.32,10.49,3.44,2.41,2.08,3.55,4.85,3.41,8.33-.14,3.49-1.5,6.15-4.07,8.06-2.54,1.88-6.13,2.73-10.73,2.54l-14.7-.6.91-22.38ZM227.15,439.58l-.49,12.08,6.62.27c4.35.18,7.02-1.83,7.18-5.76.16-3.93-2.34-6.15-6.69-6.32l-6.62-.27Z"/>
+                        <polygon fill="#FEFAE4" points="282.66 448.57 283.31 453.68 256.4 457.11 253.57 434.89 280.07 431.51 280.72 436.62 261.87 439.03 262.34 442.71 278.97 440.59 279.53 445.03 262.9 447.15 263.4 451.02 282.66 448.57"/>
+                        <polygon fill="#FEFAE4" points="285.09 430.26 292.49 428.08 297.37 444.63 314.81 439.49 316.27 444.43 291.43 451.75 285.09 430.26"/>
+                        <polygon fill="#FEFAE4" points="345.94 404.4 354.63 399.29 365.99 418.61 359.45 422.45 352.82 411.17 352.65 411.26 353.46 425.97 347.97 429.2 335.49 421.35 335.33 421.45 341.96 432.73 335.42 436.58 324.07 417.27 332.76 412.16 346.76 421 346.89 420.92 345.94 404.4"/>
+                        <path fill="#FEFAE4" d="M367.03,404.51l-7.91-8.94,5.78-5.11,7.63,8.63c2.63,2.97,5.68,3.05,8.63.44,2.9-2.57,3.22-5.63.6-8.6l-7.63-8.63,5.78-5.11,7.84,8.87c2.25,2.54,3.09,5.34,2.59,8.39-.53,3.03-2.46,6.01-5.79,8.96-6.62,5.85-13.03,6.14-17.52,1.1"/>
+                        <polygon fill="#FEFAE4" points="396.73 356.94 401.34 351.16 418.85 365.13 414.1 371.08 396.55 373.21 396.47 373.31 406.15 381.04 401.52 386.84 384.02 372.87 388.71 366.99 406.38 364.8 406.46 364.7 396.73 356.94"/>
+                        <path fill="#FEFAE4" d="M404.86,345.87l7.03-12.93c2.2-4.05,4.77-6.69,7.72-7.89,2.94-1.24,5.92-1.04,8.98.62,3.06,1.67,4.86,4.06,5.43,7.22.57,3.11-.26,6.71-2.46,10.75l-7.03,12.93-19.67-10.7ZM413.07,341.56l10.62,5.78,3.16-5.82c2.08-3.82,1.46-7.11-1.99-8.99-3.46-1.88-6.55-.61-8.63,3.21l-3.16,5.82Z"/>
+                        <path fill="#FEFAE4" d="M424.49,303.05c1.51-4.49,3.65-7.62,6.43-9.38,2.76-1.77,5.84-2.09,9.2-.96,3.37,1.13,5.63,3.24,6.78,6.33,1.12,3.08.93,6.86-.58,11.35-1.51,4.49-3.65,7.62-6.4,9.39-2.79,1.76-5.87,2.08-9.23.95-3.37-1.13-5.63-3.25-6.75-6.33-1.15-3.09-.96-6.87.55-11.36M437.7,299.93c-3.91-1.32-6.9.52-8.32,4.76-1.44,4.28-.17,7.54,3.74,8.86,3.91,1.32,6.9-.52,8.33-4.79,1.43-4.25.16-7.51-3.75-8.83"/>
+                        <path fill="#ECA244" d="M16.81,234.13h10.54c3.88,0,5.82,1.19,5.82,3.58,0,1.53-.84,2.56-2.51,3.1v.1c2.11.48,3.16,1.61,3.16,3.42,0,2.49-1.95,3.72-5.82,3.72h-11.19v-13.92ZM20.82,236.66v3.22h5.53c1.59,0,2.6-.58,2.6-1.61s-1.01-1.61-2.6-1.61h-5.53ZM27.01,245.53c1.59,0,2.6-.6,2.6-1.77s-1.01-1.79-2.6-1.79h-6.18v3.56h6.18Z"/>
+                        <path fill="#ECA244" d="M46.36,239.34c1.11.08,2.05.18,2.78.28.76.1,1.49.24,2.23.44,2.11.58,3.02,1.61,3.12,3.6,0,2.96-2.82,4.59-8.29,4.59-1.39,0-2.92-.14-4.61-.44-1.67-.3-3.08-.66-4.24-1.03v-3.06c.87.38,2.15.78,3.84,1.15,1.69.38,3.18.58,4.51.58,3.12,0,4.69-.48,4.69-1.43,0-.5-.36-.86-1.05-1.03-.7-.2-1.93-.36-3.74-.5-.87-.06-1.61-.14-2.21-.2-.58-.06-1.21-.16-1.91-.28-.7-.14-1.25-.3-1.69-.5-1.33-.6-2.43-1.57-2.33-3.26,0-2.88,2.84-4.31,8.53-4.31,1.09,0,2.25.08,3.42.26,2.37.32,3.42.64,3.9.82v2.94c-.54-.24-1.51-.5-2.88-.79-1.37-.3-2.86-.46-4.45-.46-2.88,0-4.34.44-4.34,1.29,0,.46.34.76,1.03.93.7.16,1.87.3,3.56.42h.12Z"/>
+                        <path fill="#ECA244" d="M438.21,234.13l6.74,13.92h-4.32l-1.19-2.54h-8.13l-1.21,2.54h-4.31l6.74-13.92h5.69ZM432.44,242.92h5.85l-2.86-5.98h-.12l-2.86,5.98Z"/>
+                        <path fill="#ECA244" d="M456.71,239.34c1.11.08,2.05.18,2.78.28.76.1,1.49.24,2.23.44,2.11.58,3.02,1.61,3.12,3.6,0,2.96-2.82,4.59-8.29,4.59-1.39,0-2.92-.14-4.61-.44-1.67-.3-3.08-.66-4.23-1.03v-3.06c.87.38,2.15.78,3.84,1.15,1.69.38,3.18.58,4.51.58,3.12,0,4.69-.48,4.69-1.43,0-.5-.36-.86-1.05-1.03-.7-.2-1.93-.36-3.74-.5-.87-.06-1.61-.14-2.21-.2-.58-.06-1.21-.16-1.91-.28-.7-.14-1.25-.3-1.69-.5-1.33-.6-2.43-1.57-2.33-3.26,0-2.88,2.84-4.31,8.53-4.31,1.09,0,2.25.08,3.42.26,2.37.32,3.42.64,3.9.82v2.94c-.54-.24-1.51-.5-2.88-.79-1.37-.3-2.86-.46-4.45-.46-2.88,0-4.33.44-4.33,1.29,0,.46.34.76,1.03.93.7.16,1.87.3,3.56.42h.12Z"/>
+                        <path fill="#ECA244" d="M481.79,217.88c-.12-1.25-.26-2.49-.4-3.73C467.77,93.82,365.38,0,241.47,0S15.17,93.82,1.55,214.15c-.14,1.24-.28,2.48-.4,3.73-.76,7.76-1.15,15.63-1.15,23.59s.4,15.83,1.15,23.59c.12,1.25.26,2.49.4,3.73,13.62,120.33,116.01,214.15,239.92,214.15s226.3-93.82,239.91-214.15c.14-1.24.28-2.48.4-3.73.76-7.76,1.15-15.63,1.15-23.59s-.4-15.83-1.15-23.59M241.47,3.73c121.85,0,222.56,92.15,236.16,210.42h-64.55c-13.15-82.88-85.09-146.44-171.61-146.44s-158.46,63.56-171.61,146.44H5.31C18.9,95.88,119.62,3.73,241.47,3.73M411.5,241.47c0,8.01-.57,15.88-1.65,23.59-.17,1.25-.36,2.49-.56,3.73-13.11,80.81-83.37,142.71-167.83,142.71s-154.72-61.9-167.83-142.71c-.2-1.24-.39-2.48-.56-3.73-1.08-7.71-1.64-15.59-1.64-23.59s.57-15.88,1.64-23.59c.17-1.25.36-2.49.56-3.73,13.11-80.81,83.37-142.71,167.83-142.71s154.72,61.9,167.83,142.71c.2,1.24.39,2.48.56,3.73,1.08,7.71,1.65,15.59,1.65,23.59M3.73,241.47c0-7.96.4-15.83,1.17-23.59h64.42c-1.05,7.72-1.61,15.59-1.61,23.59s.56,15.88,1.61,23.59H4.9c-.77-7.76-1.17-15.63-1.17-23.59M241.47,479.21c-121.85,0-222.57-92.15-236.16-210.42h64.55c13.15,82.88,85.09,146.44,171.61,146.44s158.46-63.56,171.61-146.44h64.55c-13.6,118.27-114.31,210.42-236.16,210.42M478.04,265.07h-64.42c1.05-7.72,1.61-15.59,1.61-23.59s-.56-15.88-1.61-23.59h64.42c.77,7.76,1.17,15.63,1.17,23.59s-.4,15.83-1.17,23.59"/>
+                        <polygon fill="#FEF7D5" points="33.78 188 35.25 183.17 48.67 187.23 52.9 173.25 56.23 174.26 50.54 193.07 33.78 188"/>
+                        <path fill="#FEF7D5" d="M47.49,150.41l19.43-.58-2.22,4.95-3.53.06-4.18,9.33,2.3,2.7-2.22,4.95-12.5-14.89,2.92-6.52ZM54.61,161.54l3-6.71-8.34.21-.06.14,5.39,6.36Z"/>
+                        <path fill="#FEF7D5" d="M64.57,132.54c.81-1.14,1.53-2.08,2.12-2.81.6-.74,1.23-1.44,1.93-2.1,2-1.88,3.71-2.19,5.91-.99,3.18,1.94,3.08,6.04-.5,11.91-.91,1.49-2.06,3.05-3.49,4.67-1.41,1.6-2.72,2.88-3.88,3.87l-3.29-2.01c.98-.69,2.24-1.8,3.75-3.36,1.51-1.57,2.7-3.04,3.57-4.47,2.04-3.35,2.56-5.35,1.54-5.97-.53-.33-1.15-.18-1.8.45-.67.62-1.65,1.84-2.98,3.69-.64.9-1.21,1.64-1.66,2.24-.44.58-.96,1.2-1.55,1.87-.61.66-1.14,1.15-1.64,1.49-1.51,1.04-3.28,1.58-5.02.36-3.1-1.89-2.77-5.88.96-11.98.72-1.17,1.56-2.36,2.52-3.5,1.89-2.33,2.92-3.25,3.43-3.65l3.16,1.93c-.61.42-1.52,1.3-2.74,2.57-1.22,1.28-2.37,2.77-3.41,4.48-1.89,3.1-2.37,4.94-1.45,5.5.49.3,1.03.13,1.68-.5.63-.64,1.54-1.81,2.78-3.55l.08-.13Z"/>
+                        <path fill="#FEF7D5" d="M87.88,110.52l3.71,3.32-3.36,3.77-13.05-11.66,7.96-8.92c4.15-4.64,7.62-5.26,10.66-2.55,3.11,2.78,2.68,6.42-1.32,10.9l-4.6,5.15ZM81.11,104.48l4.18,3.73,4.58-5.13c1.67-1.86,1.96-3.58.56-4.83-1.4-1.25-3.07-.77-4.74,1.1l-4.58,5.13Z"/>
+                        <path fill="#FEF7D5" d="M119.66,83.53l.63.58c.4.35.99.73,1.43.78l-4.04,3.48c-.26-.07-.57-.24-.89-.46-.32-.25-.57-.43-.73-.59l-1.11-1.06c-.76-.69-1.51-.95-2.29-.74-.79.19-1.78.81-3.01,1.87l-4.45,3.84,3.9,4.53-3.83,3.3-11.42-13.26,9.02-7.77c4.57-3.93,7.96-4.58,10.23-1.95,1.39,1.61,1.46,3.5.21,5.69l.1.11c1.06-.65,1.96-.86,2.75-.68.78.18,1.72.73,2.75,1.66l.75.68ZM108.33,84.37c1.87-1.62,2.47-3.22,1.38-4.49-1.06-1.23-2.7-.87-4.6.76l-5.19,4.47,3.21,3.73,5.19-4.47Z"/>
+                        <rect fill="#FEF7D5" x="120.01" y="65.11" width="5.05" height="17.49" transform="translate(-20.15 84.41) rotate(-35.31)"/>
+                        <polygon fill="#FEF7D5" points="143.37 50.88 149.23 47.63 157.71 62.94 153.34 65.37 147.84 55.43 147.73 55.49 147.91 68.37 144.17 70.44 133.35 63.45 133.24 63.51 138.74 73.45 134.37 75.87 125.89 60.56 131.73 57.32 143.53 64.99 143.63 64.93 143.37 50.88"/>
+                        <polygon fill="#FEF7D5" points="181.19 50.21 182.41 53.46 163.11 60.74 156.94 44.36 175.86 37.22 177.09 40.47 162.89 45.83 164.19 49.27 176.7 44.55 177.78 47.4 165.26 52.12 166.61 55.7 181.19 50.21"/>
+                        <path fill="#FEF7D5" d="M206.72,45.06l.29.8c.19.49.54,1.1.91,1.35l-5.18,1.22c-.2-.18-.39-.47-.58-.82-.16-.37-.31-.65-.38-.86l-.49-1.45c-.36-.97-.9-1.53-1.68-1.71-.79-.2-1.95-.11-3.53.27l-5.72,1.35,1.37,5.82-4.92,1.16-4.01-17.03,11.58-2.72c5.86-1.38,9.18-.39,9.97,3,.49,2.07-.32,3.77-2.44,5.14l.03.15c1.24-.09,2.14.14,2.75.66.61.52,1.19,1.44,1.67,2.74l.35.95ZM196.29,40.58c2.41-.57,3.68-1.71,3.3-3.34-.37-1.58-1.99-2.02-4.43-1.45l-6.67,1.57,1.13,4.79,6.67-1.57Z"/>
+                        <path fill="#FEF7D5" d="M223.87,27.87l10.17,16.57-5.4.54-1.81-3.03-10.17,1.01-1.2,3.34-5.4.54,6.69-18.25,7.11-.71ZM217.75,39.58l7.31-.73-4.33-7.13h-.15s-2.83,7.86-2.83,7.86Z"/>
+                        <path fill="#FEF7D5" d="M247.87,33.81c1.4.14,2.57.3,3.49.45.95.15,1.87.35,2.78.63,2.63.8,3.74,2.13,3.8,4.63-.11,3.72-3.71,5.67-10.58,5.48-1.75-.05-3.67-.28-5.78-.71-2.09-.43-3.85-.93-5.29-1.45l.11-3.85c1.09.51,2.67,1.05,4.78,1.59,2.11.53,3.98.84,5.65.89,3.92.11,5.92-.43,5.95-1.63.02-.62-.42-1.09-1.29-1.34-.87-.27-2.41-.52-4.68-.76-1.1-.11-2.02-.23-2.77-.33-.72-.1-1.52-.24-2.39-.42-.87-.2-1.56-.42-2.11-.68-1.65-.8-2.99-2.06-2.81-4.18.1-3.62,3.73-5.32,10.87-5.12,1.37.04,2.82.18,4.29.45,2.96.48,4.28.92,4.87,1.16l-.1,3.7c-.67-.32-1.88-.68-3.6-1.1-1.71-.42-3.58-.68-5.58-.73-3.62-.1-5.46.4-5.49,1.47-.02.57.4.96,1.27,1.21.87.22,2.34.44,4.46.65h.15Z"/>
+                        <polygon fill="#FEF7D5" points="293.49 47.79 292.77 51.19 272.59 46.91 276.22 29.79 296 33.98 295.28 37.38 280.44 34.24 279.68 37.83 292.76 40.6 292.13 43.59 279.04 40.82 278.25 44.56 293.49 47.79"/>
+                        <polygon fill="#FEF7D5" points="321.95 42.79 328.23 45.12 322.16 61.53 317.47 59.8 321.41 49.15 321.29 49.11 311.66 57.65 307.65 56.16 305.89 43.41 305.77 43.37 301.83 54.01 297.14 52.28 303.21 35.87 309.47 38.18 311.35 52.12 311.47 52.17 321.95 42.79"/>
+                        <path fill="#FEF7D5" d="M334.16,62.22l-2.38,4.37-4.43-2.42,8.38-15.36,10.49,5.72c5.47,2.98,6.86,6.22,4.91,9.79-2,3.67-5.64,4.07-10.91,1.2l-6.06-3.3ZM338.5,54.25l-2.68,4.92,6.04,3.29c2.2,1.2,3.93,1.09,4.83-.56s.05-3.16-2.15-4.36l-6.04-3.29Z"/>
+                        <path fill="#FEF7D5" d="M368.87,69.11l-3.25,19.17-4.42-3.15.64-3.48-8.33-5.93-3.1,1.72-4.42-3.15,17.05-9.33,5.82,4.15ZM356.55,73.9l5.98,4.27,1.43-8.22-.12-.09-7.3,4.04Z"/>
+                        <polygon fill="#FEF7D5" points="392.28 89.1 395.81 92.42 383.83 105.18 380.1 101.67 379.55 86.11 379.46 86.02 371.95 94.02 368.39 90.68 380.38 77.93 384.06 81.38 384.65 97.04 384.75 97.12 392.28 89.1"/>
+                        <path fill="#FEF7D5" d="M409.85,108.89l-8.22,17.61-3.42-4.21,1.53-3.18-6.45-7.93-3.44.84-3.42-4.21,18.92-4.47,4.51,5.54ZM396.71,110.24l4.64,5.7,3.56-7.54-.09-.12-8.11,1.95Z"/>
+                        <path fill="#FEFAE4" d="M418.56,120.4l5.7,9.29c1.87,3.05,2.63,5.77,2.31,8.2-.33,2.43-1.66,4.36-3.98,5.79-2.32,1.42-4.65,1.74-6.97.93-2.32-.81-4.4-2.72-6.27-5.77l-5.7-9.29,14.91-9.15ZM418.26,126.5l-9.03,5.54,2.93,4.77c2.03,3.3,4.8,4.33,7.76,2.51,2.96-1.82,3.31-4.73,1.27-8.05l-2.93-4.77Z"/>
+                        <path fill="#FEF7D5" d="M438.16,156.41l-12.45,14.94-2.24-4.94,2.3-2.69-4.22-9.32-3.54-.07-2.24-4.94,19.44.51,2.95,6.52ZM425.1,154.36l3.03,6.7,5.37-6.38-.06-.14-8.34-.18Z"/>
+                        <path fill="#FEFAE4" d="M440.21,181.06c.32,1.37.54,2.53.69,3.45.16.95.26,1.88.3,2.84.09,2.75-.82,4.23-3.17,5.08-3.56,1.1-6.56-1.7-8.59-8.27-.51-1.67-.91-3.57-1.18-5.71-.26-2.12-.35-3.95-.32-5.47l3.68-1.13c-.13,1.19-.14,2.87.03,5.04.17,2.17.48,4.04.97,5.64,1.15,3.75,2.31,5.46,3.46,5.11.6-.18.9-.75.85-1.65-.02-.91-.28-2.45-.78-4.68-.25-1.07-.43-1.99-.58-2.73-.14-.71-.26-1.52-.37-2.4-.09-.89-.11-1.62-.03-2.22.22-1.82.99-3.5,3.06-4,3.47-1.07,6.24,1.82,8.34,8.66.4,1.32.73,2.73.95,4.21.49,2.96.5,4.35.46,4.99l-3.54,1.09c.09-.73.04-2-.11-3.76-.15-1.76-.51-3.61-1.1-5.52-1.07-3.47-2.13-5.05-3.16-4.73-.55.17-.78.68-.74,1.59.07.9.33,2.36.81,4.43l.04.14Z"/>
                     </g>
                 </svg>
-                <svg class="brand-title-vector" viewBox="0 0 495 86">
-                    <path fill="#FEFAE4" d="M0,1.35c10.73-.01,21.46-.02,32.19-.04,0,4.68,0,7.01,0,11.69-7.91.08-11.87.13-19.78.22,0,7.98,0,15.96,0,23.94,6.8-.22,10.2-.32,17.01-.53,0,4.7,0,7.05,0,11.76-6.8.27-10.2.41-17.01.7,0,7.98,0,15.96,0,23.94,7.9-.5,11.86-.74,19.76-1.19,0,4.68,0,7.01,0,11.69-10.72.73-21.44,1.51-32.15,2.32V1.35"/>
-                    <path fill="#FEFAE4" d="M66.13,56.18c4.78-18.31,9.61-36.61,14.47-54.91,4.96,0,7.45,0,12.41,0-.02,26.25-.05,52.51-.07,78.76-4.75.23-7.13.35-11.88.59.01-14.84.02-29.68.04-44.52-3.57,15.02-7.12,30.05-10.65,45.09-3.37.19-5.05.28-8.42.47-3.65-14.93-7.28-29.87-10.88-44.81-.01,15.15-.02,30.3-.03,45.46-4.8.29-7.21.45-12.01.76.01-27.25.03-54.5.04-81.75,4.97,0,7.45,0,12.41-.01,4.82,18.3,9.67,36.6,14.56,54.88"/>
-                    <path fill="#FEFAE4" d="M100.37,1.26c7.23,0,10.84,0,18.07-.01,9.42,0,17.4,6.04,16.52,16.21,0,4.63,0,6.95-.01,11.59.22,7.58-4.69,13.64-11.9,15.64-1.9.59-4.67.93-8.29,1.02-.81.02-1.21.03-2.02.05,0,11.13-.02,22.26-.03,33.39-4.96.21-7.45.31-12.41.54.02-26.14.05-52.28.07-78.42M112.77,12.32c0,7.44-.01,14.88-.02,22.31,1.14-.02,1.71-.03,2.85-.05,1.73-.03,2.91-.16,3.55-.38,2.25-.86,3.38-2.52,3.38-4.99,0-4.66,0-6.99,0-11.65,0-3.53-1.79-5.28-5.39-5.26-1.76.01-2.63.02-4.39.03"/>
-                    <path fill="#FEFAE4" d="M171.93,50.27c1.34,8.96,2.68,17.92,4.02,26.88-5.02.11-7.53.16-12.55.29-.96-6.44-1.44-9.66-2.4-16.11-5.07.11-7.61.16-12.68.28-.99,6.52-1.48,9.79-2.47,16.32-5,.15-7.5.24-12.5.41,1.35-9.11,2.7-18.22,4.06-27.33,2.93-16.6,5.87-33.2,8.81-49.79,6.81,0,10.21,0,17.02,0,2.89,16.35,5.79,32.7,8.7,49.05M159.38,50.48c-1.57-10.57-3.15-21.14-4.71-31.71-1.59,10.63-3.18,21.26-4.76,31.89,3.79-.07,5.69-.11,9.48-.17"/>
-                    <path fill="#FEFAE4" d="M183.01,1.21c4.96,0,7.45,0,12.41,0,3.91,14.59,7.82,29.17,11.74,43.75,0-14.59.01-29.17.02-43.76,4.6,0,6.89,0,11.49,0,0,25.11-.01,50.22-.02,75.33-4.97.04-7.45.06-12.42.12-3.77-14.1-7.54-28.2-11.3-42.31,0,14.15-.01,28.31-.02,42.46-4.78.07-7.16.11-11.94.2.01-25.27.03-50.53.04-75.8"/>
-                    <path fill="#FEFAE4" d="M264.23,49.8c1.35,8.91,2.7,17.83,4.04,26.74-5.02-.04-7.53-.06-12.55-.08-.97-6.39-1.45-9.58-2.41-15.96-5.07-.01-7.61-.01-12.68-.01-.98,6.38-1.48,9.57-2.46,15.96-5,0-7.51.02-12.51.04,1.35-8.87,2.7-17.73,4.04-26.6,2.93-16.23,5.85-32.45,8.78-48.68,6.81,0,10.21,0,17.02,0,2.91,16.2,5.83,32.39,8.74,48.59M251.68,49.76c-1.58-10.43-3.16-20.86-4.74-31.3-1.58,10.43-3.16,20.86-4.74,31.29,3.79,0,5.69,0,9.48,0"/>
-                    <path fill="#FEFAE4" d="M275.26,1.21c7.65,0,11.47,0,19.12,0,9.94,0,16.68,5.86,16.54,15.99,0,14.67.02,29.34.03,44.01.15,10.48-7.33,15.82-17.32,15.62-7.34-.12-11.01-.17-18.34-.24,0-25.13-.02-50.26-.02-75.4M287.68,11.95c0,18.02.01,36.04.02,54.06,2.18.03,3.27.04,5.44.07,3.6.05,5.4-1.63,5.39-5.05,0-14.63-.01-29.25-.02-43.88,0-3.45-1.8-5.18-5.4-5.19-2.18,0-3.26,0-5.44-.01"/>
-                    <path fill="#FEFAE4" d="M354.83,51.04c1.36,9.18,2.71,18.35,4.06,27.53-5.02-.18-7.53-.27-12.55-.44-.97-6.55-1.46-9.83-2.43-16.37-5.07-.13-7.61-.19-12.68-.3-.98,6.46-1.47,9.69-2.44,16.14-5-.14-7.5-.2-12.51-.32,1.34-8.93,2.68-17.87,4.02-26.81,2.92-16.42,5.83-32.84,8.74-49.26,6.81,0,10.21,0,17.02,0,2.93,16.6,5.86,33.2,8.77,49.81M342.29,50.77c-1.59-10.65-3.17-21.31-4.76-31.96-1.57,10.59-3.14,21.19-4.71,31.78,3.79.07,5.69.11,9.48.18"/>
-                    <path fill="#FEFAE4" d="M396.27,8.1c-5.55,20.07-11.15,40.13-16.79,60.18,7.04.26,10.55.4,17.59.7,0,4.49,0,6.74.01,11.23-10.52-.5-21.05-.96-31.58-1.39,0-2.69,0-4.03,0-6.72,5.63-19.89,11.23-39.8,16.79-59.71-6.51-.05-9.76-.07-16.27-.11,0-4.41,0-6.62-.01-11.04,10.09,0,20.17.01,30.26.02,0,2.73,0,4.1,0,6.84"/>
-                    <path fill="#FEFAE4" d="M442.2,53.85c1.35,9.71,2.71,19.43,4.05,29.15-5.01-.32-7.52-.48-12.53-.79-.97-6.92-1.45-10.38-2.42-17.27-5.07-.24-7.6-.36-12.67-.58-.98,6.75-1.47,10.11-2.44,16.84-5-.28-7.5-.41-12.5-.66,1.34-9.29,2.68-18.57,4.01-27.86,2.92-17.13,5.83-34.26,8.73-51.4,6.81,0,10.21,0,17.02,0.02,2.94,17.52,5.86,35.04,8.76,52.56M429.67,53.35c-1.58-11.21-3.17-22.42-4.76-33.62-1.57,11.09-3.14,22.18-4.71,33.27,3.79.14,5.68.21,9.47.36"/>
-                    <path fill="#FEFAE4" d="M450.55,17.23c-.02-10.27,7.5-17.62,17.8-17.21,9.87.39,18.79,6.7,17.85,17.74v11.37c-4.96-.13-7.44-.19-12.41-.32,0-4.5,0-6.75,0-11.24,0-3.75-1.8-5.65-5.4-5.72-.03,0-.05,0-.09,0-3.57-.04-5.35,1.82-5.35,5.56,0,3,0,4.51,0,7.51,0,3.69,3.9,8.42,11.62,13.93,6.46,4.61,11.6,11.65,11.61,19.91v10.68c1.02,11.04-7.96,16.82-17.78,16.44-10.35-.41-17.82-8.12-17.84-18.5,0-4.41,0-6.62,0-11.03,4.96.22,7.44.33,12.4.57,0,4.46,0,6.68,0,11.14,0,3.74,1.81,5.72,5.43,5.95,3.59.23,5.39-1.54,5.39-5.32,0-3.82,0-5.73,0-9.54,0-4.03-3.9-9.12-11.62-14.58-6.4-4.53-11.61-11.44-11.63-19.64,0-3.07,0-4.61,0-7.69"/>
+            </div>
+            <svg class="brand-title-svg" viewBox="0 0 486.27 85.89" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#FEFAE4" d="M0,1.35c10.73-.01,21.46-.02,32.19-.04,0,4.68,0,7.01,0,11.69-7.91.08-11.87.13-19.78.22,0,7.98,0,15.96,0,23.94,6.8-.22,10.2-.32,17.01-.53,0,4.7,0,7.05,0,11.76-6.8.27-10.2.41-17.01.7,0,7.98,0,15.96,0,23.94,7.9-.5,11.86-.74,19.76-1.19,0,4.68,0,7.01,0,11.69-10.72.73-21.44,1.51-32.15,2.32V1.35"/>
+                <path fill="#FEFAE4" d="M66.13,56.18c4.78-18.31,9.61-36.61,14.47-54.91,4.96,0,7.45,0,12.41,0-.02,26.25-.05,52.51-.07,78.76-4.75.23-7.13.35-11.88.59.01-14.84.02-29.68.04-44.52-3.57,15.02-7.12,30.05-10.65,45.09-3.37.19-5.05.28-8.42.47-3.65-14.93-7.28-29.87-10.88-44.81-.01,15.15-.02,30.3-.03,45.46-4.8.29-7.21.45-12.01.76.01-27.25.03-54.5.04-81.75,4.97,0,7.45,0,12.41-.01,4.82,18.3,9.67,36.6,14.56,54.88"/>
+                <path fill="#FEFAE4" d="M100.37,1.26c7.23,0,10.84,0,18.07-.01,9.42,0,17.4,6.04,16.52,16.21,0,4.63,0,6.95-.01,11.59.22,7.58-4.69,13.64-11.9,15.64-1.9.59-4.67.93-8.29,1.02-.81.02-1.21.03-2.02.05,0,11.13-.02,22.26-.03,33.39-4.96.21-7.45.31-12.41.54.02-26.14.05-52.28.07-78.42M112.77,12.32c0,7.44-.01,14.88-.02,22.31,1.14-.02,1.71-.03,2.85-.05,1.73-.03,2.91-.16,3.55-.38,2.25-.86,3.38-2.52,3.38-4.99,0-4.66,0-6.99,0-11.65,0-3.53-1.79-5.28-5.39-5.26-1.76.01-2.63.02-4.39.03"/>
+                <path fill="#FEFAE4" d="M171.93,50.27c1.34,8.96,2.68,17.92,4.02,26.88-5.02.11-7.53.16-12.55.29-.96-6.44-1.44-9.66-2.4-16.11-5.07.11-7.61.16-12.68.28-.99,6.52-1.48,9.79-2.47,16.32-5,.15-7.5.24-12.5.41,1.35-9.11,2.7-18.22,4.06-27.33,2.93-16.6,5.87-33.2,8.81-49.79,6.81,0,10.21,0,17.02,0,2.89,16.35,5.79,32.7,8.7,49.05M159.38,50.48c-1.57-10.57-3.15-21.14-4.71-31.71-1.59,10.63-3.18,21.26-4.76,31.89,3.79-.07,5.69-.11,9.48-.17"/>
+                <path fill="#FEFAE4" d="M183.01,1.21c4.96,0,7.45,0,12.41,0,3.91,14.59,7.82,29.17,11.74,43.75,0-14.59.01-29.17.02-43.76,4.6,0,6.89,0,11.49,0,0,25.11-.01,50.22-.02,75.33-4.97.04-7.45.06-12.42.12-3.77-14.1-7.54-28.2-11.3-42.31,0,14.15-.01,28.31-.02,42.46-4.78.07-7.16.11-11.94.2.01-25.27.03-50.53.04-75.8"/>
+                <path fill="#FEFAE4" d="M264.23,49.8c1.35,8.91,2.7,17.83,4.04,26.74-5.02-.04-7.53-.06-12.55-.08-.97-6.39-1.45-9.58-2.41-15.96-5.07-.01-7.61-.01-12.68-.01-.98,6.38-1.48,9.57-2.46,15.96-5,0-7.51.02-12.51.04,1.35-8.87,2.7-17.73,4.04-26.6,2.93-16.23,5.85-32.45,8.78-48.68,6.81,0,10.21,0,17.02,0,2.91,16.2,5.83,32.39,8.74,48.59M251.68,49.76c-1.58-10.43-3.16-20.86-4.74-31.3-1.58,10.43-3.16,20.86-4.74,31.29,3.79,0,5.69,0,9.48,0"/>
+                <path fill="#FEFAE4" d="M275.26,1.21c7.65,0,11.47,0,19.12,0,9.94,0,16.68,5.86,16.54,15.99,0,14.67.02,29.34.03,44.01.15,10.48-7.33,15.82-17.32,15.62-7.34-.12-11.01-.17-18.34-.24,0-25.13-.02-50.26-.02-75.4M287.68,11.95c0,18.02.01,36.04.02,54.06,2.18.03,3.27.04,5.44.07,3.6.05,5.4-1.63,5.39-5.05,0-14.63-.01-29.25-.02-43.88,0-3.45-1.8-5.18-5.4-5.19-2.18,0-3.26,0-5.44-.01"/>
+                <path fill="#FEFAE4" d="M354.83,51.04c1.36,9.18,2.71,18.35,4.06,27.53-5.02-.18-7.53-.27-12.55-.44-.97-6.55-1.46-9.83-2.43-16.37-5.07-.13-7.61-.19-12.68-.3-.98,6.46-1.47,9.69-2.44,16.14-5-.14-7.5-.2-12.51-.32,1.34-8.93,2.68-17.87,4.02-26.81,2.92-16.42,5.83-32.84,8.74-49.26,6.81,0,10.21,0,17.02,0,2.93,16.6,5.86,33.2,8.77,49.81M342.29,50.77c-1.59-10.65-3.17-21.31-4.76-31.96-1.57,10.59-3.14,21.19-4.71,31.78,3.79.07,5.69.11,9.48.18"/>
+                <path fill="#FEFAE4" d="M396.27,8.1c-5.55,20.07-11.15,40.13-16.79,60.18,7.04.26,10.55.4,17.59.7,0,4.49,0,6.74.01,11.23-10.52-.5-21.05-.96-31.58-1.39,0-2.69,0-4.03,0-6.72,5.63-19.89,11.23-39.8,16.79-59.71-6.51-.05-9.76-.07-16.27-.11,0-4.41,0-6.62-.01-11.04,10.09,0,20.17.01,30.26.02,0,2.73,0,4.1,0,6.84"/>
+                <path fill="#FEFAE4" d="M442.2,53.85c1.35,9.71,2.71,19.43,4.05,29.15-5.01-.32-7.52-.48-12.53-.79-.97-6.92-1.45-10.38-2.42-17.27-5.07-.24-7.6-.36-12.67-.58-.98,6.75-1.47,10.11-2.44,16.84-5-.28-7.5-.41-12.5-.66,1.34-9.29,2.68-18.57,4.01-27.86,2.92-17.13,5.83-34.26,8.73-51.4,6.81,0,10.21,0,17.02,0.02,2.94,17.52,5.86,35.04,8.76,52.56M429.67,53.35c-1.58-11.21-3.17-22.42-4.76-33.62-1.57,11.09-3.14,22.18-4.71,33.27,3.79.14,5.68.21,9.47.36"/>
+                <path fill="#FEFAE4" d="M450.55,17.23c-.02-10.27,7.5-17.62,17.8-17.21,9.87.39,18.79,6.7,17.85,17.74v11.37c-4.96-.13-7.44-.19-12.41-.32,0-4.5,0-6.75,0-11.24,0-3.75-1.8-5.65-5.4-5.72-.03,0-.05,0-.09,0-3.57-.04-5.35,1.82-5.35,5.56,0,3,0,4.51,0,7.51,0,3.69,3.9,8.42,11.62,13.93,6.46,4.61,11.6,11.65,11.61,19.91v10.68c1.02,11.04-7.96,16.82-17.78,16.44-10.35-.41-17.82-8.12-17.84-18.5,0-4.41,0-6.62,0-11.03,4.96.22,7.44.33,12.4.57,0,4.46,0,6.68,0,11.14,0,3.74,1.81,5.72,5.43,5.95,3.59.23,5.39-1.54,5.39-5.32,0-3.82,0-5.73,0-9.54,0-4.03-3.9-9.12-11.62-14.58-6.4-4.53-11.61-11.44-11.63-19.64,0-3.07,0-4.61,0-7.69"/>
+            </svg>
+        </header>
+
+        <!-- TEASER SUTIL SUPERIOR CON SALTO SUAVE AL BANNER (PROLIJO EN 1 LÍNEA) -->
+        <a href="javascript:void(0)" onclick="scrollToInstagramPromo()" class="promo-top-teaser">
+            <span class="promo-teaser-text">
+                📸 ¿Comés en el local? <strong>10% OFF subiendo tu InstaStorie</strong>
+            </span>
+            <span class="promo-teaser-action">Ver promo ↓</span>
+        </a>
+
+        <!-- RECOMENDACIÓN AUTOMÁTICA DISCRETA POR IP (DESPLEGABLE / ULTRA SLIM) -->
+        <div class="ip-recommendation-bar" id="ipRecBar" style="display:none;" onclick="toggleIpDetails(event)">
+            <div class="ip-rec-main-row">
+                <div class="ip-rec-left">
+                    <span class="ip-rec-icon" id="ipRecIcon">📍</span>
+                    <span class="ip-rec-text-single" id="ipRecText">Calculando sucursal más cercana...</span>
+                </div>
+                <span class="ip-rec-toggle-badge" id="ipRecBadge">
+                    <span id="ipRecBadgeLabel">Tu zona</span>
+                    <span class="arrow-toggle">▾</span>
+                </span>
+            </div>
+            <!-- BANDEJA DESPLEGABLE CON DETALLES (TIEMPOS / BROMAS) -->
+            <div class="ip-rec-expand-tray" id="ipRecExpandTray"></div>
+        </div>
+
+        <!-- BUSCADOR INTERACTIVO Y BOTÓN GPS -->
+        <div class="search-row">
+            <div class="search-container">
+                <input type="text" id="branchSearchInput" class="search-input-box" placeholder="Buscar barrio o calle..." autocomplete="off" oninput="handleSearch(this.value)">
+                <button type="button" class="btn-clear-search" id="btnClearSearch" onclick="clearSearch()" title="Borrar">✕</button>
+            </div>
+            <button type="button" class="btn-gps-nearest" id="btnGpsNearest" onclick="findNearestBranch(true)" title="Localizar con GPS exacto">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/>
+                    <circle cx="12" cy="12" r="3"/>
+                    <line x1="12" y1="2" x2="12" y2="5"/>
+                    <line x1="12" y1="19" x2="12" y2="22"/>
+                    <line x1="2" y1="12" x2="5" y2="12"/>
+                    <line x1="19" y1="12" x2="22" y2="12"/>
                 </svg>
-            </a>
-
-            <!-- NAVEGACIÓN CORPORATIVA SUIZA (NOSOTROS ELIMINADO) -->
-            <nav class="nav-tabs-bar">
-                <button class="nav-tab-btn active" id="tabBtn-linea140" onclick="switchView('linea140')">Línea 140gr (x30)</button>
-                <button class="nav-tab-btn" id="tabBtn-linea100" onclick="switchView('linea100')">Línea 100gr (x40)</button>
-                <button class="nav-tab-btn" id="tabBtn-galeria" onclick="switchView('galeria')">Galería</button>
-                <button class="nav-tab-btn" id="tabBtn-contacto" onclick="switchView('contacto')">Contacto</button>
-            </nav>
-
-            <div class="header-tag-wrap">
-                <span class="b2b-pill-tag">PEDIDOS 24/7</span>
-            </div>
-        </div>
-    </header>
-
-    <!-- SECCIÓN 1: LÍNEA 140GR EN CAJAS X30 (SIN TOPPING) -->
-    <main class="view-section active" id="view-linea140">
-        <div class="b2b-hero-banner">
-            <h2 class="b2b-hero-title">LÍNEA 140 Gr <span>CONGELADAS</span></h2>
-            <div class="b2b-hero-bullets">
-                <span>Cajas cerradas x <strong>30 unidades</strong></span>
-                <span class="bullet-dot">✦</span>
-                <span class="highlight-notice-pill">100% SIN TOPPING</span>
-                <span class="bullet-dot">✦</span>
-                <span>Mínimo general: <strong>10 cajas</strong></span>
-            </div>
-        </div>
-
-        <div class="catalog-controls">
-            <div class="search-bar-wrap">
-                <input type="text" id="b2bSearch140" class="search-input" placeholder="Buscar sabor (ej. parrillera, 5 quesos, vacía, chipá)..." autocomplete="off" oninput="handleSearchInput(this.value, 'linea140')" />
-                <button type="button" class="btn-clear-search" id="btnClearSearch140" onclick="clearSearchInput('linea140')" title="Borrar búsqueda">✕</button>
-            </div>
-
-            <div class="filter-header-bar">
-                <div class="category-chips-scroll" id="chipsScroll140">
-                    <button class="cat-chip active" onclick="filterCat('linea140', 'todas', this)">TODOS (30)</button>
-                    <button class="cat-chip" onclick="filterCat('linea140', 'super', this)">SUPER EMPANADAZAS</button>
-                    <button class="cat-chip" onclick="filterCat('linea140', 'asombrosas', this)">ASOMBROSAS</button>
-                    <button class="cat-chip" onclick="filterCat('linea140', 'empachipa', this)">EMPACHIPÁ</button>
-                </div>
-
-                <div class="view-mode-toggle">
-                    <button type="button" class="btn-view-mode active" id="btnModeGrid140" onclick="setCatalogLayout('grid', 'linea140')">Grilla</button>
-                    <button type="button" class="btn-view-mode" id="btnModeList140" onclick="setCatalogLayout('list', 'linea140')">Lista Rápida</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="products-b2b-grid" id="catalogGrid140"></div>
-    </main>
-
-    <!-- SECCIÓN 2: LÍNEA 100GR EN CAJAS X40 (SIN TOPPING) -->
-    <section class="view-section" id="view-linea100">
-        <div class="b2b-hero-banner" style="background: linear-gradient(135deg, rgba(30, 36, 26, 0.95) 0%, rgba(20, 24, 18, 0.95) 100%);">
-            <h2 class="b2b-hero-title">LÍNEA 100 Gr <span>ROTISERAS</span></h2>
-            <div class="b2b-hero-bullets">
-                <span>Cajas cerradas x <strong>40 unidades</strong></span>
-                <span class="bullet-dot">✦</span>
-                <span class="highlight-notice-pill">100% SIN TOPPING</span>
-                <span class="bullet-dot">✦</span>
-                <span>Mínimo general: <strong>10 cajas</strong></span>
-            </div>
-        </div>
-
-        <div class="catalog-controls">
-            <div class="search-bar-wrap">
-                <input type="text" id="b2bSearch100" class="search-input" placeholder="Buscar sabor rotisera (ej. carne, jamón, choclo)..." autocomplete="off" oninput="handleSearchInput(this.value, 'linea100')" />
-                <button type="button" class="btn-clear-search" id="btnClearSearch100" onclick="clearSearchInput('linea100')" title="Borrar búsqueda">✕</button>
-            </div>
-
-            <div class="filter-header-bar">
-                <div class="category-chips-scroll" id="chipsScroll100">
-                    <button class="cat-chip active" onclick="filterCat('linea100', 'todas', this)">TODOS (30)</button>
-                    <button class="cat-chip" onclick="filterCat('linea100', 'super', this)">SUPER EMPANADAZAS</button>
-                    <button class="cat-chip" onclick="filterCat('linea100', 'asombrosas', this)">ASOMBROSAS</button>
-                    <button class="cat-chip" onclick="filterCat('linea100', 'empachipa', this)">EMPACHIPÁ</button>
-                </div>
-
-                <div class="view-mode-toggle">
-                    <button type="button" class="btn-view-mode active" id="btnModeGrid100" onclick="setCatalogLayout('grid', 'linea100')">Grilla</button>
-                    <button type="button" class="btn-view-mode" id="btnModeList100" onclick="setCatalogLayout('list', 'linea100')">Lista Rápida</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="products-b2b-grid" id="catalogGrid100"></div>
-    </section>
-
-    <!-- SECCIÓN 3: GALERÍA HD -->
-    <section class="view-section" id="view-galeria">
-        <div class="info-card-luxury" style="text-align:center;">
-            <h2 class="info-card-title">GALERÍA DE PRODUCTOS <span>SIN TOPPING</span></h2>
-            <p class="info-card-text">Línea 140gr y Línea 100gr listas para despacho ultracongelado. Tocá cualquier imagen para ampliar.</p>
-        </div>
-        <div class="gallery-grid" id="galleryGridContainer"></div>
-    </section>
-
-    <!-- SECCIÓN 4: CONTACTO COMERCIAL (SOLO ALBANO) -->
-    <section class="view-section" id="view-contacto">
-        <div class="info-card-luxury">
-            <h2 class="info-card-title">ATENCIÓN COMERCIAL <span>Y LOGÍSTICA B2B</span></h2>
-            <p class="info-card-text">
-                Comunicate directamente con la Gerencia Comercial para coordinar frecuencias de entrega, flete refrigerado, aperturas de cuenta corriente y compras de volumen.
-            </p>
-
-            <div class="contact-grid-row">
-                <div class="contact-card-agent">
-                    <span class="agent-role">GERENCIA COMERCIAL OFICIAL</span>
-                    <h4 class="agent-name">Albano</h4>
-                    <p style="font-size:0.80rem; color:var(--text-muted); flex: 1; line-height:1.45;">
-                        Atención directa a comercios, rotiserías, franquicias y distribuidores mayoristas de todo el país.
-                    </p>
-                    <a href="https://wa.me/5491138796688?text=Hola%20Albano,%20te%20contacto%20desde%20el%20Portal%20Mayorista%20Empanadazas." target="_blank" rel="noopener noreferrer" class="btn-wsp-direct">
-                        WhatsApp Albano (+54 9 11 3879-6688)
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HUD INFERIOR FLOTANTE CON CÁLCULO UNIFICADO DE CAJAS -->
-    <footer class="b2b-bottom-hud">
-        <div class="hud-content-wrap">
-            <div class="hud-progress-col">
-                <div class="hud-text-row">
-                    <span id="hudBoxText">0 de 10 cajas mínimas</span>
-                    <span id="hudUnitsText" style="color:var(--text-muted); font-size:0.72rem;">0 empanadas</span>
-                </div>
-                <div class="track-bar">
-                    <div class="track-fill tier-bronze" id="hudProgressFill"></div>
-                </div>
-            </div>
-
-            <div class="hud-total-info">
-                <span class="total-amount-b2b" id="hudTotalMoney">$0</span>
-                <span class="total-sub-b2b">Total Mayorista</span>
-            </div>
-
-            <button class="btn-order-trigger" id="btnOrderTrigger" onclick="openCheckoutModal()" disabled>
-                <span>Mínimo 10 Cajas</span>
+                <span>Cerca</span>
             </button>
         </div>
-    </footer>
 
-    <!-- MODAL DE CHECKOUT DIRECTO AL WHATSAPP DE ALBANO -->
-    <div class="modal-overlay" id="checkoutModal">
-        <div class="modal-sheet">
-            <div class="modal-top">
-                <h3 class="modal-top-title" id="checkoutModalTitle">Confirmar Pedido Mayorista</h3>
-                <div style="display:flex; align-items:center; gap:10px;">
-                    <button type="button" style="background:none; border:1px solid rgba(239,68,68,0.4); color:#F87171; font-size:0.72rem; font-weight:800; padding:4px 10px; border-radius:8px; cursor:pointer;" onclick="resetWholeCart()">Vaciar Carrito</button>
-                    <button class="btn-close-x" onclick="closeCheckoutModal()">✕</button>
-                </div>
-            </div>
-
-            <form id="checkoutFormWrapper" style="display:flex; flex-direction:column; gap:14px;" onsubmit="event.preventDefault(); generateOrderAndPay();">
-                <div class="summary-recap-box" id="summaryRecapBox"></div>
-
-                <div class="form-grid-2">
-                    <div class="f-group">
-                        <label class="f-label">Razón Social o Nombre del Comercio *</label>
-                        <input type="text" id="b2bClientName" class="f-input" placeholder="Ej: Rotisería Central / Bar Sol" required onfocus="clearFieldError(this)" />
-                    </div>
-                    <div class="f-group">
-                        <label class="f-label">CUIT o DNI *</label>
-                        <input type="text" id="b2bCuit" class="f-input" placeholder="30-XXXXXXXX-X o DNI" required onfocus="clearFieldError(this)" />
-                    </div>
-                </div>
-
-                <div class="form-grid-2">
-                    <div class="f-group">
-                        <label class="f-label">Condición Fiscal para Facturación *</label>
-                        <select id="b2bFiscalType" class="f-input" style="cursor:pointer;">
-                            <option value="Factura A (Responsable Inscripto)">Factura A (Responsable Inscripto)</option>
-                            <option value="Factura B (Monotributo)">Factura B (Monotributo)</option>
-                            <option value="Consumidor Final">Consumidor Final / Sin CUIT</option>
-                        </select>
-                    </div>
-                    <div class="f-group">
-                        <label class="f-label">WhatsApp de Contacto *</label>
-                        <input type="tel" id="b2bPhone" class="f-input" placeholder="Ej: 11 1234-5678" required onfocus="clearFieldError(this)" />
-                    </div>
-                </div>
-
-                <div class="coordination-notice-box">
-                    <strong>Coordinación comercial con Albano:</strong>
-                    <span>Al generar el pedido se abrirá WhatsApp con el detalle estructurado para confirmar la facturación, los medios de pago y coordinar el despacho refrigerado.</span>
-                </div>
-
-                <button type="submit" class="btn-dispatch-order" id="btnConfirmOrder">
-                    Generar y Enviar Pedido a Albano ➔
-                </button>
-            </form>
-
-            <!-- VOUCHER FINAL CONFIRMADO -->
-            <div class="voucher-success-box" id="voucherSuccessBox">
-                <div style="font-family:'Outfit'; font-size:1.30rem; font-weight:900; color:var(--bronze-bright);" id="voucherCodeLabel">ORDEN CONFIRMADA</div>
-                <p style="font-size:0.82rem; color:var(--brand-cream-muted); line-height:1.5;">
-                    Orden registrada con éxito. Tocá el botón verde para enviar el detalle a la Gerencia Comercial:
-                </p>
-                <div style="background:rgba(14,15,13,0.9); padding:14px; border-radius:12px; border:1px solid var(--border-card); font-size:0.84rem; text-align:left;" id="voucherDetailsRecap"></div>
-
-                <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
-                    <button type="button" class="btn-dispatch-order" style="background:#22C55E;" onclick="sendOrderWhatsApp()">
-                        Enviar Pedido a Albano (+54 9 11 3879-6688)
-                    </button>
-                    <button type="button" class="btn-dispatch-order" style="background:transparent; border:1px solid var(--border-card); color:var(--brand-cream-muted); font-size:0.75rem; padding:10px;" onclick="closeCheckoutModal()">
-                        Volver al Catálogo
-                    </button>
-                </div>
-            </div>
+        <!-- FILTROS POR ZONA GEOGRÁFICA (RESPONSIVE SEGURO SIN CORTES) -->
+        <div class="filter-chips-row" id="filterChipsContainer">
+            <button class="chip-btn active" onclick="filterZone('todas', this)">TODAS <span class="chip-count" id="count-todas"></span></button>
+            <button class="chip-btn" onclick="filterZone('caba', this)">CABA <span class="chip-count" id="count-caba"></span></button>
+            <button class="chip-btn" onclick="filterZone('oeste', this)">ZONA OESTE <span class="chip-count" id="count-oeste"></span></button>
+            <button class="chip-btn" onclick="filterZone('sur_norte', this)">SUR Y NORTE <span class="chip-count" id="count-sur_norte"></span></button>
+            <button class="chip-btn" onclick="filterZone('proximas', this)">PRÓXIMAS <span class="chip-count" id="count-proximas"></span></button>
         </div>
+
+        <!-- LISTA DINÁMICA DE SUCURSALES (ACCESO INMEDIATO SIN ESTORBOS) -->
+        <div class="branches-list" id="branchesListContainer"></div>
+
+        <!-- CAJA PRÓXIMAMENTE -->
+        <div class="future-cities-box" id="futureCitiesBox">
+            <span class="future-title">🚀 Muy pronto en tu barrio</span>
+            <p class="future-list">Belgrano • Pilar • La Plata • Ushuaia...</p>
+            <span style="font-size:0.70rem; color:var(--bronze-bright); font-weight:700; margin-top:2px;">¡En busca de los 100 Gustos / 100 Locales!</span>
+        </div>
+
+        <!-- BANNER PROMO HISTORIAS INSTAGRAM -->
+        <a href="javascript:void(0)" onclick="openInstagramStory()" class="promo-pill-banner" id="promoInstagramBanner">
+            <div class="promo-banner-text">
+                <span class="promo-banner-badge">📸 10% OFF EN EL ACTO</span>
+                <span class="promo-banner-title">Subí tu foto comiendo en el local y etiquetá a <span>@empanadazas</span></span>
+                <span class="promo-banner-sub">Si tenés cuenta privada, ¡envianos tu historia por MD!</span>
+            </div>
+            <span class="promo-banner-btn" id="btnStoryAction">Subir Historia ➔</span>
+        </a>
+
+        <!-- TARJETA CTA ELEGANTE AL HUB OFICIAL & MENÚ (EMPANADAZAS.COM/LINK) -->
+        <a href="https://empanadazas.com/link" target="_blank" rel="noopener noreferrer" class="delivery-cta-card">
+            <div class="delivery-cta-text">
+                <span class="delivery-cta-badge">⭐ EMPANADAZAS LINK</span>
+                <span class="delivery-cta-title">¿Querés ver el Menú Digital o pedir un Delivery?</span>
+                <span class="delivery-cta-sub">Entrá a Empanadazas.com/link y descubrí todas las opciones</span>
+            </div>
+            <span class="delivery-cta-btn">Ir al Sitio ➔</span>
+        </a>
+
+        <!-- FOOTER CORPORATIVO -->
+        <footer class="hub-footer">
+            <div class="footer-badge">
+                <span>EMPANADAZAS®</span>
+                <span style="color: var(--bronze-bright);">★</span>
+                <span>LOCALES OFICIALES</span>
+            </div>
+            <span class="footer-legal">© 2026 EMPANADAZAS · Creadores de las primeras Miti-Miti del mundo</span>
+        </footer>
+
+    </main>
+
+    <!-- NOTIFICACIÓN TOAST FLOTANTE -->
+    <div class="hub-toast" id="hubToast">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span id="toastMessage">¡Dirección copiada!</span>
     </div>
 
-    <!-- LIGHTBOX / VISOR DE IMÁGENES -->
-    <div class="lightbox-overlay" id="lightboxModal" onclick="closeLightboxOverlay(event)">
-        <div class="lightbox-content-box" id="lightboxContent">
-            <button type="button" class="lightbox-close-btn" onclick="closeLightbox()">✕</button>
-            <button type="button" class="lightbox-nav-btn lightbox-nav-prev" id="btnPrevImage" onclick="navGallery(-1)">‹</button>
-            <img src="" class="lightbox-img" id="lightboxImage" alt="Previsualización" decoding="async" />
-            <div class="lightbox-caption" id="lightboxCaption"></div>
-            <button type="button" class="lightbox-nav-btn lightbox-nav-next" id="btnNextImage" onclick="navGallery(1)">›</button>
-        </div>
-    </div>
-
-    <!-- MOTOR JAVASCRIPT CON MATEMÁTICA Y LÓGICA DE ALBANO -->
+    <!-- MOTOR JAVASCRIPT DINÁMICO -->
     <script>
-        const WSP_ALBANO = "5491138796688";
-        const MIN_BOXES = 10;
-
-        let currentCatalogLayout140 = 'grid';
-        let currentCatalogLayout100 = 'grid';
-        let generatedOrderData = null;
-        let wholesaleCart = {};
-
-        // PRECIOS ESTÁNDAR POR LÍNEA Y CATEGORÍA
-        const PRICING_RULES = {
-            '140': {
-                'super': { priceBox: 66000, units: 30 },
-                'asombrosas': { priceBox: 78000, units: 30 }
+        // BASE DE DATOS MAESTRA DE SUCURSALES (CON HORARIOS Y COORDENADAS)
+        const BRANCHES = [
+            {
+                id: 'palermo',
+                name: 'Palermo (Plaza Serrano)',
+                zone: 'caba',
+                zoneLabel: 'CABA',
+                address: 'Borges 1687, Palermo Soho',
+                status: 'open24',
+                statusLabel: 'Abierto 24 Hs',
+                phone: '5491151435364',
+                mapsQuery: 'Borges+1687+Palermo+Empanadazas',
+                lat: -34.5888,
+                lng: -58.4262,
+                openHour: 0,
+                closeHour: 24
             },
-            '100': {
-                'super': { priceBox: 38000, units: 40 },
-                'asombrosas': { priceBox: 44000, units: 40 }
+            {
+                id: 'caballito',
+                name: 'Caballito',
+                zone: 'caba',
+                zoneLabel: 'CABA',
+                address: 'Av. Pedro Goyena 326',
+                status: 'open',
+                statusLabel: 'Abierto',
+                phone: '5491125428760',
+                mapsQuery: 'Pedro+Goyena+326+Caballito+Empanadazas',
+                lat: -34.6247,
+                lng: -58.4357,
+                openHour: 11,
+                closeHour: 24
+            },
+            {
+                id: 'santelmo',
+                name: 'San Telmo',
+                zone: 'caba',
+                zoneLabel: 'CABA',
+                address: 'San Telmo, CABA',
+                status: 'soon',
+                statusLabel: 'Apertura 15/10',
+                phone: null,
+                mapsQuery: 'San+Telmo+Buenos+Aires',
+                lat: -34.6186,
+                lng: -58.3712
+            },
+            {
+                id: 'ramos',
+                name: 'Ramos Mejía',
+                zone: 'oeste',
+                zoneLabel: 'Zona Oeste',
+                address: 'Alsina 14, Ramos Mejía',
+                status: 'open',
+                statusLabel: 'Abierto',
+                phone: '5491130091870',
+                mapsQuery: 'Alsina+14+Ramos+Mejia+Empanadazas',
+                lat: -34.6465,
+                lng: -58.5637,
+                openHour: 11,
+                closeHour: 24
+            },
+            {
+                id: 'castelar',
+                name: 'Castelar',
+                zone: 'oeste',
+                zoneLabel: 'Zona Oeste',
+                address: 'Av. Santa Rosa 1592',
+                status: 'open',
+                statusLabel: 'Abierto',
+                phone: '5491153457755',
+                mapsQuery: 'Santa+Rosa+1592+Castelar+Empanadazas',
+                lat: -34.6545,
+                lng: -58.6471,
+                openHour: 11,
+                closeHour: 24
+            },
+            {
+                id: 'lomitas',
+                name: 'Las Lomitas',
+                zone: 'sur_norte',
+                zoneLabel: 'Zona Sur',
+                address: 'España 467, Lomas de Zamora',
+                status: 'open',
+                statusLabel: 'Abierto',
+                phone: '5491150510287',
+                mapsQuery: 'Espana+467+Lomas+de+Zamora+Empanadazas',
+                lat: -34.7617,
+                lng: -58.4005,
+                openHour: 11,
+                closeHour: 24
+            },
+            {
+                id: 'lanusita',
+                name: 'Lanusita',
+                zone: 'sur_norte',
+                zoneLabel: 'Zona Sur',
+                address: 'Lanusita, Lanús Oeste',
+                status: 'open',
+                statusLabel: 'Inaugurado',
+                phone: null,
+                mapsQuery: 'Lanusita+Lanus',
+                lat: -34.7061,
+                lng: -58.3965,
+                openHour: 11,
+                closeHour: 24
+            },
+            {
+                id: 'tortuguitas',
+                name: 'Tortuguitas',
+                zone: 'sur_norte',
+                zoneLabel: 'Zona Norte',
+                address: 'Tortuguitas, Buenos Aires',
+                status: 'soon',
+                statusLabel: 'Apertura 01/10',
+                phone: null,
+                mapsQuery: 'Tortuguitas+Buenos+Aires',
+                lat: -34.4716,
+                lng: -58.7561
             }
-        };
-
-        // MATRIZ OFICIAL DE 30 SABORES DE LA FOTO DE ALBANO
-        const MASTER_FLAVORS = [
-            // SUPER EMPANADAZAS (14 SABORES)
-            { id: 'choclo_deluxe', name: 'Choclo Deluxe', cat: 'super', desc: 'Granos de choclo dulce con queso fundido suave.', img: 'https://images.loveat.la/media/13083/images/plates/663351' },
-            { id: 'choclo_cremoso', name: 'Choclo Cremoso', cat: 'super', desc: 'Humita tradicional norteña con salsa blanca perfumada.', img: 'https://images.loveat.la/media/13083/images/plates/663352' },
-            { id: 'espinacaza', name: 'Espinacaza', cat: 'super', desc: 'Hojas tiernas de espinaca con muzzarella y reggianito.', img: 'https://images.loveat.la/media/13083/images/plates/663353' },
-            { id: 'espinacaza_cremosa', name: 'Espinacaza Cremosa', cat: 'super', desc: 'Espinacas picadas con suave salsa bechamel casera.', img: 'https://images.loveat.la/media/13083/images/plates/663354' },
-            { id: 'tortilla', name: 'Tortilla', cat: 'super', desc: 'Papas doradas, cebollas caramelizadas y huevo cuajado.', img: 'https://images.loveat.la/media/13083/images/plates/663341' },
-            { id: 'empalocura', name: 'Empalocura', cat: 'super', desc: 'Revuelto gramajo clásico con jamón, papas pay y huevo.', img: 'https://images.loveat.la/media/13083/images/plates/663342' },
-            { id: 'calabaza_suprema', name: 'Calabaza Suprema', cat: 'super', desc: 'Calabaza horneada con suave queso muzzarella.', img: 'https://images.loveat.la/media/13083/images/plates/663355' },
-            { id: 'jamon_queso', name: 'Jamón y Queso', cat: 'super', desc: 'Jamón cocido natural seleccionado y abundante queso muzzarella.', img: 'https://images.loveat.la/media/13083/images/plates/663340' },
-            { id: 'empacasera', name: 'Empacasera', cat: 'super', desc: 'Carne criolla con huevo picado, verdeo y aceitunas.', img: 'https://images.loveat.la/media/13083/images/plates/663360' },
-            { id: 'empapollo_casera', name: 'Empapollo Casera', cat: 'super', desc: 'Pechuga desmechada con salsa blanca casera y nuez moscada.', img: 'https://images.loveat.la/media/13083/images/plates/663364' },
-            { id: 'dia_del_ortix', name: 'Día del Ortix', cat: 'super', desc: 'Bondiola de cerdo braseada lentamente con salsa a los cuatro quesos.', img: 'https://images.loveat.la/media/13083/images/plates/663337' },
-            { id: 'empafluo', name: 'Empafluo', cat: 'super', desc: 'Carne picada seleccionada con panceta y queso cheddar.', img: 'https://images.loveat.la/media/13083/images/plates/663333' },
-            { id: 'fit_vegetales', name: 'Fit Vegetales', cat: 'super', desc: 'Zanahoria, morrón, zucchini y berenjenas frescas al wok.', img: 'https://images.loveat.la/media/13083/images/plates/663356' },
-            { id: 'wok_rice', name: 'Wok Rice', cat: 'super', desc: 'Arroz salteado con vegetales crujientes y huevo.', img: 'https://images.loveat.la/media/13083/images/plates/663357' },
-
-            // ASOMBROSAS (16 SABORES)
-            { id: '5_quesos', name: '5 Quesos', cat: 'asombrosas', desc: 'Mozzarella, parmesano, provoleta, roquefort y cremoso.', img: 'https://images.loveat.la/media/13083/images/plates/663339' },
-            { id: 'empanadaza_x_salchicha', name: 'Empanadaza x Salchicha', cat: 'asombrosas', desc: 'Salchichas parrilleras asadas con muzzarella y savora.', img: 'https://images.loveat.la/media/13083/images/plates/663336' },
-            { id: 'empanadaza_x_pollo', name: 'Empanadaza x Pollo', cat: 'asombrosas', desc: 'Pechuga tierna marinada en suave crema de mostaza dulce.', img: 'https://images.loveat.la/media/13083/images/plates/663335' },
-            { id: 'empanadaza_x_panceta', name: 'Empanadaza x Panceta', cat: 'asombrosas', desc: 'Batata glaseada, cebolla caramelizada y panceta ahumada.', img: 'https://images.loveat.la/media/13083/images/plates/663334' },
-            { id: 'parrillera', name: 'Parrillera', cat: 'asombrosas', desc: 'Carne vacuna desmechada con cebolla caramelizada y morrones.', img: 'https://images.loveat.la/media/13083/images/plates/663332' },
-            { id: 'me_mancho_seguro', name: 'Me Mancho Seguro', cat: 'asombrosas', desc: 'Carne cortada a cuchillo con pimentón dulce y salsa criolla.', img: 'https://images.loveat.la/media/13083/images/plates/663358' },
-            { id: 'carne_cortada_cuchara', name: 'Carne Cortada a Cuchara', cat: 'asombrosas', desc: 'Tiernísima carne vacuna braseada con vegetales en su jugo.', img: 'https://images.loveat.la/media/13083/images/plates/663359' },
-            { id: 'la_rompe_toda', name: 'La Rompe Toda', cat: 'asombrosas', desc: 'Matambre tiernizado con salsa de tomate y queso muzzarella.', img: 'https://images.loveat.la/media/13083/images/plates/663361' },
-            { id: 'burger_premium', name: 'Burger Premium', cat: 'asombrosas', desc: 'Carne de hamburguesa premium sazonada con queso cheddar.', img: 'https://images.loveat.la/media/13083/images/plates/663367' },
-            { id: 'carne_de_la_buena', name: 'Carne de la Buena', cat: 'asombrosas', desc: 'Bondiola desmechada en cocción lenta con barbacoa y panceta.', img: 'https://images.loveat.la/media/13083/images/plates/663362' },
-            { id: 'chicken_gold', name: 'Chicken Gold', cat: 'asombrosas', desc: 'Pechuga tierna con queso cheddar fundido y barbacoa ahumada.', img: 'https://images.loveat.la/media/13083/images/plates/663363' },
-            { id: 'me_la_di_el_finde', name: 'Me la di el Finde', cat: 'asombrosas', desc: 'Carne y bondiola a la barbacoa con panceta crocante.', img: 'https://images.loveat.la/media/13083/images/plates/663338' },
-            { id: 'la_piden_todos', name: 'La Piden Todos', cat: 'asombrosas', desc: 'Albóndigas caseras de ternera con puré cremoso y tomate.', img: 'https://images.loveat.la/media/13083/images/plates/663343' },
-            { id: 'empachipa_jamon_queso', name: 'Empachipa Jamón y Queso', cat: 'asombrosas', isChipá: true, desc: 'Masa de chipá con mandioca y queso rellena de jamón y muzzarella.', img: 'https://images.loveat.la/media/13083/images/plates/663344' },
-            { id: 'empachipa_matambre', name: 'Empachipa Matambre', cat: 'asombrosas', isChipá: true, desc: 'Masa de chipá horneada con matambre tiernizado y muzzarella.', img: 'https://images.loveat.la/media/13083/images/plates/663365' },
-            { id: 'empachipa_x', name: 'Empachipa X', cat: 'asombrosas', isChipá: true, desc: 'Exclusiva masa de chipá artesanal con relleno especial asombroso.', img: 'https://images.loveat.la/media/13083/images/plates/663331' }
         ];
 
-        // GENERACIÓN AUTOMÁTICA DE LOS DOS CATÁLOGOS CON SU RESPECTIVO PESO
-        const PRODUCTS_140 = MASTER_FLAVORS.map(f => ({
-            id: `140_${f.id}`,
-            baseId: f.id,
-            line: '140',
-            unitsPerBox: 30,
-            priceBox: PRICING_RULES['140'][f.cat].priceBox,
-            cat: f.cat,
-            isChipá: !!f.isChipá,
-            name: `${f.name} (140g)`,
-            desc: f.desc,
-            img: f.img
-        }));
+        // LÍMITES MATEMÁTICOS DE RANGO EXACTOS
+        const RADIO_LOCAL_KM = 60;      // 0 a 60 km (50 km + 10 km demasía)
+        const RADIO_AVISO_KM = 150;     // 60 km a 150 km (Aviso serio)
+        const RADIO_BROMA1_KM = 500;    // 150 km a 500 km (Broma nivel 1)
 
-        const PRODUCTS_100 = MASTER_FLAVORS.map(f => ({
-            id: `100_${f.id}`,
-            baseId: f.id,
-            line: '100',
-            unitsPerBox: 40,
-            priceBox: PRICING_RULES['100'][f.cat].priceBox,
-            cat: f.cat,
-            isChipá: !!f.isChipá,
-            name: `${f.name} (100g)`,
-            desc: f.desc,
-            img: f.img
-        }));
-
-        const ALL_PRODUCTS = [...PRODUCTS_140, ...PRODUCTS_100];
-
-        const GALLERY_ITEMS = [
-            { img: 'https://images.loveat.la/media/13083/images/plates/663332', title: 'Parrillera Criolla (140g - Sin Topping)' },
-            { img: 'https://images.loveat.la/media/13083/images/plates/663339', title: '5 Quesos Fundentes (140g - Sin Topping)' },
-            { img: 'https://images.loveat.la/media/13083/images/plates/663340', title: 'Jamón del Medio Tradicional' },
-            { img: 'https://images.loveat.la/media/13083/images/plates/663344', title: 'Empachipá de Queso & Jamón' },
-            { img: 'https://images.loveat.la/media/13083/images/plates/663338', title: 'Me la di el Finde BBQ' },
-            { img: 'https://images.loveat.la/media/13083/images/plates/663351', title: 'Choclo Deluxe Asado' },
-            { img: 'https://images.loveat.la/media/13083/images/plates/663364', title: 'Empapollo Casera con Bechamel' },
-            { img: 'https://images.loveat.la/media/13083/images/plates/663361', title: 'La Rompe Toda Matambre al Horno' },
-            { img: 'https://images.loveat.la/media/13083/images/plates/663333', title: 'Empafluo Cheddar & Bacon' },
-            { img: 'https://images.loveat.la/media/13083/images/plates/663365', title: 'Empachipá Matambre Especial' }
-        ];
-
-        let activeGalleryIndex = 0;
-        let isGalleryModeActive = false;
-        let isImageZoomed = false;
-        let alertTimeout = null;
-
-        function formatMoney(amount) {
-            return '$' + Number(amount || 0).toLocaleString('es-AR');
-        }
+        let activeZoneFilter = 'todas';
+        let searchQuery = '';
+        let detectedCoords = null;
+        let nearestBranchObj = null;
+        let isGpsAccurate = false;
 
         function cleanString(str) {
             return (str || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
         }
 
-        function escapeHtml(str) {
-            return String(str || '')
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-
-        function preloadAllCatalogImages() {
-            const allImgs = [...MASTER_FLAVORS, ...GALLERY_ITEMS].map(p => p.img);
-            const unique = [...new Set(allImgs)];
-
-            const loadNext = (index) => {
-                if (index >= unique.length) return;
-                const img = new Image();
-                img.decoding = 'async';
-                img.src = unique[index];
-                img.onload = img.onerror = () => {
-                    if (window.requestIdleCallback) {
-                        window.requestIdleCallback(() => loadNext(index + 1));
-                    } else {
-                        setTimeout(() => loadNext(index + 1), 30);
-                    }
-                };
-            };
-
-            if (window.requestIdleCallback) {
-                window.requestIdleCallback(() => loadNext(0));
+        // ESTIMACIONES DE TIEMPO DE VIAJE
+        function calculateTravelEstimates(distKm) {
+            if (distKm <= 1.5) {
+                const walkMin = Math.round((distKm / 4.5) * 60);
+                const carMin = Math.max(3, Math.round((distKm / 24) * 60));
+                return `🚶 ~${walkMin} min a pie · 🚗 ~${carMin} min en auto`;
+            } else if (distKm <= 5) {
+                const bikeMin = Math.round((distKm / 15) * 60);
+                const carMin = Math.max(5, Math.round((distKm / 28) * 60));
+                return `🚗 ~${carMin} min en auto/moto · 🚲 ~${bikeMin} min en bici`;
+            } else if (distKm <= 25) {
+                const carMin = Math.round((distKm / 32) * 60);
+                const busMin = Math.round((distKm / 18) * 60);
+                return `🚗 ~${carMin} min en auto/moto · 🚌 ~${busMin} min en bus`;
+            } else if (distKm <= 60) {
+                const carMin = Math.round((distKm / 48) * 60);
+                const h = Math.floor(carMin / 60);
+                const m = carMin % 60;
+                const timeStr = h > 0 ? `${h}h ${m}m` : `${m} min`;
+                return `🚗 ~${timeStr} en auto/moto`;
             } else {
-                setTimeout(() => loadNext(0), 100);
+                const carMin = Math.round((distKm / 75) * 60);
+                const h = Math.floor(carMin / 60);
+                const m = carMin % 60;
+                return `🚗 ~${h}h ${m > 0 ? m + 'm' : ''} en auto`;
             }
         }
 
-        function showNotification(msg, type = 'warning') {
-            const banner = document.getElementById('b2bAlertBanner');
-            const iconEl = document.getElementById('alertIcon');
-            const msgEl = document.getElementById('alertMsg');
-
-            banner.className = `b2b-alert-banner ${type}`;
-            msgEl.innerText = msg;
-
-            if (type === 'success') iconEl.innerText = '✓';
-            else if (type === 'error') iconEl.innerText = '✕';
-            else iconEl.innerText = '⚠️';
-
-            banner.classList.add('show');
-
-            if (alertTimeout) clearTimeout(alertTimeout);
-            alertTimeout = setTimeout(() => {
-                banner.classList.remove('show');
-            }, 3600);
-        }
-
-        function dismissAlert(e) {
-            if (e) e.stopPropagation();
-            const banner = document.getElementById('b2bAlertBanner');
-            banner.classList.remove('show');
-            if (alertTimeout) clearTimeout(alertTimeout);
-        }
-
-        function clearFieldError(inputEl) {
-            inputEl.classList.remove('input-error');
-        }
-
-        function saveCartToStorage() {
+        // HORA ACTUAL OFICIAL EN BUENOS AIRES (AMERICA/ARGENTINA/BUENOS_AIRES)
+        function getArgentinaTimeDecimal() {
             try {
-                localStorage.setItem('empanadazas_b2b_cart_v2', JSON.stringify(wholesaleCart));
-            } catch (e) {}
+                const parts = new Intl.DateTimeFormat('en-US', {
+                    timeZone: 'America/Argentina/Buenos_Aires',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: false
+                }).formatToParts(new Date());
+                const hour = parseInt(parts.find(p => p.type === 'hour').value, 10);
+                const minute = parseInt(parts.find(p => p.type === 'minute').value, 10);
+                return hour + (minute / 60);
+            } catch (e) {
+                const d = new Date();
+                return d.getHours() + (d.getMinutes() / 60);
+            }
         }
 
-        function loadCartFromStorage() {
-            try {
-                const saved = localStorage.getItem('empanadazas_b2b_cart_v2');
-                wholesaleCart = {};
-                if (saved) {
-                    const parsed = JSON.parse(saved);
-                    for (const [k, v] of Object.entries(parsed)) {
-                        const exists = ALL_PRODUCTS.some(p => p.id === k);
-                        const num = parseInt(v, 10);
-                        if (exists && !isNaN(num) && num > 0) {
-                            wholesaleCart[k] = num;
-                        }
+        // EVALUACIÓN DE ESTADO EN TIEMPO REAL
+        function getBranchLiveStatus(branch) {
+            if (branch.status === 'soon') {
+                return {
+                    statusClass: 'soon',
+                    statusLabel: branch.statusLabel
+                };
+            }
+            if (branch.status === 'open24') {
+                return {
+                    statusClass: 'open24',
+                    statusLabel: 'Abierto 24 Hs'
+                };
+            }
+
+            const nowArg = getArgentinaTimeDecimal();
+            const openHour = branch.openHour !== undefined ? branch.openHour : 11;
+            const closeHour = branch.closeHour !== undefined ? branch.closeHour : 24;
+
+            let isOpen = false;
+            if (closeHour > openHour) {
+                isOpen = nowArg >= openHour && nowArg < closeHour;
+            } else {
+                isOpen = nowArg >= openHour || nowArg < closeHour;
+            }
+
+            if (isOpen) {
+                return {
+                    statusClass: 'open',
+                    statusLabel: 'Abierto'
+                };
+            } else {
+                const openFormatted = openHour < 10 ? `0${openHour}:00` : `${openHour}:00`;
+                return {
+                    statusClass: 'closed',
+                    statusLabel: `Cerrado · Abre ${openFormatted}`
+                };
+            }
+        }
+
+        // FÓRMULA HAVERSINE: KM REALES
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371;
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c;
+        }
+
+        function triggerVibe(ms = 10) {
+            if ('vibrate' in navigator) navigator.vibrate(ms);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('hubToast');
+            const txt = document.getElementById('toastMessage');
+            txt.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2400);
+        }
+
+        function copyAddress(addressText) {
+            triggerVibe(15);
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(addressText).then(() => {
+                    showToast(`¡Dirección copiada: ${addressText}!`);
+                }).catch(() => {
+                    showToast(`Dirección: ${addressText}`);
+                });
+            } else {
+                showToast(`Dirección: ${addressText}`);
+            }
+        }
+
+        // SALTO SUAVE Y AMORTIGUADO AL BANNER DE INSTAGRAM
+        function scrollToInstagramPromo() {
+            triggerVibe(12);
+            const banner = document.getElementById('promoInstagramBanner');
+            if (banner) {
+                banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                banner.classList.add('banner-highlight');
+                setTimeout(() => banner.classList.remove('banner-highlight'), 1800);
+            }
+        }
+
+        // DISPARADOR INTELIGENTE HISTORIAS INSTAGRAM
+        function openInstagramStory() {
+            triggerVibe(15);
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText('@empanadazas').catch(() => {});
+            }
+
+            const btn = document.getElementById('btnStoryAction');
+            if (btn) btn.innerText = "Abriendo IG...";
+
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                window.location.href = "instagram://story-camera";
+                setTimeout(() => {
+                    window.location.href = "https://www.instagram.com/empanadazas/";
+                    if (btn) btn.innerText = "Subir Historia ➔";
+                }, 1400);
+            } else {
+                window.open("https://www.instagram.com/empanadazas/", "_blank");
+                if (btn) btn.innerText = "Subir Historia ➔";
+            }
+        }
+
+        // TOGGLE PARA DESPLEGAR / COLAPSAR DETALLES DE LA BARRA IP
+        function toggleIpDetails(e) {
+            triggerVibe(10);
+            const bar = document.getElementById('ipRecBar');
+            bar.classList.toggle('expanded');
+        }
+
+        // GESTIÓN DE RANGOS Y ARMADO DE LA BARRA IP DESPLEGABLE
+        function updateNearestRecommendation(coords, sourceName = "IP") {
+            detectedCoords = coords;
+            let minDistance = Infinity;
+            let closest = null;
+
+            BRANCHES.forEach(b => {
+                if (b.lat && b.lng) {
+                    const dist = calculateDistance(coords.lat, coords.lng, b.lat, b.lng);
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        closest = { ...b, distanceKm: dist };
                     }
                 }
-            } catch (e) {
-                wholesaleCart = {};
+            });
+
+            if (!closest) return;
+            nearestBranchObj = closest;
+
+            const recBar = document.getElementById('ipRecBar');
+            const recText = document.getElementById('ipRecText');
+            const recIcon = document.getElementById('ipRecIcon');
+            const recBadge = document.getElementById('ipRecBadge');
+            const recBadgeLabel = document.getElementById('ipRecBadgeLabel');
+            const recTray = document.getElementById('ipRecExpandTray');
+
+            const estimates = calculateTravelEstimates(minDistance);
+
+            // RANGO 1: DE 0 A 60 KM (LOCAL)
+            if (minDistance <= RADIO_LOCAL_KM) {
+                recIcon.innerText = "📍";
+                recText.innerHTML = `Más cercana: <strong>${closest.name}</strong> (${minDistance.toFixed(1)} km)`;
+                recBadgeLabel.innerText = "Tu zona";
+                recBadge.style.color = "#4ADE80";
+                recBadge.style.borderColor = "rgba(34, 197, 94, 0.35)";
+                recBadge.style.background = "rgba(34, 197, 94, 0.16)";
+                recTray.innerHTML = `⏱️ <strong>Tiempos estimados:</strong> ${estimates} · Tocá la sucursal abajo para pedir o ver cómo llegar.`;
+                recBar.style.display = 'flex';
+            }
+            // RANGO 2: DE 60 A 150 KM (AVISO SERIO)
+            else if (minDistance <= RADIO_AVISO_KM) {
+                recIcon.innerText = "🚗";
+                recText.innerHTML = `Estás a <strong>${Math.round(minDistance)} km</strong> de ${closest.name}`;
+                recBadgeLabel.innerText = "Aviso";
+                recBadge.style.color = "var(--bronze-bright)";
+                recBadge.style.borderColor = "rgba(247, 194, 104, 0.35)";
+                recBadge.style.background = "rgba(247, 194, 104, 0.16)";
+                recTray.innerHTML = `⏱️ ${estimates} · Te recomendamos acercarte a la zona con tiempo para retirar tu pedido antes del cierre.`;
+                recBar.style.display = 'flex';
+            }
+            // RANGO 3: DE 150 A 500 KM (BROMA 1)
+            else if (minDistance <= RADIO_BROMA1_KM) {
+                recIcon.innerText = "🥟";
+                recText.innerHTML = `¿A dónde te fuiste? Estás a <strong>${Math.round(minDistance)} km</strong>`;
+                recBadgeLabel.innerText = "De viaje";
+                recBadge.style.color = "#60A5FA";
+                recBadge.style.borderColor = "rgba(96, 165, 250, 0.35)";
+                recBadge.style.background = "rgba(96, 165, 250, 0.16)";
+                recTray.innerHTML = `¡Estás a ${Math.round(minDistance)} km de nuestra sucursal más cercana! Te esperamos con las Miti-Miti listas en tu próxima visita a Buenos Aires.`;
+                recBar.style.display = 'flex';
+            }
+            // RANGO 4: +500 KM (BROMA 2 DELIVERY AÉREO)
+            else {
+                recIcon.innerText = "✈️";
+                const distFormatted = Math.round(minDistance).toLocaleString('es-AR');
+                recText.innerHTML = `¿A dónde te fuiste? ¡Estás a <strong>${distFormatted} km</strong>!`;
+                recBadgeLabel.innerText = "Mundo";
+                recBadge.style.color = "#F472B6";
+                recBadge.style.borderColor = "rgba(244, 114, 182, 0.35)";
+                recBadge.style.background = "rgba(244, 114, 182, 0.16)";
+                recTray.innerHTML = `¡Tranqui! Aunque estés a ${distFormatted} km, pronto vamos a llegar con Delivery Aéreo 🚀`;
+                recBar.style.display = 'flex';
+            }
+
+            renderBranches();
+        }
+
+        // DOBLE PROVEEDOR IP
+        async function detectLocationByIP() {
+            try {
+                const res = await fetch('https://ipwho.is/');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && data.success && data.latitude && data.longitude) {
+                        updateNearestRecommendation({ lat: data.latitude, lng: data.longitude }, "IP");
+                        return;
+                    }
+                }
+            } catch (e) {}
+
+            try {
+                const fallbackRes = await fetch('https://freeipapi.com/api/json');
+                if (fallbackRes.ok) {
+                    const fbData = await fallbackRes.json();
+                    if (fbData && fbData.latitude && fbData.longitude) {
+                        updateNearestRecommendation({ lat: fbData.latitude, lng: fbData.longitude }, "IP");
+                    }
+                }
+            } catch (err) {}
+        }
+
+        // GPS EXACTO
+        function findNearestBranch(userTriggered = true) {
+            triggerVibe(15);
+            const gpsBtn = document.getElementById('btnGpsNearest');
+
+            if (!navigator.geolocation) {
+                showToast("Tu dispositivo no soporta geolocalización");
+                return;
+            }
+
+            gpsBtn.innerHTML = `<span>Buscando...</span>`;
+
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    isGpsAccurate = true;
+                    gpsBtn.classList.add('active');
+                    gpsBtn.innerHTML = `
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span>Cerca</span>
+                    `;
+                    const preciseCoords = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+                    updateNearestRecommendation(preciseCoords, "GPS");
+                    showToast("¡Ubicación GPS exacta detectada!");
+                },
+                (err) => {
+                    gpsBtn.innerHTML = `
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <line x1="12" y1="2" x2="12" y2="5"/>
+                            <line x1="12" y1="19" x2="12" y2="22"/>
+                            <line x1="2" y1="12" x2="5" y2="12"/>
+                            <line x1="19" y1="12" x2="22" y2="12"/>
+                        </svg>
+                        <span>Cerca</span>
+                    `;
+                    showToast("Permiso de GPS no concedido");
+                },
+                { timeout: 7500, enableHighAccuracy: true }
+            );
+        }
+
+        function updateFilterCounters() {
+            const counts = {
+                todas: BRANCHES.length,
+                caba: BRANCHES.filter(b => b.zone === 'caba').length,
+                oeste: BRANCHES.filter(b => b.zone === 'oeste').length,
+                sur_norte: BRANCHES.filter(b => b.zone === 'sur_norte').length,
+                proximas: BRANCHES.filter(b => b.status === 'soon').length
+            };
+
+            for (const [key, count] of Object.entries(counts)) {
+                const el = document.getElementById(`count-${key}`);
+                if (el) el.innerText = `(${count})`;
             }
         }
 
-        function resetWholeCart() {
-            wholesaleCart = {};
-            saveCartToStorage();
-            renderCatalog('linea140', PRODUCTS_140);
-            renderCatalog('linea100', PRODUCTS_100);
-            updateWholesaleHUD();
-            closeCheckoutModal();
-            showNotification("Carrito vaciado correctamente", "info");
-        }
+        function renderBranches() {
+            const container = document.getElementById('branchesListContainer');
+            container.innerHTML = '';
 
-        function switchView(viewId) {
-            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.nav-tab-btn').forEach(el => el.classList.remove('active'));
+            let list = BRANCHES.map(b => {
+                let dist = null;
+                if (detectedCoords && b.lat && b.lng) {
+                    dist = calculateDistance(detectedCoords.lat, detectedCoords.lng, b.lat, b.lng);
+                }
+                return { ...b, distanceKm: dist };
+            });
 
-            const targetSection = document.getElementById(`view-${viewId}`);
-            const targetButton = document.getElementById(`tabBtn-${viewId}`);
-
-            if (targetSection) targetSection.classList.add('active');
-            if (targetButton) targetButton.classList.add('active');
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function setCatalogLayout(layout, line) {
-            const gridId = line === 'linea140' ? 'catalogGrid140' : 'catalogGrid100';
-            const btnGrid = document.getElementById(line === 'linea140' ? 'btnModeGrid140' : 'btnModeGrid100');
-            const btnList = document.getElementById(line === 'linea140' ? 'btnModeList140' : 'btnModeList100');
-            const grid = document.getElementById(gridId);
-
-            if (layout === 'list') {
-                grid.classList.add('mode-list');
-                btnList.classList.add('active');
-                btnGrid.classList.remove('active');
-            } else {
-                grid.classList.remove('mode-list');
-                btnGrid.classList.add('active');
-                btnList.classList.remove('active');
+            // SOLO ordenar si el usuario está DENTRO de los 60 km o si usó GPS
+            const usuarioEstaCerca = list.some(b => b.distanceKm !== null && b.distanceKm <= RADIO_LOCAL_KM);
+            if (detectedCoords && (usuarioEstaCerca || isGpsAccurate)) {
+                list.sort((a, b) => (a.distanceKm || 9999) - (b.distanceKm || 9999));
             }
-        }
 
-        // RENDER UNIVERSAL PARA AMBAS LÍNEAS
-        function renderCatalog(line, items) {
-            const gridId = line === 'linea140' ? 'catalogGrid140' : 'catalogGrid100';
-            const grid = document.getElementById(gridId);
-            if (!grid) return;
-            grid.innerHTML = '';
+            const filtered = list.filter(b => {
+                const matchZone = activeZoneFilter === 'todas' || 
+                                  b.zone === activeZoneFilter || 
+                                  (activeZoneFilter === 'proximas' && b.status === 'soon');
+                const matchSearch = !searchQuery || 
+                    cleanString(b.name).includes(searchQuery) || 
+                    cleanString(b.address).includes(searchQuery) || 
+                    cleanString(b.zoneLabel).includes(searchQuery);
+                return matchZone && matchSearch;
+            });
 
-            items.forEach((prod, idx) => {
-                const boxes = parseInt(wholesaleCart[prod.id], 10) || 0;
-                const card = document.createElement('div');
-                card.className = `product-b2b-card ${boxes > 0 ? 'has-selection' : ''}`;
-                card.id = `card_${prod.id}`;
-
-                const loadAttr = idx < 4 ? 'loading="eager"' : 'loading="lazy"';
-                const unitPriceEstimate = Math.round(prod.priceBox / prod.unitsPerBox);
-                const badgeLabel = `Caja x${prod.unitsPerBox} u. • Sin Topping`;
-
-                card.innerHTML = `
-                    <div class="card-img-wrap" onclick="openProductLightbox('${prod.img}', '${prod.name.replace(/'/g, "\\'")}')">
-                        <img src="${prod.img}" ${loadAttr} decoding="async" onerror="this.onerror=null; this.src='./empanadazas-icon.png';" class="card-img" alt="${prod.name}" />
-                        <span class="box-badge-floating">${badgeLabel}</span>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4 class="product-name-b2b">${prod.name}</h4>
-                            <p class="product-desc-b2b">${prod.desc}</p>
-                        </div>
-                        <div class="card-footer-b2b">
-                            <div class="pricing-wrap">
-                                <span class="price-box-val">${formatMoney(prod.priceBox)}</span>
-                                <span class="price-unit-sub">$${unitPriceEstimate.toLocaleString('es-AR')} / un.</span>
-                            </div>
-                            <div class="b2b-stepper">
-                                <button type="button" class="step-btn-b2b" onclick="modifyQty('${prod.id}', -1)">−</button>
-                                <input type="number" 
-                                       class="step-input-b2b" 
-                                       id="input_${prod.id}" 
-                                       value="${boxes}" 
-                                       min="0" 
-                                       max="999"
-                                       inputmode="numeric"
-                                       oninput="handleDirectInput('${prod.id}', this.value)"
-                                       onblur="handleInputBlur('${prod.id}', this)" />
-                                <button type="button" class="step-btn-b2b" onclick="modifyQty('${prod.id}', 1)">+</button>
-                            </div>
-                        </div>
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align:center; padding:30px 16px; background:rgba(22,23,19,0.85); border-radius:18px; border:1px dashed var(--border-card);">
+                        <p style="color:var(--brand-cream); font-weight:800; font-size:1.02rem;">¿No encontrás tu zona?</p>
+                        <p style="color:var(--text-muted); font-size:0.80rem; margin-top:4px;">Muy pronto abriremos nuevas sucursales en todo el país.</p>
+                        <a href="https://empanadazas.com/link" style="display:inline-block; margin-top:12px; background:var(--bronze-bright); color:#12130F; font-size:0.75rem; font-weight:900; padding:8px 16px; border-radius:10px; text-decoration:none; text-transform:uppercase; box-shadow:0 2px 8px rgba(247,194,104,0.35);">Pedir Menú Online</a>
                     </div>
                 `;
-                grid.appendChild(card);
+                return;
+            }
+
+            filtered.forEach((branch, idx) => {
+                const card = document.createElement('div');
+                const isTopNearest = detectedCoords && idx === 0 && branch.distanceKm !== null && branch.distanceKm <= RADIO_LOCAL_KM;
+                card.className = `branch-card ${isTopNearest ? 'is-nearest' : ''}`;
+                card.id = `card-${branch.id}`;
+
+                const wspUrl = branch.phone 
+                    ? `https://wa.me/${branch.phone}?text=${encodeURIComponent(`¡Hola Empanadazas! 🙌 Quiero consultar el menú y hacer un pedido en ${branch.name}.`)}`
+                    : null;
+
+                const mapsUrl = `https://maps.google.com/?q=${branch.mapsQuery}`;
+
+                const distanceBadge = (branch.distanceKm !== null && branch.distanceKm <= RADIO_LOCAL_KM)
+                    ? `<span class="branch-distance-badge">📍 a ${(branch.distanceKm).toFixed(1)} km</span>`
+                    : '';
+
+                const live = getBranchLiveStatus(branch);
+
+                card.innerHTML = `
+                    <div class="branch-top-info">
+                        <div class="branch-name-col">
+                            <span class="branch-zone-sub">
+                                ${branch.zoneLabel}
+                                ${distanceBadge}
+                            </span>
+                            <h3 class="branch-title">${branch.name}</h3>
+                            <button type="button" class="branch-address-btn" onclick="copyAddress('${branch.address}')" title="Toca para copiar dirección">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F7C268" stroke-width="2.2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                                <span>${branch.address}</span>
+                            </button>
+                        </div>
+                        <span class="status-badge ${live.statusClass}">
+                            <span class="status-dot"></span>
+                            ${live.statusLabel}
+                        </span>
+                    </div>
+
+                    <div class="branch-actions-grid">
+                        <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-action-touch btn-maps" onclick="triggerVibe(10)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0 3 3 0 0 0-6 0Z"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8Z"/></svg>
+                            <span>Cómo llegar</span>
+                        </a>
+
+                        ${wspUrl ? `
+                            <a href="${wspUrl}" target="_blank" rel="noopener noreferrer" class="btn-action-touch btn-wsp" onclick="triggerVibe(10)">
+                                <svg viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                                </svg>
+                                <span>WhatsApp</span>
+                            </a>
+                        ` : `
+                            <button type="button" class="btn-action-touch btn-maps" style="opacity:0.55; cursor:default;" disabled>
+                                <span>Próximamente</span>
+                            </button>
+                        `}
+                    </div>
+                `;
+                container.appendChild(card);
             });
         }
 
-        function renderGallery() {
-            const container = document.getElementById('galleryGridContainer');
-            container.innerHTML = GALLERY_ITEMS.map((item, index) => `
-                <div class="gallery-item" onclick="openGalleryLightbox(${index})">
-                    <img src="${item.img}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='./empanadazas-icon.png';" alt="${item.title}" />
-                </div>
-            `).join('');
-        }
-
-        function modifyQty(prodId, delta) {
-            if ('vibrate' in navigator) navigator.vibrate(10);
-
-            const current = parseInt(wholesaleCart[prodId], 10) || 0;
-            const updated = Math.max(0, current + parseInt(delta, 10));
-
-            if (updated === 0) {
-                delete wholesaleCart[prodId];
-            } else {
-                wholesaleCart[prodId] = updated;
-            }
-
-            const inputEl = document.getElementById(`input_${prodId}`);
-            if (inputEl) inputEl.value = updated;
-
-            const cardEl = document.getElementById(`card_${prodId}`);
-            if (cardEl) {
-                if (updated > 0) cardEl.classList.add('has-selection');
-                else cardEl.classList.remove('has-selection');
-            }
-
-            saveCartToStorage();
-            updateWholesaleHUD();
-        }
-
-        function handleDirectInput(prodId, rawValue) {
-            const sanitized = String(rawValue).replace(/\D/g, '');
-            let val = parseInt(sanitized, 10);
-            if (isNaN(val) || val < 0) val = 0;
-            if (val > 999) val = 999;
-
-            if (val === 0) {
-                delete wholesaleCart[prodId];
-            } else {
-                wholesaleCart[prodId] = val;
-            }
-
-            const cardEl = document.getElementById(`card_${prodId}`);
-            if (cardEl) {
-                if (val > 0) cardEl.classList.add('has-selection');
-                else cardEl.classList.remove('has-selection');
-            }
-
-            saveCartToStorage();
-            updateWholesaleHUD();
-        }
-
-        function handleInputBlur(prodId, inputEl) {
-            const val = wholesaleCart[prodId] || 0;
-            inputEl.value = val;
-        }
-
-        // CÁLCULO UNIFICADO DE CAJAS Y TOTALES
-        function updateWholesaleHUD() {
-            let totalBoxes = 0;
-            let totalEmpanadasUnits = 0;
-            let totalPrice = 0;
-
-            for (const [id, count] of Object.entries(wholesaleCart)) {
-                const qty = parseInt(count, 10) || 0;
-                if (qty > 0) {
-                    const prod = ALL_PRODUCTS.find(item => item.id === id);
-                    if (prod) {
-                        totalBoxes += qty;
-                        totalEmpanadasUnits += (prod.unitsPerBox * qty);
-                        totalPrice += (prod.priceBox * qty);
-                    }
-                }
-            }
-
-            const fill = document.getElementById('hudProgressFill');
-            const btnTrigger = document.getElementById('btnOrderTrigger');
-            const boxText = document.getElementById('hudBoxText');
-            const unitsText = document.getElementById('hudUnitsText');
-            const moneyText = document.getElementById('hudTotalMoney');
-
-            const isUnlocked = totalBoxes >= MIN_BOXES;
-
-            if (totalBoxes === 0) {
-                fill.className = 'track-fill tier-bronze';
-                fill.style.width = '0%';
-                boxText.innerText = '0 de 10 cajas mínimas';
-                btnTrigger.classList.remove('unlocked');
-                btnTrigger.disabled = true;
-                btnTrigger.innerText = 'Mínimo 10 Cajas';
-            } else if (totalBoxes < MIN_BOXES) {
-                const percent = Math.round((totalBoxes / MIN_BOXES) * 50);
-                fill.className = 'track-fill tier-bronze';
-                fill.style.width = `${percent}%`;
-                boxText.innerText = `${totalBoxes} de ${MIN_BOXES} cajas mínimas`;
-                btnTrigger.classList.remove('unlocked');
-                btnTrigger.disabled = true;
-                const missing = MIN_BOXES - totalBoxes;
-                btnTrigger.innerText = `Faltan ${missing} cajas`;
-            } else if (totalBoxes < 25) {
-                const progressFrom10 = Math.max(0, (totalBoxes - 10) / 15);
-                const percent = Math.round(50 + (progressFrom10 * 50));
-                fill.className = 'track-fill tier-green';
-                fill.style.width = `${percent}%`;
-                boxText.innerText = `${totalBoxes} cajas seleccionadas`;
-                btnTrigger.classList.add('unlocked');
-                btnTrigger.disabled = false;
-                btnTrigger.innerText = `Confirmar Pedido`;
-            } else {
-                fill.className = 'track-fill tier-gold';
-                fill.style.width = '100%';
-                boxText.innerText = `${totalBoxes} cajas • Nivel Pleno`;
-                btnTrigger.classList.add('unlocked');
-                btnTrigger.disabled = false;
-                btnTrigger.innerText = `Confirmar Pedido`;
-            }
-
-            unitsText.innerText = `${totalEmpanadasUnits.toLocaleString('es-AR')} empanadas sin topping`;
-            moneyText.innerText = formatMoney(totalPrice);
-        }
-
-        // BÚSQUEDA Y FILTROS POR CATEGORÍA
-        function handleSearchInput(val, line) {
-            const query = cleanString(val);
-            const is140 = line === 'linea140';
-            const btnClear = document.getElementById(is140 ? 'btnClearSearch140' : 'btnClearSearch100');
-            btnClear.style.display = query ? 'flex' : 'none';
-
-            const baseList = is140 ? PRODUCTS_140 : PRODUCTS_100;
-            const filtered = baseList.filter(p => 
-                cleanString(p.name).includes(query) || cleanString(p.desc).includes(query)
-            );
-            renderCatalog(line, filtered);
-        }
-
-        function clearSearchInput(line) {
-            const is140 = line === 'linea140';
-            const input = document.getElementById(is140 ? 'b2bSearch140' : 'b2bSearch100');
-            input.value = '';
-            document.getElementById(is140 ? 'btnClearSearch140' : 'btnClearSearch100').style.display = 'none';
-            input.focus();
-            renderCatalog(line, is140 ? PRODUCTS_140 : PRODUCTS_100);
-        }
-
-        function filterCat(line, catName, btnEl) {
-            const containerId = line === 'linea140' ? 'chipsScroll140' : 'chipsScroll100';
-            document.querySelectorAll(`#${containerId} .cat-chip`).forEach(b => b.classList.remove('active'));
+        function filterZone(zone, btnEl) {
+            triggerVibe(10);
+            document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
             btnEl.classList.add('active');
-
-            const baseList = line === 'linea140' ? PRODUCTS_140 : PRODUCTS_100;
-
-            if (catName === 'todas') {
-                renderCatalog(line, baseList);
-            } else if (catName === 'empachipa') {
-                const filtered = baseList.filter(p => p.isChipá);
-                renderCatalog(line, filtered);
-            } else {
-                const filtered = baseList.filter(p => p.cat === catName);
-                renderCatalog(line, filtered);
-            }
+            activeZoneFilter = zone;
+            renderBranches();
         }
 
-        // LIGHTBOX
-        function openProductLightbox(imgSrc, caption) {
-            isGalleryModeActive = false;
-            document.getElementById('btnPrevImage').style.display = 'none';
-            document.getElementById('btnNextImage').style.display = 'none';
-
-            const modal = document.getElementById('lightboxModal');
-            const img = document.getElementById('lightboxImage');
-            const cap = document.getElementById('lightboxCaption');
-
-            isImageZoomed = false;
-            img.src = imgSrc;
-            cap.innerText = caption;
-            img.style.transform = 'scale(1)';
-            img.style.cursor = 'zoom-in';
-            modal.classList.add('active');
+        function handleSearch(val) {
+            searchQuery = cleanString(val);
+            document.getElementById('btnClearSearch').style.display = searchQuery ? 'flex' : 'none';
+            renderBranches();
         }
 
-        function openGalleryLightbox(index) {
-            isGalleryModeActive = true;
-            activeGalleryIndex = index;
-            document.getElementById('btnPrevImage').style.display = 'flex';
-            document.getElementById('btnNextImage').style.display = 'flex';
-
-            updateGalleryLightboxItem();
-            document.getElementById('lightboxModal').classList.add('active');
-        }
-
-        function updateGalleryLightboxItem() {
-            const item = GALLERY_ITEMS[activeGalleryIndex];
-            const img = document.getElementById('lightboxImage');
-            const cap = document.getElementById('lightboxCaption');
-            isImageZoomed = false;
-            img.src = item.img;
-            cap.innerText = item.title;
-            img.style.transform = 'scale(1)';
-            img.style.cursor = 'zoom-in';
-        }
-
-        function navGallery(direction) {
-            if (!isGalleryModeActive) return;
-            activeGalleryIndex += direction;
-            if (activeGalleryIndex < 0) activeGalleryIndex = GALLERY_ITEMS.length - 1;
-            if (activeGalleryIndex >= GALLERY_ITEMS.length) activeGalleryIndex = 0;
-            updateGalleryLightboxItem();
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightboxModal').classList.remove('active');
-        }
-
-        function closeLightboxOverlay(e) {
-            if (e.target.id === 'lightboxModal' || e.target.id === 'lightboxContent') {
-                closeLightbox();
-            }
-        }
-
-        document.addEventListener('keydown', (e) => {
-            const lightbox = document.getElementById('lightboxModal');
-            if (!lightbox || !lightbox.classList.contains('active')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') navGallery(-1);
-            if (e.key === 'ArrowRight') navGallery(1);
-        });
-
-        document.getElementById('lightboxImage').addEventListener('click', (e) => {
-            e.stopPropagation();
-            isImageZoomed = !isImageZoomed;
-            e.target.style.transform = isImageZoomed ? 'scale(1.75)' : 'scale(1)';
-            e.target.style.cursor = isImageZoomed ? 'zoom-out' : 'zoom-in';
-        });
-
-        // CHECKOUT A WHATSAPP
-        function openCheckoutModal() {
-            let totalBoxes = 0;
-            for (const count of Object.values(wholesaleCart)) {
-                totalBoxes += (parseInt(count, 10) || 0);
-            }
-
-            if (totalBoxes === 0) {
-                showNotification("Tu carrito está vacío. Agregá productos para continuar.", "warning");
-                return;
-            }
-
-            if (totalBoxes < MIN_BOXES) {
-                showNotification(`El pedido mínimo es de ${MIN_BOXES} cajas (llevás ${totalBoxes}).`, "warning");
-                return;
-            }
-
-            document.getElementById('checkoutFormWrapper').style.display = 'flex';
-            document.getElementById('voucherSuccessBox').style.display = 'none';
-            document.getElementById('checkoutModalTitle').innerText = 'Confirmar Pedido Mayorista';
-
-            renderOrderSummary();
-            document.getElementById('checkoutModal').classList.add('active');
-        }
-
-        function renderOrderSummary() {
-            const recap = document.getElementById('summaryRecapBox');
-            recap.innerHTML = '';
-
-            let subtotal = 0;
-
-            for (const [id, count] of Object.entries(wholesaleCart)) {
-                const qty = parseInt(count, 10) || 0;
-                if (qty > 0) {
-                    const prod = ALL_PRODUCTS.find(item => item.id === id);
-                    if (prod) {
-                        const rowPrice = prod.priceBox * qty;
-                        subtotal += rowPrice;
-                        const div = document.createElement('div');
-                        div.style.cssText = 'display:flex; justify-content:space-between; border-bottom:1px dashed rgba(255,255,255,0.08); padding-bottom:3px;';
-                        div.innerHTML = `
-                            <span>${qty}x Caja ${prod.name} (${qty * prod.unitsPerBox}u)</span>
-                            <strong style="color:var(--bronze-bright);">${formatMoney(rowPrice)}</strong>
-                        `;
-                        recap.appendChild(div);
-                    }
-                }
-            }
-
-            const totalDiv = document.createElement('div');
-            totalDiv.style.cssText = 'margin-top:6px; font-weight:900; display:flex; flex-direction:column; gap:3px; font-size:0.92rem; color:#FEFAE4; border-top:1px solid rgba(255,255,255,0.1); padding-top:4px;';
-            totalDiv.innerHTML = `
-                <div style="display:flex; justify-content:space-between;">
-                    <span>TOTAL ESTIMADO:</span>
-                    <span style="color:#4ADE80; font-size:1.05rem;">${formatMoney(subtotal)}</span>
-                </div>
-                <span style="font-size:0.68rem; color:var(--text-muted); font-weight:600;">(Facturación y medios de pago se coordinan telefónicamente con Albano)</span>
-            `;
-            recap.appendChild(totalDiv);
-        }
-
-        function closeCheckoutModal() {
-            document.getElementById('checkoutModal').classList.remove('active');
-        }
-
-        function generateOrderAndPay() {
-            const inputName = document.getElementById('b2bClientName');
-            const inputCuit = document.getElementById('b2bCuit');
-            const inputPhone = document.getElementById('b2bPhone');
-
-            const name = inputName.value.trim();
-            const cuit = inputCuit.value.trim();
-            const phone = inputPhone.value.trim();
-            const fiscalType = document.getElementById('b2bFiscalType').value;
-
-            if (!name) {
-                inputName.classList.add('input-error');
-                inputName.focus();
-                showNotification("Ingresá la Razón Social o Nombre del Comercio.", "warning");
-                return;
-            }
-            if (!cuit) {
-                inputCuit.classList.add('input-error');
-                inputCuit.focus();
-                showNotification("Ingresá el CUIT o DNI para la facturación.", "warning");
-                return;
-            }
-            if (!phone) {
-                inputPhone.classList.add('input-error');
-                inputPhone.focus();
-                showNotification("Ingresá un WhatsApp de contacto.", "warning");
-                return;
-            }
-
-            let structuredItems = [];
-            let totalBoxes140 = 0;
-            let totalBoxes100 = 0;
-            let subtotal = 0;
-
-            for (const [id, count] of Object.entries(wholesaleCart)) {
-                const qty = parseInt(count, 10) || 0;
-                if (qty > 0) {
-                    const prod = ALL_PRODUCTS.find(item => item.id === id);
-                    if (prod) {
-                        subtotal += (prod.priceBox * qty);
-                        if (prod.line === '140') totalBoxes140 += qty;
-                        else totalBoxes100 += qty;
-
-                        structuredItems.push({
-                            line: prod.line,
-                            name: prod.name,
-                            boxes: qty,
-                            units: qty * prod.unitsPerBox,
-                            subtotal: prod.priceBox * qty
-                        });
-                    }
-                }
-            }
-
-            const orderNum = 'B2B-' + Math.floor(1000 + Math.random() * 9000);
-
-            generatedOrderData = {
-                orderNum,
-                name,
-                cuit,
-                fiscalType,
-                phone,
-                totalBoxes140,
-                totalBoxes100,
-                subtotal,
-                items: structuredItems
-            };
-
-            document.getElementById('checkoutFormWrapper').style.display = 'none';
-            document.getElementById('voucherSuccessBox').style.display = 'flex';
-            document.getElementById('checkoutModalTitle').innerText = 'Orden Registrada';
-            document.getElementById('voucherCodeLabel').innerText = `ORDEN #${orderNum} CONFIRMADA`;
-
-            let volumeDetail = [];
-            if (totalBoxes140 > 0) volumeDetail.push(`${totalBoxes140} Cajas 140g (${totalBoxes140 * 30} u.)`);
-            if (totalBoxes100 > 0) volumeDetail.push(`${totalBoxes100} Cajas 100g (${totalBoxes100 * 40} u.)`);
-
-            const recapHtml = `
-                <div><strong>Comercio:</strong> ${escapeHtml(name)}</div>
-                <div><strong>Facturación:</strong> ${escapeHtml(fiscalType)} (CUIT/DNI: ${escapeHtml(cuit)})</div>
-                <div><strong>Contacto:</strong> ${escapeHtml(phone)}</div>
-                <div><strong>Volumen Total:</strong> ${volumeDetail.join(' + ')} (Sin Topping)</div>
-                <div style="margin-top:6px; font-weight:800; font-size:0.95rem; color:#4ADE80;">TOTAL ESTIMADO: ${formatMoney(subtotal)}</div>
-                <div style="margin-top:6px; font-size:0.75rem; color:var(--text-muted);">
-                    Se enviará a Albano (Gerencia Comercial) para coordinar entrega y pago.
-                </div>
-            `;
-            document.getElementById('voucherDetailsRecap').innerHTML = recapHtml;
-        }
-
-        // ENVÍO LIMPIO Y ESTÉTICO AL WHATSAPP DE ALBANO
-        function sendOrderWhatsApp() {
-            if (!generatedOrderData || !generatedOrderData.items) return;
-
-            const itemsString = generatedOrderData.items.map(it => {
-                return `${it.boxes} cj (${it.units}u) ${it.name}: ${formatMoney(it.subtotal)}`;
-            }).join(' + ');
-
-            const textUrl = 
-                encodeURIComponent(`Hola Albano, qué tal, te paso el pedido mayorista:`) + "%0A" +
-                encodeURIComponent(`*Pedido:* #${generatedOrderData.orderNum}`) + "%0A" +
-                encodeURIComponent(`*Comercio:* ${generatedOrderData.name}`) + "%0A" +
-                encodeURIComponent(`*CUIT / DNI:* ${generatedOrderData.cuit}`) + "%0A" +
-                encodeURIComponent(`*Factura:* ${generatedOrderData.fiscalType}`) + "%0A" +
-                encodeURIComponent(`*Contacto:* ${generatedOrderData.phone}`) + "%0A%0A" +
-                encodeURIComponent(`*Detalle:* - ${itemsString}`) + "%0A" +
-                encodeURIComponent(`*Total:* ${formatMoney(generatedOrderData.subtotal)}.`) + "%0A%0A" +
-                encodeURIComponent(`Quedo a la espera para coordinar pago y entrega, ¡muchas gracias!`);
-
-            const url = `https://wa.me/${WSP_ALBANO}?text=${textUrl}`;
-            window.open(url, '_blank');
+        function clearSearch() {
+            triggerVibe(10);
+            const input = document.getElementById('branchSearchInput');
+            input.value = '';
+            document.getElementById('btnClearSearch').style.display = 'none';
+            searchQuery = '';
+            input.focus();
+            renderBranches();
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            loadCartFromStorage();
-            renderCatalog('linea140', PRODUCTS_140);
-            renderCatalog('linea100', PRODUCTS_100);
-            renderGallery();
-            updateWholesaleHUD();
-            preloadAllCatalogImages();
+            updateFilterCounters();
+            renderBranches();
+            detectLocationByIP();
         });
     </script>
 </body>
